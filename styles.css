@@ -1,0 +1,726 @@
+/* ============ Genel ============ */
+:root {
+    --bg: none;
+    --primary: #00a5a8;
+    /* Talep butonu ve vurgu */
+    --dark: #0f1720;
+    /* Koyu zemin */
+    --text: #0b0f14;
+    /* Ana metin */
+    --muted: #6b7280;
+    --white: #fff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, .12);
+    --radius: 14px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.45;
+}
+
+.container {
+    width: min(1200px, 92vw);
+    margin-inline: auto;
+}
+
+/* ============ Topbar ============ */
+.topbar {
+    background: #f7fafc;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.topbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.topbar-left {
+    display: flex;
+    gap: 10px;
+    align-items: center
+}
+
+.topbar .phone {
+    font-weight: 700
+}
+
+/* Butonlar */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .2s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    filter: brightness(0.95)
+}
+
+.btn-line {
+    border-color: #e5e7eb;
+    color: #111;
+    background: #fff;
+}
+
+.btn-line:hover {
+    border-color: #d1d5db;
+    transform: translateY(-1px)
+}
+
+.btn-ghost {
+    background: #0f1720;
+    color: #fff;
+    border-color: #0f1720;
+}
+
+.btn-ghost:hover {
+    filter: brightness(1.08)
+}
+
+/* ============ Header / Navbar ============ */
+.site-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 70px;
+    z-index: 50;
+    background: #ffffffd9;
+    backdrop-filter: saturate(1.2) blur(6px);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.logo img {
+    height: 38px;
+    display: block
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    padding: 8px 2px;
+    border-bottom: 2px solid transparent;
+    transition: all .2s;
+}
+
+.main-nav a:hover {
+    border-color: #111
+}
+
+.has-dropdown {
+    position: relative
+}
+
+.has-dropdown .dropdown {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    min-width: 220px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 8px;
+    display: none;
+    box-shadow: var(--shadow);
+}
+
+.has-dropdown:hover .dropdown {
+    display: block
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: #111;
+}
+
+.dropdown a:hover {
+    background: #f3f4f6
+}
+
+/* Header spacer (fixed header yüksekliği kadar boşluk) */
+.header-spacer {
+    height: 70px
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============ Hero Slider ============ */
+
+
+/* slayt arka planının üstüne koyu bir scrim */
+.slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    /* arka planın üstü, metnin altı */
+    background: linear-gradient(90deg,
+            rgba(0, 0, 0, .55) 0%,
+            rgba(0, 0, 0, .35) 45%,
+            rgba(0, 0, 0, .10) 75%,
+            rgba(0, 0, 0, 0) 100%);
+}
+
+/* metin overlay'in üstünde kalsın */
+.hero-content {
+    z-index: 2;
+}
+
+
+
+
+
+
+
+
+
+
+.hero {
+    position: relative;
+    overflow: hidden
+}
+
+.hero input {
+    display: none
+}
+
+.slides {
+    position: relative;
+    width: 100%;
+    height: clamp(60vh, 72vh, 80vh);
+    /* yükseklik kontrolünü buraya aldım */
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    /* top:0 right:0 bottom:0 left:0 */
+    opacity: 0;
+    /* varsayılan: görünmez */
+    transform: scale(1.02);
+    /* hafif zoom-out efekti */
+    transition: opacity .6s ease, transform .7s ease;
+
+    /* Arka plan resmi ayarları */
+    background-image: var(--bg-desktop);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* tiling kapalı */
+    background-size: cover;
+    /* kırparak doldur */
+}
+
+/* Mobilde mobil görsele geç */
+@media (max-width: 768px) {
+    .slide {
+        background-image: var(--bg-mobile, var(--bg-desktop));
+    }
+}
+
+
+
+.hero-content {
+    position: absolute;
+    top: clamp(12px, 8vh, 96px);
+    left: clamp(12px, 4vw, 48px);
+    max-width: 680px;
+    z-index: 2;
+    text-align: left;
+}
+
+/* Zaten mevcut tipografi kuralların */
+.hero-content h1 {
+    color: #e5e7eb;
+    font-size: clamp(28px, 5vw, 54px);
+    font-weight: 900;
+    letter-spacing: .2px;
+    margin: 0 0 8px 0;
+}
+
+.hero-content p {
+    font-size: clamp(20px, 5vw, 20px);
+    color: #e5e7eb;
+    margin: 0;
+}
+
+.badge {
+    width: 140px;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .35))
+}
+
+/* Seçili radio hangi slaytı gösterecekse onu aç */
+#s1:checked~.slides .slide:nth-child(1),
+#s2:checked~.slides .slide:nth-child(2),
+#s3:checked~.slides .slide:nth-child(3) {
+    opacity: 1;
+    transform: scale(1);
+    /* zoom animasyonu */
+}
+/* Oklar */
+.nav {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    color: #111;
+    cursor: pointer;
+    background: #ffffffd9;
+    border: 1px solid #e5e7eb;
+    box-shadow: var(--shadow);
+    font-size: 28px;
+    line-height: 1;
+}
+
+.prev {
+    left: 18px
+}
+
+.next {
+    right: 18px
+}
+
+.n1 {
+    display: none
+}
+
+.n2 {
+    display: none
+}
+
+.n3 {
+    display: none
+}
+
+/* Hangi slayttayız -> hangi oklar görünsün */
+#s1:checked~.n1 {
+    display: grid
+}
+
+#s2:checked~.n2 {
+    display: grid
+}
+
+#s3:checked~.n3 {
+    display: grid
+}
+
+/* Noktalar */
+.dots {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    translate: -50% 0;
+    display: flex;
+    gap: 10px;
+    padding: 6px 10px;
+    background: #ffffffd9;
+    border: 1px solid #e5e7eb;
+    border-radius: 999px;
+}
+
+.dots label {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #cbd5e1;
+    cursor: pointer;
+}
+
+#s1:checked~.dots label:nth-child(1),
+#s2:checked~.dots label:nth-child(2),
+#s3:checked~.dots label:nth-child(3) {
+    background: #111
+}
+
+/* ============ Ribbon ============ */
+.ribbon {
+    background: #22c55e;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.ribbon .container {
+    padding: 10px 0;
+    text-align: center
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============ Modeller ============ */
+.models {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    padding: 28px 0 8px;
+}
+
+.model-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.model-card .thumb {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #f4f6f8
+}
+
+.model-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block
+}
+
+.model-card h3 {
+    margin: 14px 12px 10px;
+    font-size: 18px;
+    font-weight: 800
+}
+
+.model-card .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 12px 12px 16px;
+}
+
+/* ============ Kampanya Bloğu ============ */
+.campaign {
+    padding: 48px 0
+}
+
+.campaign-inner {
+    background: #0b1220;
+    color: #fff;
+    border-radius: 18px;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 18px;
+}
+
+.campaign-text h2 {
+    font-size: 28px;
+    margin: 0 0 8px;
+    letter-spacing: .2px
+}
+
+.campaign-text p {
+    color: #cbd5e1;
+    margin: 0 0 16px
+}
+
+.campaign-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Görsel Bant (Hero tarzı) ===== */
+.feature-band {
+    position: relative;
+    color: #fff;
+    padding: 96px 0;
+    margin-bottom: 14px;
+    min-height: 60vh;
+    overflow: hidden;
+
+    /* Arka plan görsel ayarları — tekrar etme/yan yana koyma yok */
+    background-size: cover;
+    /* alanı kapla (oranı koru) */
+    background-position: center;
+    /* odak */
+    background-repeat: no-repeat;
+    /* tiling kapalı */
+    /* Varsayılan masaüstü görseli */
+        background-image: var(--bg-desktop);
+}
+
+/* (Önceki img tabanlı kullanım artık yok) */
+.feature-band img {
+    display: none;
+}
+
+/* Soldan sağa açılan koyu overlay */
+.feature-band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            rgba(11, 15, 20, 0.95) 0%,
+            rgba(11, 15, 20, 0.85) 30%,
+            rgba(11, 15, 20, 0.40) 60%,
+            rgba(11, 15, 20, 0.00) 100%);
+    z-index: 0;
+}
+
+/* İçerik yerleşimi — sola hizalı, alt alta */
+.feature-band .container {
+    position: relative;
+    z-index: 1;
+    /* overlay üstünde */
+    display: flex;
+    flex-direction: column;
+    /* başlık + buton alt alta */
+    align-items: flex-start;
+    /* sola hizala */
+    justify-content: center;
+    gap: 18px;
+    /* başlık-butonu arası */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(12px, 3vw, 32px);
+}
+
+/* Başlık */
+.feature-band h3 {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 6vw, 72px);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    margin: 0;
+    max-width: 14ch;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Buton */
+.feature-band .btn-line {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 1px solid #ffffff66;
+    border-radius: 12px;
+    background: #0fb4ad;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(15, 180, 173, 0.25);
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+}
+
+.feature-band .btn-line:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(15, 180, 173, 0.35);
+    border-color: #fff;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .feature-band {
+        min-height: 56vh;
+        padding: 72px 0;
+    }
+}
+
+/* Mobilde mobil görsele geç */
+@media (max-width: 768px) {
+
+    .slide,
+    .feature-band {
+        /* mobil tanımlı değilse masaüstünü kullanır */
+        background-image: var(--bg-mobile, var(--bg-desktop));
+    }
+}    
+
+@media (max-width: 820px) {
+    .feature-band {
+        min-height: 48vh;
+        padding: 56px 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .feature-band {
+        min-height: 44vh;
+        padding: 44px 0;
+    }
+
+    .feature-band h3 {
+        max-width: 100%;
+    }
+}
+
+/* ===== İsteğe bağlı: tek tek bantları farklı hizalamak için örnek ===== */
+/* .feature-band.is-right { background-position: right center; } */
+/* .feature-band.is-left  { background-position: left center; } */
+
+
+
+
+
+
+
+/* ============ Footer ============ */
+.site-footer {
+    background: #0b0f14;
+    color: #9ca3af;
+    padding: 28px 0;
+    text-align: center
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 1024px) {
+    .main-nav ul {
+        gap: 18px
+    }
+
+    .slides {
+        height: 58vh
+    }
+
+    .campaign-inner {
+        grid-template-columns: 1fr
+    }
+}
+
+@media (max-width: 820px) {
+    .models {
+        grid-template-columns: 1fr 1fr
+    }
+
+   
+}
+
+@media (max-width: 560px) {
+    .models {
+        grid-template-columns: 1fr
+    }
+
+    .hero .nav {
+        display: none
+    }
+
+    /* mobilde okları gizle (isteğe bağlı) */
+    .topbar .container {
+        gap: 12px
+    }
+}
