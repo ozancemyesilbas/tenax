@@ -19,32 +19,39 @@
   
 
     <!-- ===== SABİT NAVBAR ===== -->
-    <header class="site-header">
-        <div class="container header-inner">
-            <a class="logo" href="#">
-                <!-- Logonu buraya koy -->
-                <img src="assets/Adsız tasarım.png" alt="TENAX" />
-            </a>
+<header class="site-header">
+    <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="Ana sayfa">
+        <img src="assets/Adsız tasarım.png" alt="TENAX">
+    </a>
 
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#kurumsal">Kurumsal</a></li>
-                    <li class="has-dropdown">
-                        <a href="#modeller">Modeller</a>
-                        <div class="dropdown">
-                            <a href="c35.html">C35 Tek Kabin </a>
-                            <a href="c35d.html">C35D Çift Kabin </a>
-                            <a href="v35.html">V35 Panelvan </a>
-                    </li>
-                    <li><a href="#kampanyalar">Kampanyalar</a></li>
-                  
-                    <li><a href="#servis">Servisler-Satış Sonrası</a></li>
-                    <li><a href="#fiyat">Fiyat Listesi</a></li>
-                    <li><a href="#iletisim">İletişim</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        <!-- HAMBURGER -->
+        <button class="hamburger" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false"
+            aria-controls="siteNav">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-nav" id="siteNav">
+            <ul>
+                <li class="has-dropdown">
+                    <a href="#modeller" class="dropdown-toggle">Modeller</a>
+                    <div class="dropdown">
+                        <a href="c35.html">C35 Tek Kabin</a>
+                        <a href="c35d.html">C35D Çift Kabin</a>
+                        <a href="v35.html">V35 Panelvan</a>
+                    </div>
+                </li>
+                <li><a href="#kampanyalar">Kampanyalar</a></li>
+                <li><a href="#servis">Servisler-Satış Sonrası</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Mobilde arkaplan karartması (menü açıkken) -->
+    <div class="nav-overlay" id="navOverlay" hidden></div>
+</header>
+
 
     <!-- Spacer: fixed header yüksekliği kadar -->
     <div class="header-spacer" aria-hidden="true"></div>
@@ -56,30 +63,32 @@
         <input type="radio" name="slide" id="s2">
         <input type="radio" name="slide" id="s3">
 
-    <div class="slides">
-        <!-- SLIDE 1 -->
-        <div class="slide" style="--bg-desktop:url('assets/indir.png'); --bg-mobile:url('assets/mobil-2.jpg')">
-            <div class="hero-content container">
-                <h1>TENAX Ailesi ile Tanışın</h1>
-            </div>
-        </div>
-    
-        <!-- SLIDE 2 -->
-        <div class="slide" style="--bg-desktop:url('assets/indir2.png'); --bg-mobile:url('assets/mobil-3.jpg')">
-            <div class="hero-content container">
-                <h1>İşinizi Büyütecek Güç</h1>
-                <p>Dayanıklı şasi, maksimum verim.</p>
-            </div>
-        </div>
-    
-        <!-- SLIDE 3 -->
-        <div class="slide" style="--bg-desktop:url('assets/3333.png'); --bg-mobile:url('assets/mobil-1.jpg')">
-            <div class="hero-content container">
-                <h1>Kalite ve Performans</h1>
-                <p>Her koşulda güven.</p>
-            </div>
-        </div>
+<div class="slides">
+    <!-- SLIDE 1 -->
+    <div class="slide">
+        <picture>
+            <source media="(max-width: 768px)" srcset="assets/1/12.png">
+            <img src="assets/1/Ana Slider 1.jpg" alt="Tenax slide 1" decoding="async" fetchpriority="high" draggable="false">
+        </picture>
     </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide">
+        <picture>
+            <source media="(max-width: 768px)" srcset="assets/1/13.png">
+            <img src="assets/1/Ana Slider 2.jpg" alt="Tenax slide 2" loading="lazy" decoding="async" draggable="false">
+        </picture>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide">
+        <picture>
+            <source media="(max-width: 768px)" srcset="assets/1/14.png">
+            <img src="assets/1/Ana-Slider-3.jpg" alt="Tenax slide 3" loading="lazy" decoding="async" draggable="false">
+        </picture>
+    </div>
+</div>
+
 
 
 
@@ -121,7 +130,7 @@
 
 
 
-    <!-- ===== MODELLER (Kartlar) ===== -->
+    <!-- ===== MODELLER (Kartlar) =====
     <section id="modeller" class="models container">
         <article class="model-card" id="c31">
             <figure class="thumb">
@@ -133,7 +142,7 @@
                 <a class="btn btn-line" href="#bro">Broşür İndir</a>
             </div>
         </article>
-
+    
         <article class="model-card" id="c35">
             <figure class="thumb">
                 <img src="assets/C35D-Cift-Kabin-Uzun-Sasi.jpeg" alt="C35 Çift Kabin">
@@ -144,7 +153,7 @@
                 <a class="btn btn-line" href="#bro">Broşür İndir</a>
             </div>
         </article>
-
+    
         <article class="model-card" id="v70">
             <figure class="thumb">
                 <img src="assets/V35-Panelvan-Uzun-Sasi.jpeg" alt="V70 Panelvan">
@@ -158,7 +167,7 @@
     </section>
 
 
-
+-->
 
 
 
@@ -173,7 +182,7 @@
                 <a class="btn btn-primary" href="#detay">Detaylı İncele</a>
             </div>
             <figure class="campaign-img">
-                <img src="assets/indir.png" alt="Kampanya Aracı">
+                <img src="assets/1/güncel-kampanyalar.jpg" alt="Kampanya Aracı">
             </figure>
         </div>
     </section>
@@ -184,27 +193,28 @@
 
 
 
-
-<!-- ===== ALT GÖRSEL BANTLAR ===== -->
-<section class="feature-band" style="--bg-desktop:url('assets/3.jpg'); --bg-mobile:url('assets/3b.png')">
-    <div class="container">
-        <h3>İşini Büyütmek İsteyenlere</h3>
-        <a class="btn btn-line" href="#C35">C35 Detaylı İncele</a>
-    </div>
+<!-- Yazısız bant 1 -->
+<section class="feature-band no-text">
+    <picture>
+        <source media="(max-width: 768px)" srcset="assets/1/3.png">
+        <img src="assets/1/Alt Banner 1.jpg" alt="" aria-hidden="true" loading="lazy">
+    </picture>
 </section>
 
-<section class="feature-band" style="--bg-desktop:url('assets/2.jpg'); --bg-mobile:url('assets/2b.png')">
-    <div class="container">
-        <h3>Sağlam Şasi Maksimum Güç</h3>
-        <a class="btn btn-line" href="#C35D">C35D Detaylı İncele</a>
-    </div>
+<!-- Yazısız bant 2 -->
+<section class="feature-band no-text">
+    <picture>
+        <source media="(max-width: 768px)" srcset="assets/1/2.png">
+        <img src="assets/1/Alt Banner 2.jpg" alt="" aria-hidden="true" loading="lazy">
+    </picture>
 </section>
 
-<section class="feature-band" style="--bg-desktop:url('assets/1.jpg'); --bg-mobile:url('assets/1b.png')">
-    <div class="container">
-        <h3>Kalite ve Performans Tenax’ta</h3>
-        <a class="btn btn-line" href="#V35">V35 Detaylı İncele</a>
-    </div>
+<!-- Yazısız bant 3 -->
+<section class="feature-band no-text">
+    <picture>
+        <source media="(max-width: 768px)" srcset="assets/1/1.png">
+        <img src="assets/1/Alt3.jpg" alt="" aria-hidden="true" loading="lazy">
+    </picture>
 </section>
 
 
@@ -266,7 +276,7 @@
                     </svg>
                 </div>
                 <p class="why-text">
-                    Sakarya'da bulunan Tenax üretim tesisimiz ile güçlü ve ulaşılabilir değerlere sahip olun.
+                     Tenax üretim tesisimiz ile güçlü ve ulaşılabilir değerlere sahip olun.
                 </p>
             </article>
 
@@ -397,6 +407,68 @@
 
 
 
+<!-- ===== İLETİŞİM HERO ===== -->
+<section id="iletisim" class="contact-hero">
+    <div class="container contact-grid">
+        <!-- Sol: Görsel -->
+        <figure class="contact-media">
+            <!-- KENDİ görsel yolunu ver -->
+            <img src="assets/Tenax-Magaza.jpg" alt="Tenax tesis ve araçlar">
+        </figure>
+
+        <!-- Sağ: İçerik -->
+        <div class="contact-side">
+            <h2 class="contact-title">Sizler için her zaman buradayız</h2>
+
+            <address class="contact-address">
+                -----------------------
+            </address>
+
+            <div class="contact-actions">
+                <a class="phone-pill" href="tel:+---------------" aria-label="Telefon">
+                    <!-- telefon simgesi -->
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M6.6 10.8c1.3 2.6 3.3 4.7 6 6l2-2a1 1 0 0 1 1-.25c1.1.36 2.3.55 3.5.55a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C11.7 21 3 12.3 3 2a1 1 0 0 1 1-1h3.9a1 1 0 0 1 1 1c0 1.2.19 2.4.55 3.5a1 1 0 0 1-.25 1l-2 2Z"
+                            fill="currentColor" />
+                    </svg>
+                    <span>+------------------</span>
+                </a>
+
+                <a class="btn-primary contact-cta" href="#bayi-listesi">
+                    Bayi Listesi
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="ext">
+                        <path d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3Z" fill="currentColor" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -412,6 +484,9 @@
         </div>
     </footer>
 
+
+
+    <script src="script.js" defer></script>
 </body>
 
 </html>

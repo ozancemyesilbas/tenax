@@ -19,33 +19,39 @@
 
 
     <!-- ===== SABİT NAVBAR ===== -->
-    <header class="site-header">
-        <div class="container header-inner">
-            <a class="logo" href="#">
-                <!-- Logonu buraya koy -->
-                <img src="assets/Adsız tasarım.png" alt="TENAX" />
-            </a>
+<header class="site-header">
+    <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="Ana sayfa">
+        <img src="assets/Adsız tasarım.png" alt="TENAX">
+    </a>
 
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="/index.html">Kurumsal</a></li>
-                    <li class="has-dropdown">
-                        <a href="/index.html#modeller">Modeller</a>
-                        <div class="dropdown">
-                            <a href="c35.html">C35 Tek Kabin </a>
-                            <a href="c35d.html">C35D Çift Kabin </a>
-                            <a href="v35.html">V35 Panelvan </a>
-                        </div>
-                    </li>
-                    <li><a href="#kampanyalar">Kampanyalar</a></li>
+        <!-- HAMBURGER -->
+        <button class="hamburger" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false"
+            aria-controls="siteNav">
+            <span></span><span></span><span></span>
+        </button>
 
-                    <li><a href="#servis">Servisler-Satış Sonrası</a></li>
-                    <li><a href="#fiyat">Fiyat Listesi</a></li>
-                    <li><a href="#iletisim">İletişim</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        <nav class="main-nav" id="siteNav">
+            <ul>
+                <li class="has-dropdown">
+                    <a href="#modeller" class="dropdown-toggle">Modeller</a>
+                    <div class="dropdown">
+                        <a href="c35.html">C35 Tek Kabin</a>
+                        <a href="c35d.html">C35D Çift Kabin</a>
+                        <a href="v35.html">V35 Panelvan</a>
+                    </div>
+                </li>
+                <li><a href="#kampanyalar">Kampanyalar</a></li>
+                <li><a href="#servis">Servisler-Satış Sonrası</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Mobilde arkaplan karartması (menü açıkken) -->
+    <div class="nav-overlay" id="navOverlay" hidden></div>
+</header>
+
 
 
 
