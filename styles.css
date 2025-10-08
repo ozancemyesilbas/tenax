@@ -1052,3 +1052,621 @@ body {
         gap: 12px
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*fiyat yeri*/
+/* ===== TENAX tarzı liste (12 ile izole) ===== */
+.models12 {
+    padding: 24px 0 56px
+}
+
+.models12 .container12 {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.model12 {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(2, 8, 23, .06), 0 2px 6px rgba(2, 8, 23, .04);
+    margin-bottom: 22px;
+}
+
+.model-head12 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 122px 1fr 32px;
+    gap: 18px;
+    align-items: center;
+    padding: 16px;
+    border: 0;
+    background: #fff;
+    cursor: pointer;
+}
+
+.model-head12 .thumb12 {
+    width: 122px;
+    height: 72px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #f7f9fb
+}
+
+.model-head12 .title12 {
+    font: 700 24px/1.15 Poppins, system-ui;
+    color: #0a1c28;
+    text-align: left;
+}
+
+.model-head12 .chev12 {
+    width: 22px;
+    height: 22px;
+    justify-self: end;
+    position: relative;
+}
+
+.model-head12 .chev12::before,
+.model-head12 .chev12::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='%23000' d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z'/></svg>") no-repeat center/contain;
+    background: #6b7a86;
+    transition: transform .25s ease;
+}
+
+.model12.open12 .model-head12 {
+    background: #eaf7f7
+}
+
+.model12.open12 .model-head12 .chev12::before {
+    transform: rotate(180deg);
+}
+
+.model-body12 {
+    display: none;
+    border-top: 1px solid #dbe5ea;
+    background: #fff;
+}
+
+.model12.open12 .model-body12 {
+    display: block;
+}
+
+.specs12 {
+    padding: 18px;
+}
+
+.specs12 h4 {
+    font: 700 16px/1.2 Roboto, system-ui;
+    color: #0a1c28;
+    margin: 0 0 10px;
+}
+
+.variant-row12 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.chip12 {
+    border: 2px solid #e5e7eb;
+    background: #fff;
+    color: #0a1c28;
+    padding: 10px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font: 500 14px/1 Roboto;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.hp1212 {
+    display: inline-flex;
+    padding: 6px 9px;
+    border-radius: 999px;
+    background: #f5f7fb;
+    font-weight: 700;
+}
+
+.chip12.active12 {
+    border-color: #ff5a58;
+    background: #fff5f5;
+}
+
+.tag12 {
+    display: inline-flex;
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: #f5f7fb;
+    color: #20313d;
+    font: 500 14px/1 Roboto;
+}
+
+.prices12 {
+    padding: 0 18px 18px;
+}
+
+.price-table12 {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border: 1px solid #dbe5ea;
+    border-radius: 12px;
+}
+
+.price-table12 thead th {
+    background: #0097a7;
+    color: #fff;
+    text-align: left;
+    padding: 12px 14px;
+    font: 700 14px/1 Roboto;
+}
+
+.num12 {
+    text-align: right;
+}
+
+.price-table12 tbody td {
+    padding: 14px;
+    border-top: 1px solid #e5eef3;
+    font: 500 15px/1.1 Roboto;
+    color: #0a1c28;
+    background: #fff;
+}
+
+.price-table12 tbody tr.show12 td {
+    background: #ffffff;
+}
+
+.pill12 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font: 700 13px/1 Roboto;
+}
+
+.red12 {
+    background: #ffe8e8;
+    color: #d43838;
+}
+
+.teal12 {
+    background: #e6f7f7;
+    color: #007b84;
+}
+
+/* responsive */
+@media (max-width: 720px) {
+    .model-head12 {
+        grid-template-columns: 88px 1fr 24px;
+        gap: 12px;
+    }
+
+    .model-head12 .title12 {
+        font-size: 18px
+    }
+
+    .specs12,
+    .prices12 {
+        padding: 14px
+    }
+}
+
+
+
+
+
+
+
+
+/* ==== TENAX modeller (12) ==== */
+.models12 {
+    padding: 24px 0 56px
+}
+
+.models12 .container12 {
+    max-width: 1100px;
+    margin: 0 auto
+}
+
+/* Kart/başlık */
+.model12 {
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(2, 8, 23, .06), 0 2px 6px rgba(2, 8, 23, .04);
+    margin-bottom: 26px;
+    border: 2px solid #404040
+}
+
+.model-head12 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 132px 1fr 28px;
+    gap: 18px;
+    align-items: center;
+    padding: 16px 18px;
+    border: 0;
+    background: #ffffff4b;
+    color: #fff;
+    cursor: pointer
+}
+
+.model-head12 .thumb12 {
+    width: 132px;
+    height: 82px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #e8f6f7
+}
+
+.model-head12 .title12 {
+    font: 800 28px/1.15 Poppins, system-ui;
+    text-align: left
+}
+
+.model-head12 .chev12 {
+    width: 22px;
+    height: 22px;
+    justify-self: end;
+    position: relative
+}
+
+.model-head12 .chev12::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23000' d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z'/></svg>") no-repeat center/contain;
+    background: #fff;
+    transition: transform .25s
+}
+
+.model12.open12 .model-head12 .chev12::before {
+    transform: rotate(180deg)
+}
+
+.model-body12 {
+    display: block;
+    background: #fff;
+    border-top: 0
+}
+
+.model12:not(.open12) .model-body12 {
+    display: none
+}
+
+/* Specs satırı */
+.specs12 {
+    padding: 0
+}
+
+.specs12 h4 {
+    margin: 18px 18px 10px;
+    font: 700 16px/1.2 Roboto;
+    color: #0a1c28
+}
+
+.variant-row12 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    padding: 14px 18px;
+    border-top: 1px solid #e5eef3
+}
+
+/* Chip’ler */
+.chip12 {
+    border: 2px solid #e5e7eb;
+    background: #fff;
+    color: #0a1c28;
+    padding: 10px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font: 700 14px/1 Roboto;
+    display: flex;
+    gap: 10px;
+    align-items: center
+}
+
+.hp1212 {
+    display: inline-flex;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #f2f7fb;
+    font-weight: 700
+}
+
+.chip12.active12 {
+    border-color: #ef4444;
+    background: #fff5f5;
+    color: #d43838
+}
+
+.tag12 {
+    display: inline-flex;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: #f5f7fb;
+    color: #20313d;
+    font: 500 14px/1 Roboto;
+    border: 1px solid #cfe9ee
+}
+
+/* Fiyat tablosu */
+.prices12 {
+    padding: 0 18px 18px
+}
+
+.price-table12 {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #dbe5ea;
+    border-radius: 12px;
+    overflow: hidden
+}
+
+.price-table12 thead th {
+    background: #eaf1f4;
+    color: #0a1c28;
+    text-align: left;
+    padding: 14px 16px;
+    font: 700 14px/1 Roboto
+}
+
+.num12 {
+    text-align: right
+}
+
+.price-table12 tbody td {
+    padding: 18px 16px;
+    border-top: 1px solid #e8eef2;
+    background: #fbfdfe;
+    color: #0a1c28;
+    font: 700 16px/1 Roboto
+}
+
+.price-table12 tbody tr.show12 td {
+    background: #7c7c7c5d
+}
+
+.pill12 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font: 700 13px/1 Roboto
+}
+
+.red12 {
+    background: #ffe8e8;
+    color: #d43838;
+    border: 2px solid #f1b3b3
+}
+
+.teal12 {
+    background: #e6f7f7;
+    color: #91dee4;
+    border: 2px solid #a9e3e3
+}
+
+/* Responsive */
+@media (max-width:900px) {
+    .model-head12 {
+        grid-template-columns: 98px 1fr 24px
+    }
+
+    .model-head12 .title12 {
+        font-size: 22px
+    }
+
+    .price-table12 tbody td {
+        font-size: 15px
+    }
+}
+
+
+/* ===== MOBİL DÜZEN: başlık görselin YANINDA ===== */
+@media (max-width: 640px) {
+    .model-head12 {
+        display: grid;
+        grid-template-columns: 96px 1fr 24px;
+        /* img | title | ok */
+        grid-template-areas: "img ttl btn";
+        gap: 12px;
+        align-items: center;
+        padding: 14px;
+    }
+
+    .model-head12 .thumb12 {
+        grid-area: img;
+        width: 96px;
+        height: 60px;
+        object-fit: contain;
+        border-radius: 12px;
+    }
+
+    .model-head12 .title12 {
+        grid-area: ttl;
+        font-size: 18px;
+        line-height: 1.2;
+        margin: 0;
+        word-break: break-word;
+        /* uzun kelimeler taşmasın */
+        overflow-wrap: anywhere;
+    }
+
+    .model-head12 .chev12 {
+        grid-area: btn;
+        justify-self: end;
+        align-self: center;
+    }
+}
+
+/* çok dar cihazlar için biraz daha sıkı */
+@media (max-width: 380px) {
+    .model-head12 {
+        grid-template-columns: 88px 1fr 22px;
+        gap: 10px;
+    }
+
+    .model-head12 .thumb12 {
+        width: 88px;
+        height: 56px;
+    }
+
+    .model-head12 .title12 {
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+/* ===== Başlık (12) ===== */
+.models-header12 {
+    padding: 28px 0 0
+}
+
+.models-header12 .container12 {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 12px
+}
+
+.models-title12 {
+    margin: 0 0 18px;
+    font: 800 36px/1.2 Poppins, system-ui;
+    text-align: center;
+    color: #0a1c28;
+    letter-spacing: .2px;
+}
+
+.year-switch12 {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.year12 {
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    padding: 10px 18px;
+    border-radius: 14px;
+    font: 300 14px/1 Roboto, system-ui;
+    background: #edf5f7;
+    color: #475569;
+}
+
+.year12.active12 {
+    background: #0097a7;
+    color: #fff
+}
+
+.year12:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 2px
+}
+
+.models-sep12 {
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+    margin: 14px 0 0;
+}
+
+/* mobil */
+@media (max-width:640px) {
+    .models-title12 {
+        font-size: 22px;
+        margin-bottom: 14px
+    }
+
+    .year12 {
+        padding: 8px 14px
+    }
+}
+
+
+
+
+
+
+
+/* Başlık: daha ince ve küçük */
+.models-title12 {
+    font: 700 30px/1.2 Poppins, system-ui;
+    /* önce 36px/800'dü */
+    letter-spacing: .1px;
+}
+
+/* mobilde daha zarif */
+@media (max-width:640px) {
+    .models-title12 {
+        font: 600 18px/1.25 Poppins, system-ui;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* kampanya css */
+

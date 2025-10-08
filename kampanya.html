@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TENAX Tarzı — Demo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+
+
+    <!-- ===== SABİT NAVBAR ===== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="index.html" aria-label="Ana sayfa">
+                <img src="assets/Adsız tasarım.png" alt="TENAX">
+            </a>
+
+            <!-- HAMBURGER -->
+            <button class="hamburger" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false"
+                aria-controls="siteNav">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="main-nav" id="siteNav">
+                <ul>
+                    <li class="has-dropdown">
+                        <a href="#modeller" class="dropdown-toggle">Modeller</a>
+                        <div class="dropdown">
+                            <a href="c35.html">C35 Tek Kabin</a>
+                            <a href="c35d.html">C35D Çift Kabin</a>
+                            <a href="v35.html">V35 Panelvan</a>
+                        </div>
+                    </li>
+                    <li><a href="kampanya.html">Kampanyalar</a></li>
+                    <li><a href="fiyat.html">Fiyat Listesi</a></li>
+                    <li><a href="sup.html">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Mobilde arkaplan karartması (menü açıkken) -->
+        <div class="nav-overlay" id="navOverlay" hidden></div>
+    </header>
+
+
+    <!-- Spacer: fixed header yüksekliği kadar -->
+    <div class="header-spacer" aria-hidden="true"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ===== KAMPANYA BÖLÜMLERİ ===== -->
+<section class="campaign">
+    <div class="container kamp">
+        <div class="kamp-content">
+            <h2>TENAX’tan Esnafa Kaçırılmayacak Kampanya!</h2>
+            <p>Vergi levhası olan herkese nakit alımda %3 ilave indirim fırsatı. Mevcut nakit alım indirimi veya %0
+                faizli uygun kredi desteği ile birleştirilebilir.</p>
+            <a class="btn-go-price" href="fiyat.html">Fiyatları Gör</a>
+        </div>
+        <figure class="kamp-media">
+            <img src="assets/k/3.jpg" alt="Esnafa özel %3 ilave indirim görseli" loading="lazy">
+        </figure>
+    </div>
+</section>;
+
+
+<section class="campaign">
+    <div class="container kamp rev">
+        <div class="kamp-content">
+            <h2>C35 Tek Kabin Uzun Şasi, C35D Çift Kabin, V35 Panelvan</h2>
+            <p>500.000 TL 12 ay %0 faiz veya 800.000 TL 6 ay %0 faiz seçenekleri. Vergi Levhası sahiplerine %3 ilave
+                indirim fırsatı!</p>
+            <a class="btn-go-price" href="fiyat.html">Fiyatları Gör</a>
+        </div>
+        <figure class="kamp-media">
+            <img src="assets/k/1.jpg" alt="C35-C35D-V35 finans kampanyası görseli"
+                loading="lazy">
+        </figure>
+    </div>
+</section>
+
+
+
+
+<section class="campaign">
+    <div class="container kamp">
+        <div class="kamp-content">
+            <h2>Quick Finans ile 800.000 TL’ye %0 Faizli Ticari Araç Kredisi!</h2>
+            <p>500.000 TL’ye 12 ay %0 faiz veya 800.000 TL’ye 6 ay %0 faiz. Peşin alımlarda 60.000 TL indirim imkânı.
+            </p>
+            <a class="btn-go-price" href="fiyat.html">Fiyatları Gör</a>
+        </div>
+        <figure class="kamp-media">
+            <img src="assets/k/2.jpg" alt="Quick Finans %0 faiz kampanyası görseli"
+                loading="lazy">
+        </figure>
+    </div>
+</section>
+
+
+<section class="campaign">
+    <div class="container kamp rev">
+        <div class="kamp-content">
+            <h2>TENAX’tan Çiftçilere Özel Kampanya</h2>
+            <p>Çiftçi belgesi olan müşterilere %3’e varan indirim. C35 tek kabin, C35D çift kabin ve V35 panelvan
+                modellerinde geçerli.</p>
+            <a class="btn-go-price" href="fiyat.html">Fiyatları Gör</a>
+        </div>
+        <figure class="kamp-media">
+            <img src="assets/k/4.jpg" alt="Çiftçilere özel indirim kampanyası görseli"
+                loading="lazy">
+        </figure>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    /* ====== KAMPANYA BÖLÜMÜ (yalnızca bu kısım) ====== */
+
+/* Konteyneri biraz genişlet */
+.campaign { padding: 56px 0; }
+.campaign .container { max-width: 1440px; }
+
+/* Grid: solda metin (sabit), sağda görsel (geniş) */
+.kamp{
+  display: grid;
+  grid-template-columns: minmax(420px,560px) 1fr; /* metin sabit, görsel kalan alan */
+  gap: 48px;
+  align-items: center;
+}
+.kamp.rev{ grid-template-columns: 1fr minmax(420px,560px); }
+
+/* Başlık ve paragraf: biraz daha küçük ki görseli kapatmasın */
+.kamp-content h2{
+  font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  font-size: clamp(28px, 3vw, 44px);
+  margin: 0 0 14px;
+}
+.kamp-content p{
+  font-family: Roboto, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+  color: #111827;
+  opacity: .95;
+  font-size: clamp(14.5px, 1vw, 17px);
+  line-height: 1.75;
+  margin: 0 0 18px;
+}
+
+/* Görsel kutusu: ortala ve KESME! */
+.kamp-media{
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #f6f7f9;
+  box-shadow: 0 18px 50px rgba(2,8,23,.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.kamp-media img{
+  max-width: 100%;
+  max-height: clamp(480px, 62vh, 680px); /* büyüt – ekranı taşırmaz */
+  width: auto;
+  height: auto;
+  object-fit: contain; /* asla kırpma */
+  display: block;
+}
+
+/* (OPSİYONEL) fiyat.html butonu */
+.btn-go-price{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 16px;
+  background: #12a594;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(18,165,148,.25);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn-go-price:hover{ transform: translateY(-1px); background: #0f8f81; }
+
+/* ==== Responsive ==== */
+@media (max-width: 1200px){
+  .kamp{ gap: 32px; }
+  .kamp-media img{ max-height: clamp(420px, 56vh, 560px); }
+}
+@media (max-width: 992px){
+  .kamp, .kamp.rev{ grid-template-columns: 1fr; }
+  .kamp-media{ border-radius: 22px; }
+  .kamp-media img{ max-height: 420px; }
+}
+@media (max-width: 640px){
+  .campaign{ padding: 36px 0; }
+  .kamp{ gap: 18px; }
+  .kamp-media img{ max-height: 300px; }
+  .kamp-content h2{ font-size: clamp(24px, 7.2vw, 34px); }
+  .kamp-content p{ font-size: 15px; line-height: 1.7; }
+  .btn-go-price{ width: 100%; padding: 14px 16px; } /* opsiyonel */
+}
+
+</style>
+
+
+
+
+    <br>
+
+
+
+
+
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 Tenax Demo. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TENAX Tarzı — Demo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+
+
+    <!-- ===== SABİT NAVBAR ===== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="index.html" aria-label="Ana sayfa">
+                <img src="assets/Adsız tasarım.png" alt="TENAX">
+            </a>
+
+            <!-- HAMBURGER -->
+            <button class="hamburger" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false"
+                aria-controls="siteNav">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="main-nav" id="siteNav">
+                <ul>
+                    <li class="has-dropdown">
+                        <a href="#modeller" class="dropdown-toggle">Modeller</a>
+                        <div class="dropdown">
+                            <a href="c35.html">C35 Tek Kabin</a>
+                            <a href="c35d.html">C35D Çift Kabin</a>
+                            <a href="v35.html">V35 Panelvan</a>
+                        </div>
+                    </li>
+                    <li><a href="kampanya.html">Kampanyalar</a></li>
+                    <li><a href="fiyat.html">Fiyat Listesi</a></li>
+                    <li><a href="sup.html">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+
+<!-- Mobilde arkaplan karartması (menü açıkken) -->
+<div class="nav-overlay" id="navOverlay" hidden></div>
+</header>
+
+
+<!-- Spacer: fixed header yüksekliği kadar -->
+<div class="header-spacer" aria-hidden="true"></div>
+
+
+
+
+
+
+
+
+
+<section class="hero">
+    <!-- Radio'lar: CSS ile slayt kontrolü -->
+    <input type="radio" name="slide" id="s1" checked>
+    <input type="radio" name="slide" id="s2">
+    <input type="radio" name="slide" id="s3">
+
+
+
+
+
+<div class="slides">
+    <!-- SLIDE 1 -->
+    <div class="slide">
+        <picture>
+            <source media="(max-width: 768px)" srcset="assets/1/12.png">
+            <img src="assets/1/Ana Slider 1.jpg" alt="Tenax slide 1" decoding="async" fetchpriority="high"
+                draggable="false">
+        </picture>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide">
+        <picture>
+            <source media="(max-width: 768px)" srcset="assets/1/13.png">
+            <img src="assets/1/Ana Slider 2.jpg" alt="Tenax slide 2" loading="lazy" decoding="async" draggable="false">
+        </picture>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide">
+        <picture>
+            <source media="(max-width: 768px)" srcset="assets/1/14.png">
+            <img src="assets/1/Ana-Slider-3.jpg" alt="Tenax slide 3" loading="lazy" decoding="async" draggable="false">
+        </picture>
+    </div>
+</div>
+
+
+
+
+<!-- Oklar -->
+<label for="s3" class="nav prev">‹</label>
+<label for="s2" class="nav next n1">›</label>
+
+<label for="s1" class="nav prev n2">‹</label>
+<label for="s3" class="nav next n2">›</label>
+
+<label for="s2" class="nav prev n3">‹</label>
+<label for="s1" class="nav next n3">›</label>
+
+<!-- Noktalar -->
+<div class="dots">
+    <label for="s1"></label>
+    <label for="s2"></label>
+    <label for="s3"></label>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ===== BAŞLIK ===== -->
+<header class="models-header12">
+    <div class="container12">
+        <h1 class="models-title12">
+            TENAX MODELLERİ TAVSİYE EDİLEN PERAKENDE SATIŞ FİYATLARI
+        </h1>
+
+        
+
+        <hr class="models-sep12">
+    </div>
+</header>
+
+
+
+
+
+
+<!-- ===== MODELLER ===== -->
+<section id="modeller12" class="models12">
+    <div class="container12">
+        <!-- ITEM 1 - Açık gelsin -->
+        <article class="model12 open12" data-model="c35-tek-kabin-kasasiz">
+            <button class="model-head12" aria-expanded="true">
+                <img src="assets/f/1.png" alt="Tenax C35 Tek Kabin Kasasız" class="thumb12">
+                <h3 class="title12">TENAX C35 TEK KABİN – KASASIZ</h3>
+                <span class="chev12" aria-hidden="true"></span>
+            </button>
+
+            <div class="model-body12" role="region" aria-label="TENAX C35 Tek Kabin Kasasız detayları">
+                <div class="specs12">
+                    <h4>ÖZELLİKLER</h4>
+
+                    <div class="variant-row12" role="tablist" aria-label="Motor/Donanım">
+                        <button class="chip12 active12" role="tab" aria-selected="true" data-variant="cummins">
+                            <span class="hp1212">170 HP</span> <b>Cummins Motor</b>
+                        </button>
+                        <button class="chip12" role="tab" aria-selected="false" data-variant="foton">
+                            <span class="hp1212">158 HP</span> <b>Foton Motor</b>
+                        </button>
+
+                        <span class="tag12">Uzun Şasi</span>
+                        <span class="tag12">Klima</span>
+                        <span class="tag12">ESP</span>
+                        <span class="tag12">HSA (Yokuş Kalkış Desteği)</span>
+                        <span class="tag12">Hava Yastığı</span>
+                    </div>
+                </div>
+
+                <div class="prices12">
+                    <table class="price-table12" aria-label="2025 Fiyatları">
+                        <colgroup>
+                            <col class="col-left12">
+                            <col class="col-right12">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">2025 FİYATLARI</th>
+                                <th scope="col" class="num12">TL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-row-for="cummins" class="show12">
+                                <td><span class="pill12 red12">170 HP • Cummins</span></td>
+                                <td class="num12" data-price>1307694</td>
+                            </tr>
+                            <tr data-row-for="foton">
+                                <td><span class="pill12 teal12">158 HP • Foton</span></td>
+                                <td class="num12" data-price>1346703</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article class="model12" data-model="c35-tek-kabin-kasali">
+            <button class="model-head12" aria-expanded="false">
+                <img src="assets/f/2.png" alt="Tenax C35 Tek Kabin Kasalı" class="thumb12">
+                <h3 class="title12">TENAX C35 TEK KABİN – KASALI</h3>
+                <span class="chev12" aria-hidden="true"></span>
+            </button>
+            <div class="model-body12" role="region" aria-label="TENAX C35 Tek Kabin Kasalı detayları">
+                <div class="specs12">
+                    <h4>ÖZELLİKLER</h4>
+                    <div class="variant-row12" role="tablist">
+                        <button class="chip12 active12" role="tab" aria-selected="true" data-variant="cummins">
+                            <span class="hp1212">170 HP</span> <b>Cummins Motor</b>
+                        </button>
+                        <button class="chip12" role="tab" aria-selected="false" data-variant="foton">
+                            <span class="hp1212">158 HP</span> <b>Foton Motor</b>
+                        </button>
+                        <span class="tag12">Uzun Şasi</span>
+                        <span class="tag12">Klima</span>
+                        <span class="tag12">ESP</span>
+                        <span class="tag12">HSA</span>
+                        <span class="tag12">Hava Yastığı</span>
+                    </div>
+                </div>
+                <div class="prices12">
+                    <table class="price-table12">
+                        <thead>
+                            <tr>
+                                <th>2025 FİYATLARI</th>
+                                <th class="num12">TL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-row-for="cummins" class="show12">
+                                <td><span class="pill12 red12">170 HP • Cummins</span></td>
+                                <td class="num12" data-price>1385000</td>
+                            </tr>
+                            <tr data-row-for="foton">
+                                <td><span class="pill12 teal12">158 HP • Foton</span></td>
+                                <td class="num12" data-price>1419000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article class="model12" data-model="c35d-cift-kabin-kasasiz">
+            <button class="model-head12" aria-expanded="false">
+                <img src="assets/f/3.png" alt="Tenax C35D Çift Kabin Kasasız" class="thumb12">
+                <h3 class="title12">TENAX C35D ÇİFT KABİN – KASASIZ</h3>
+                <span class="chev12" aria-hidden="true"></span>
+            </button>
+            <div class="model-body12" role="region" aria-label="TENAX C35D Çift Kabin Kasasız detayları">
+                <div class="specs12">
+                    <h4>ÖZELLİKLER</h4>
+                    <div class="variant-row12" role="tablist">
+                        <button class="chip12 active12" role="tab" aria-selected="true" data-variant="cummins">
+                            <span class="hp1212">170 HP</span> <b>Cummins Motor</b>
+                        </button>
+                        <button class="chip12" role="tab" aria-selected="false" data-variant="foton">
+                            <span class="hp1212">158 HP</span> <b>Foton Motor</b>
+                        </button>
+                        <span class="tag12">Uzun Şasi</span>
+                        <span class="tag12">Klima</span>
+                        <span class="tag12">ESP</span>
+                        <span class="tag12">HSA</span>
+                        <span class="tag12">Hava Yastığı</span>
+                    </div>
+                </div>
+                <div class="prices12">
+                    <table class="price-table12">
+                        <thead>
+                            <tr>
+                                <th>2025 FİYATLARI</th>
+                                <th class="num12">TL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-row-for="cummins" class="show12">
+                                <td><span class="pill12 red12">170 HP • Cummins</span></td>
+                                <td class="num12" data-price>1459000</td>
+                            </tr>
+                            <tr data-row-for="foton">
+                                <td><span class="pill12 teal12">158 HP • Foton</span></td>
+                                <td class="num12" data-price>1492000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <!-- ITEM 4 -->
+        <article class="model12" data-model="c35d-cift-kabin-kasali">
+            <button class="model-head12" aria-expanded="false">
+                <img src="assets/f/4.png" alt="Tenax C35D Çift Kabin Kasalı" class="thumb12">
+                <h3 class="title12">TENAX C35D ÇİFT KABİN – KASALI</h3>
+                <span class="chev12" aria-hidden="true"></span>
+            </button>
+            <div class="model-body12" role="region" aria-label="TENAX C35D Çift Kabin Kasalı detayları">
+                <div class="specs12">
+                    <h4>ÖZELLİKLER</h4>
+                    <div class="variant-row12" role="tablist">
+                        <button class="chip12 active12" role="tab" aria-selected="true" data-variant="cummins">
+                            <span class="hp1212">170 HP</span> <b>Cummins Motor</b>
+                        </button>
+                        <button class="chip12" role="tab" aria-selected="false" data-variant="foton">
+                            <span class="hp1212">158 HP</span> <b>Foton Motor</b>
+                        </button>
+                        <span class="tag12">Uzun Şasi</span>
+                        <span class="tag12">Klima</span>
+                        <span class="tag12">ESP</span>
+                        <span class="tag12">HSA</span>
+                        <span class="tag12">Hava Yastığı</span>
+                    </div>
+                </div>
+                <div class="prices12">
+                    <table class="price-table12">
+                        <thead>
+                            <tr>
+                                <th>2025 FİYATLARI</th>
+                                <th class="num12">TL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-row-for="cummins" class="show12">
+                                <td><span class="pill12 red12">170 HP • Cummins</span></td>
+                                <td class="num12" data-price>1523000</td>
+                            </tr>
+                            <tr data-row-for="foton">
+                                <td><span class="pill12 teal12">158 HP • Foton</span></td>
+                                <td class="num12" data-price>1558000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <!-- ITEM 5 -->
+        <article class="model12" data-model="v35-panel-van">
+            <button class="model-head12" aria-expanded="false">
+                <img src="assets/f/5.png" alt="Tenax V35 Panel Van" class="thumb12">
+                <h3 class="title12">TENAX V35 PANEL VAN</h3>
+                <span class="chev12" aria-hidden="true"></span>
+            </button>
+            <div class="model-body12" role="region" aria-label="TENAX V35 Panel Van detayları">
+                <div class="specs12">
+                    <h4>ÖZELLİKLER</h4>
+                    <div class="variant-row12" role="tablist">
+                        <button class="chip12 active12" role="tab" aria-selected="true" data-variant="std">
+                            <span class="hp1212">150 HP</span> <b>Standart</b>
+                        </button>
+                        <span class="tag12">Klima</span>
+                        <span class="tag12">ESP</span>
+                        <span class="tag12">HSA</span>
+                    </div>
+                </div>
+                <div class="prices12">
+                    <table class="price-table12">
+                        <thead>
+                            <tr>
+                                <th>2025 FİYATLARI</th>
+                                <th class="num12">TL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-row-for="std" class="show12">
+                                <td><span class="pill12 teal12">150 HP • Standart</span></td>
+                                <td class="num12" data-price>1399000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+
+
+<!-- ===== ALT NOTLAR ===== -->
+<div class="disclaimer12" role="note" aria-label="Fiyat ve teknik özellik notları">
+    <p><span class="mark12">*</span> Tenax Otomotiv araçların fiyat ve teknik özelliklerinde değişiklik yapma hakkını
+        saklı tutar.</p>
+    <p><span class="mark12">**</span> Fiyatlar ÖTV, KDV, plaka, ruhsat masrafları dahil tavsiye edilen fiyatlardır.</p>
+    <p><span class="mark12">***</span> Araçların fatura tarihinde yürürlükte olan fiyat listesi geçerlidir.</p>
+</div>
+
+<style>
+    .disclaimer12{
+  max-width:1100px;
+  margin:18px auto 0;
+  padding:16px 18px;
+  color:#475569;
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  border-radius:12px;
+  font:400 13px/1.55 Roboto, system-ui;
+}
+.disclaimer12 .mark12{
+  font-weight:700;
+  margin-right:6px;
+  color:#0f766e;
+}
+@media (max-width:720px){
+  .disclaimer12{ margin:12px 16px; }
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 Tenax Demo. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
