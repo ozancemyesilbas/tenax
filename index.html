@@ -56,70 +56,75 @@
     <!-- Spacer: fixed header yüksekliği kadar -->
     <div class="header-spacer" aria-hidden="true"></div>
 
-    <!-- ===== HERO SLIDER (Sadece HTML+CSS) ===== -->
-    <section class="hero">
-        <!-- Radio'lar: CSS ile slayt kontrolü -->
-        <input type="radio" name="slide" id="s1" checked>
-        <input type="radio" name="slide" id="s2">
-        <input type="radio" name="slide" id="s3">
+<!-- ===== HERO SLIDER (Sadece HTML+CSS) ===== -->
+<section class="hero smart-fit">
+    <!-- Radio'lar -->
+    <input type="radio" name="slide" id="s1" checked>
+    <input type="radio" name="slide" id="s2">
+    <input type="radio" name="slide" id="s3">
 
-<div class="slides">
-    <!-- SLIDE 1 -->
-    <div class="slide">
-        <picture>
-            <source media="(max-width: 768px)" srcset="assets/1/12.png">
-            <img src="assets/1/Ana Slider 1.jpg" alt="Tenax slide 1" decoding="async" fetchpriority="high" draggable="false">
-        </picture>
+    <div class="slides">
+        <!-- SLIDE 1 -->
+        <div class="slide">
+            <picture>
+                <!-- Desktop (≥1200px) için opsiyonel kaynağın olursa buraya ekle -->
+                <!-- <source media="(min-width:1200px)" srcset="assets/1/Ana-Slider-1-desktop.jpg"> -->
+                <!-- Tablet (769–1199px) opsiyonel -->
+                <!-- <source media="(min-width:769px)" srcset="assets/1/Ana-Slider-1-tablet.jpg"> -->
+
+                <!-- Mobil (≤768px) -->
+                <source media="(max-width: 768px)" srcset="assets/1/12.png">
+                <!-- Fallback -->
+                <img src="assets/1/Ana Slider 1.jpg" alt="Tenax slide 1" decoding="async" fetchpriority="high"
+                    draggable="false">
+            </picture>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide">
+            <picture>
+                <!-- <source media="(min-width:1200px)" srcset="assets/1/Ana-Slider-2-desktop.jpg"> -->
+                <!-- <source media="(min-width:769px)"  srcset="assets/1/Ana-Slider-2-tablet.jpg"> -->
+                <source media="(max-width: 768px)" srcset="assets/1/13.png">
+                <img src="assets/1/Ana Slider 2.jpg" alt="Tenax slide 2" loading="lazy" decoding="async"
+                    draggable="false">
+            </picture>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide">
+            <picture>
+                <!-- <source media="(min-width:1200px)" srcset="assets/1/Ana-Slider-3-desktop.jpg"> -->
+                <!-- <source media="(min-width:769px)"  srcset="assets/1/Ana-Slider-3-tablet.jpg"> -->
+                <source media="(max-width: 768px)" srcset="assets/1/14.png">
+                <img src="assets/1/Ana-Slider-3.jpg" alt="Tenax slide 3" loading="lazy" decoding="async"
+                    draggable="false">
+            </picture>
+        </div>
     </div>
 
-    <!-- SLIDE 2 -->
-    <div class="slide">
-        <picture>
-            <source media="(max-width: 768px)" srcset="assets/1/13.png">
-            <img src="assets/1/Ana Slider 2.jpg" alt="Tenax slide 2" loading="lazy" decoding="async" draggable="false">
-        </picture>
-    </div>
+    <!-- Oklar -->
+    <label for="s3" class="nav prev">‹</label>
+    <label for="s2" class="nav next n1">›</label>
 
-    <!-- SLIDE 3 -->
-    <div class="slide">
-        <picture>
-            <source media="(max-width: 768px)" srcset="assets/1/14.png">
-            <img src="assets/1/Ana-Slider-3.jpg" alt="Tenax slide 3" loading="lazy" decoding="async" draggable="false">
-        </picture>
+    <label for="s1" class="nav prev n2">‹</label>
+    <label for="s3" class="nav next n2">›</label>
+
+    <label for="s2" class="nav prev n3">‹</label>
+    <label for="s1" class="nav next n3">›</label>
+
+    <!-- Noktalar -->
+    <div class="dots">
+        <label for="s1"></label>
+        <label for="s2"></label>
+        <label for="s3"></label>
     </div>
+</section>
+
+<!-- ===== yeşil ŞERİT yazı ===== -->
+<div class="ribbon">
+    <div class="container">Fırsatı kaçırma! Tenax alan bu ay kârlı çıkar.</div>
 </div>
-
-
-
-
-        <!-- Oklar -->
-        <label for="s3" class="nav prev">‹</label>
-        <label for="s2" class="nav next n1">›</label>
-
-        <label for="s1" class="nav prev n2">‹</label>
-        <label for="s3" class="nav next n2">›</label>
-
-        <label for="s2" class="nav prev n3">‹</label>
-        <label for="s1" class="nav next n3">›</label>
-
-        <!-- Noktalar -->
-        <div class="dots">
-            <label for="s1"></label>
-            <label for="s2"></label>
-            <label for="s3"></label>
-        </div>
-    </section>
-
-
-
-
-
-    <!-- ===== yeşil ŞERİT yazı ===== -->
-    <div class="ribbon">
-        <div class="container">
-            Fırsatı kaçırma! Tenax alan bu ay kârlı çıkar.
-        </div>
-    </div>
 
 
 

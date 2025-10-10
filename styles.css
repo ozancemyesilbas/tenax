@@ -313,46 +313,15 @@ body {
 
 
 
-/* ============ Hero Slider ============ */
 
 
-
-/* metin overlay'in üstünde kalsın */
+/* ============ Hero Slider (GÜNCEL) ============ */
+/* Metin overlay'in üstünde kalsın */
 .hero-content {
     z-index: 2;
 }
 
-
-
-
-
-
-
-
-
-
-.hero {
-    position: relative;
-    overflow: hidden
-}
-
-.hero input {
-    display: none
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* === Radyo butonlarını gizle (erişilebilir kalır) === */
+/* --- Erişilebilir gizli radio --- */
 .hero input[type="radio"] {
     position: absolute;
     width: 1px;
@@ -366,10 +335,9 @@ body {
     overflow: hidden;
 }
 
-/* === Slider kapsayıcısı === */
+/* --- Slider kapsayıcı --- */
 .hero {
     position: relative;
-    /* oklar ve noktalar için referans */
     width: 100%;
     height: clamp(56vh, 72vh, 80vh);
     overflow: hidden;
@@ -377,14 +345,14 @@ body {
     /* görsel yüklenirken koyu arka plan */
 }
 
-/* === Slayt alanı === */
+/* --- Slayt alanı --- */
 .slides {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-/* === Slayt === */
+/* --- Slayt --- */
 .slide {
     position: absolute;
     inset: 0;
@@ -402,15 +370,19 @@ body {
     height: 100%;
 }
 
+/* Varsayılan davranış: dolu görünüm (cover) — kırpma olabilir */
 .slide img {
     object-fit: cover;
-    /* kırparak doldur */
+    /* alanı doldurur, oran korur */
     object-position: center;
+    /* odak merkezde */
     user-select: none;
     -webkit-user-drag: none;
+    background: #000;
+    /* contain modunda letterbox barları için */
 }
 
-/* === Aktif slayt === */
+/* --- Aktif slayt --- */
 #s1:checked~.slides .slide:nth-child(1),
 #s2:checked~.slides .slide:nth-child(2),
 #s3:checked~.slides .slide:nth-child(3) {
@@ -419,7 +391,7 @@ body {
     z-index: 1;
 }
 
-/* === Oklar === */
+/* --- Oklar --- */
 .nav {
     position: absolute;
     top: 50%;
@@ -466,7 +438,7 @@ body {
     display: grid;
 }
 
-/* === Noktalar === */
+/* --- Noktalar --- */
 .dots {
     position: absolute;
     left: 50%;
@@ -495,7 +467,7 @@ body {
     background: #111;
 }
 
-/* === Ribbon === */
+/* --- Ribbon --- */
 .ribbon {
     background: #22c55e;
     color: #fff;
@@ -508,7 +480,43 @@ body {
     text-align: center;
 }
 
-/* === Mobil iyileştirmeler === */
+/* ===================== KIRPMAYI ÖNLEME MODLARI ===================== */
+/* 1) HER ZAMAN KIRPMASIZ (contain) İSTERSEN: .hero.no-crop */
+.hero.no-crop .slide img {
+    object-fit: contain;
+    /* görselin tamamı görünür */
+    /* letterbox alanlar arka plan rengini alır (siyah) */
+}
+
+/* 2) AKILLI MOD (ÖNERİLEN): .hero.smart-fit
+   - Normalde cover (dolu görünüm)
+   - Çok geniş (≥21:9) veya çok dar (≤4:3) ekranlarda otomatik contain
+*/
+.hero.smart-fit .slide img {
+    /* default cover (üstte) */
+}
+
+@media (min-aspect-ratio: 21/9),
+(max-aspect-ratio: 4/3) {
+    .hero.smart-fit .slide img {
+        object-fit: contain;
+    }
+}
+
+/* 3) SADECE BELİRLİ SLAYT KIRPMASIZ OLSUN İSTERSEN */
+.slide.slide--contain img {
+    object-fit: contain;
+}
+
+/* ===================== DENEYİM İYİLEŞTİRMELERİ ===================== */
+/* Büyük ekranlarda hero yüksekliği biraz daha ferah olabilir (opsiyonel) */
+@media (min-width:1400px) {
+    .hero {
+        height: clamp(60vh, 74vh, 86vh);
+    }
+}
+
+/* Mobil iyileştirmeler */
 @media (max-width:768px) {
     .hero {
         height: 56vh;
@@ -521,6 +529,21 @@ body {
         font-size: 24px;
     }
 }
+
+/* Hareket azaltma: kullanıcı tercihine saygı */
+@media (prefers-reduced-motion: reduce) {
+    .slide {
+        transition: none;
+    }
+
+    .nav {
+        transition: none;
+    }
+}
+
+
+
+
 
 
 
