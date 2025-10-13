@@ -492,9 +492,7 @@ body {
    - Normalde cover (dolu görünüm)
    - Çok geniş (≥21:9) veya çok dar (≤4:3) ekranlarda otomatik contain
 */
-.hero.smart-fit .slide img {
-    /* default cover (üstte) */
-}
+
 
 @media (min-aspect-ratio: 21/9),
 (max-aspect-ratio: 4/3) {
@@ -540,6 +538,36 @@ body {
         transition: none;
     }
 }
+
+
+/* === Mobilde siyah bantları kapat === */
+@media (max-width: 768px) {
+
+    /* smart-fit'in contain'e geçmesini iptal et */
+    .hero.smart-fit .slide img {
+        object-fit: cover !important;
+        /* bant yok, gerekirse biraz kırpma olur */
+    }
+
+    /* Letterbox durumunda siyah görünmesin */
+    .slide img {
+        background: transparent !important;
+    }
+
+    .hero {
+        background: #fff !important;
+    }
+
+    /* site zemini ne ise onu kullan */
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -1660,36 +1688,4 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* kampanya css */
 
