@@ -886,10 +886,183 @@
 
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
-        <div class="container">
-            <p>© 2025 Tenax Demo. Tüm hakları saklıdır.</p>
-        </div>
+        <!-- İLETİŞİM -->
+        <section id="iletişim" class="contact-section">
+            <h2 class="section-title">İletişim</h2>
+            <p class="section-description">Gerekli bilgiler veya sorularınız mı var? Bize istediğiniz zaman ulaşabilirsiniz.
+            </p>
+    
+            <div class="contact-container">
+                <!-- Sol kart: Bilgiler -->
+                <div class="contact-card contact-info">
+                    <div class="info-box">
+                        <h3>Adres</h3>
+                        <p>Kaynarca Mahallesi Yanyol Caddesi &, E-5 Üzeri No:156/B</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>Bizi Arayın</h3>
+                        <p>(0216) 491 19 79</p>
+                        <p>0555 896 12 75</p>
+                    </div>
+    
+    
+    
+                </div>
+    
+    
+    
+    
+    
+    
+    
+    
+                <!-- Sağ kart: Form -->
+                <div class="contact-card contact-form">
+                    <form>
+                        <div class="form-row">
+                            <input type="text" placeholder="Adınız" required>
+                            <input type="email" placeholder="E-posta Adresiniz" required>
+                        </div>
+                        <input type="text" placeholder="Konu" required>
+                        <textarea placeholder="Mesajınız" required></textarea>
+                        <button type="submit">Mesajı Gönder</button>
+                    </form>
+                </div>
+            </div>
+    
+            <style>
+                /* ============ İLETİŞİM (sade) ============ */
+                .contact-section {
+                    padding: 60px 20px;
+                    text-align: center;
+                }
+    
+                .contact-section .section-title {
+                    font-size: 2.5rem;
+                    color: #ffffff;
+                    margin: 0 0 8px;
+                }
+    
+                .contact-section .section-description {
+                    color: #c8c8c8;
+                    margin: 10px 0 40px;
+                }
+    
+                /* Düzen */
+                .contact-section .contact-container {
+                    max-width: 1100px;
+                    margin: 0 auto;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 32px;
+                    align-items: start;
+                }
+    
+                /* Kartlar */
+                .contact-section .contact-card {
+                    background: #29292998;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+                    border-radius: 10px;
+                    padding: 28px;
+                }
+    
+                .contact-section .contact-info .info-box {
+                    text-align: left;
+                    margin-bottom: 18px;
+                }
+    
+                .contact-section .contact-info h3 {
+                    color: #ffffff;
+                    margin: 0 0 6px;
+                    font-size: 1.1rem;
+                }
+    
+                .contact-section .contact-info p {
+                    color: #ffffff;
+                    margin: 0;
+                }
+    
+                /* Form */
+                .contact-section .contact-form form {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 14px;
+                    text-align: left;
+                }
+    
+                .contact-section .form-row {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 12px;
+                }
+    
+                .contact-section input,
+                .contact-section textarea {
+                    box-sizing: border-box;
+                    width: 100%;
+                    padding: 12px 14px;
+                    border: 1px solid #e3e3e3;
+                    border-radius: 6px;
+                    background: #fff;
+                    color: #222;
+                    font-size: 1rem;
+                    outline: none;
+                    transition: border-color .2s, box-shadow .2s, background-color .2s;
+                }
+    
+                .contact-section input::placeholder,
+                .contact-section textarea::placeholder {
+                    color: #9da3ad;
+                }
+    
+                .contact-section input:focus,
+                .contact-section textarea:focus {
+                    border-color: #b7b7b7;
+                    box-shadow: 0 0 0 3px rgba(0, 0, 0, .06);
+                }
+    
+                .contact-section textarea {
+                    min-height: 130px;
+                    resize: vertical;
+                }
+    
+                /* Buton */
+                .contact-section button {
+                    background-color: #000;
+                    color: #fff;
+                    border: none;
+                    padding: 12px 16px;
+                    font-size: 1rem;
+                    border-radius: 26px;
+                    cursor: pointer;
+                    transition: background-color .2s, transform .05s;
+                }
+    
+                .contact-section button:hover {
+                    background-color: #343434;
+                }
+    
+                .contact-section button:active {
+                    transform: translateY(1px);
+                }
+    
+                /* Responsive */
+                @media (max-width: 992px) {
+                    .contact-section .contact-container {
+                        grid-template-columns: 1fr;
+                        /* tek kolon */
+                    }
+    
+                    .contact-section .form-row {
+                        grid-template-columns: 1fr;
+                        /* Ad & E-posta alta geçer */
+                    }
+                }
+            </style>
+    
+    
     </footer>
+
 <script src="script.js" defer></script>
 </body>
 

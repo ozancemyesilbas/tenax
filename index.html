@@ -338,8 +338,46 @@
                 </p>
             </article>
         </div>
+
+        <!-- === İLGİ FORMU (xs) === -->
+        <form class="why-form-xs" action="#" method="post" novalidate>
+            <h3 class="xs-title">Teklif / Bilgi Al</h3>
+        
+            <div class="xs-row">
+                <div class="xs-field">
+                    <label for="xsName">İsim-Soyisim</label>
+                    <input id="xsName" name="full_name" type="text" placeholder="Adınız Soyadınız" required>
+                </div>
+        
+                <div class="xs-field">
+                    <label for="xsPhone">Telefon Numarası</label>
+                    <input id="xsPhone" name="phone" type="tel" inputmode="tel" placeholder="05xx xxx xx xx"
+                        pattern="^(?:\+?\d{1,3})?\s?\d{10,14}$" required>
+                </div>
+            </div>
+        
+            <div class="xs-row">
+                <div class="xs-field">
+                    <label for="xsVehicle">İlgilendiği Araç</label>
+                    <select id="xsVehicle" name="vehicle" required>
+                        <option value="" selected disabled>Seçiniz</option>
+                        <option value="C35 Tek Kabin">TENAX C35 Tek Kabin</option>
+                        <option value="C35D Çift Kabin">TENAX C35D Çift Kabin</option>
+                        <option value="V35 Panelvan">TENAX V35 Panelvan</option>
+                    </select>
+                </div>
+        
+                <div class="xs-field xs-full">
+                    <label for="xsMsg">Mesajınız</label>
+                    <textarea id="xsMsg" name="message" placeholder="Kısa bir not bırakın..." required></textarea>
+                </div>
+            </div>
+        
+            <button class="xs-btn" type="submit">Gönder</button>
+        </form>
     </div>
 </section>
+
 
 
 
@@ -407,11 +445,123 @@
 
 /* opsiyonel: gri tonlu ikincil cümleler için */
 /* .why-text span { color:#64748b; } */
+
+
+
+
+
+
+
+/* === İLGİ FORMU (xs) === */
+.why-form-xs {
+  margin-top: clamp(20px, 5vw, 40px);
+  padding: clamp(16px, 3vw, 24px);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.why-form-xs .xs-title {
+  margin: 0 0 14px 0;
+  font-size: clamp(18px, 2.6vw, 22px);
+  color: #0b1220;
+  font-weight: 700;
+}
+
+.why-form-xs .xs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.why-form-xs .xs-field {
+  display: grid;
+  gap: 6px;
+}
+
+.why-form-xs .xs-full {
+  grid-column: 1 / -1;
+}
+
+.why-form-xs label {
+  font-size: 0.94rem;
+  color: #0f172a;
+}
+
+.why-form-xs input,
+.why-form-xs select,
+.why-form-xs textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #0f172a;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background-color .2s;
+}
+
+.why-form-xs input::placeholder,
+.why-form-xs textarea::placeholder {
+  color: #94a3b8;
+}
+
+.why-form-xs input:focus,
+.why-form-xs select:focus,
+.why-form-xs textarea:focus {
+  border-color: #cbd5e1;
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, .06);
+  background: #fff;
+}
+
+.why-form-xs textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.why-form-xs .xs-btn {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #111;
+  color: #fff;
+  transition: transform .05s ease, filter .2s ease;
+}
+
+.why-form-xs .xs-btn:hover { filter: brightness(1.05); }
+.why-form-xs .xs-btn:active { transform: translateY(1px); }
+
+/* Mobil düzen */
+@media (max-width: 900px) {
+  .why-form-xs .xs-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 
 
 
-
+<br>
+<br>
 <!-- ===== İLETİŞİM HERO ===== -->
 <section id="iletisim" class="contact-hero">
     <div class="container contact-grid">
@@ -475,6 +625,54 @@
 
 
 
+<div id="whatsapp-chat">
+    <a href="https://wa.me/905558961275" target="_blank" rel="noopener">
+        <img src="assets/wp3.png" alt="WhatsApp" class="whatsapp-icon" />
+    </a>
+    <div class="chat-text">Sizlere nasıl yardımcı olabiliriz?</div>
+</div>
+
+
+<style>
+    #whatsapp-chat {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 9999;
+    }
+
+    .whatsapp-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
+
+    .chat-text {
+        position: absolute;
+        top: 50%;
+        left: 70px;
+        transform: translateY(-50%) translateX(-10px);
+        background-color: #25d366;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 25px;
+        white-space: nowrap;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s, transform 0.5s;
+    }
+
+    /* Hover ile göster */
+    #whatsapp-chat:hover .chat-text {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+        pointer-events: auto;
+    }
+</style>
 
 
 
@@ -484,9 +682,178 @@
 
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
-        <div class="container">
-            <p>© 2025 Tenax Demo. Tüm hakları saklıdır.</p>
-        </div>
+        <!-- İLETİŞİM -->
+        <section id="iletişim" class="contact-section">
+            <h2 class="section-title">İletişim</h2>
+            <p class="section-description">Gerekli bilgiler veya sorularınız mı var? Bize istediğiniz zaman ulaşabilirsiniz.</p>
+        
+            <div class="contact-container">
+                <!-- Sol kart: Bilgiler -->
+                <div class="contact-card contact-info">
+                    <div class="info-box">
+                        <h3>Adres</h3>
+                        <p>Kaynarca Mahallesi Yanyol Caddesi &, E-5 Üzeri No:156/B</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>Bizi Arayın</h3>
+                        <p>(0216) 491 19 79</p>
+                        <p>0555 896 12 75</p>
+                    </div>
+        
+        
+                  
+                </div>
+        
+        
+        
+        
+        
+        
+        
+        
+                <!-- Sağ kart: Form -->
+                <div class="contact-card contact-form">
+                    <form>
+                        <div class="form-row">
+                            <input type="text" placeholder="Adınız" required>
+                            <input type="email" placeholder="E-posta Adresiniz" required>
+                        </div>
+                        <input type="text" placeholder="Konu" required>
+                        <textarea placeholder="Mesajınız" required></textarea>
+                        <button type="submit">Mesajı Gönder</button>
+                    </form>
+                </div>
+            </div>
+
+            <style>
+               /* ============ İLETİŞİM (sade) ============ */
+.contact-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact-section .section-title {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.contact-section .section-description {
+  color: #c8c8c8;
+  margin: 10px 0 40px;
+}
+
+/* Düzen */
+.contact-section .contact-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Kartlar */
+.contact-section .contact-card {
+  background: #29292998;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.contact-section .contact-info .info-box {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.contact-section .contact-info h3 {
+  color: #ffffff;
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.contact-section .contact-info p {
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Form */
+.contact-section .contact-form form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  text-align: left;
+}
+
+.contact-section .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.contact-section input,
+.contact-section textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e3e3e3;
+  border-radius: 6px;
+  background: #fff;
+  color: #222;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background-color .2s;
+}
+
+.contact-section input::placeholder,
+.contact-section textarea::placeholder {
+  color: #9da3ad;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+  border-color: #b7b7b7;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, .06);
+}
+
+.contact-section textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* Buton */
+.contact-section button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 26px;
+  cursor: pointer;
+  transition: background-color .2s, transform .05s;
+}
+
+.contact-section button:hover {
+  background-color: #343434;
+}
+
+.contact-section button:active {
+  transform: translateY(1px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contact-section .contact-container {
+    grid-template-columns: 1fr; /* tek kolon */
+  }
+  .contact-section .form-row {
+    grid-template-columns: 1fr; /* Ad & E-posta alta geçer */
+  }
+}
+
+            </style>
+
+
     </footer>
 
 
