@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <title>TENAX | KVKK Aydınlatma ve Onay Metni</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="TENAX - 6698 sayılı KVKK kapsamında aydınlatma ve onay metni. Yürürlük: 01.01.2025, Versiyon: 1.0">
+    <meta name="robots" content="noindex,follow"><!-- dilersen index'e açarsın -->
+    <style>
+        /* ========== KVKK (TENAX) — İzole Stil ========== */
+        :root {
+            --kv-text: #0b1220;
+            --kv-muted: #475569;
+            --kv-line: #e5e7eb;
+            --kv-bg: #ffffff;
+            --kv-accent: #12a594;
+            /* Tenax vurgu */
+            --kv-accent-700: #0f8f81;
+            --kv-radius: 16px;
+            --kv-shadow: 0 10px 25px rgba(2, 8, 23, .06), 0 2px 6px rgba(2, 8, 23, .04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --kv-text: #e8eef3;
+                --kv-muted: #9fb0bd;
+                --kv-line: #2a3440;
+                --kv-bg: #0f1720;
+                --kv-shadow: none;
+            }
+        }
+
+        #kvkkTenax {
+            color: var(--kv-text);
+            background: var(--kv-bg);
+            font: 400 16px/1.7 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        #kvkkTenax .wrap {
+            max-width: 980px;
+            margin: 32px auto;
+            padding: 0 20px;
+        }
+
+        #kvkkTenax .page-title {
+            font-family: Poppins, Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            font-size: clamp(28px, 4.5vw, 44px);
+            margin: 8px 0 6px;
+        }
+
+        #kvkkTenax .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            color: var(--kv-muted);
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        /* İçindekiler */
+        #kvkkTenax .toc {
+            border: 1px solid var(--kv-line);
+            border-radius: var(--kv-radius);
+            padding: 16px;
+            background: #f8fafc;
+            box-shadow: var(--kv-shadow);
+            margin: 18px 0 26px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            #kvkkTenax .toc {
+                background: #0b1220;
+            }
+        }
+
+        #kvkkTenax .toc h2 {
+            margin: 0 0 8px;
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: .01em;
+        }
+
+        #kvkkTenax .toc ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        #kvkkTenax .toc a {
+            color: var(--kv-accent);
+            text-decoration: none;
+        }
+
+        #kvkkTenax .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* İçerik */
+        #kvkkTenax h2.section {
+            font-family: Poppins, Inter, system-ui;
+            font-weight: 800;
+            letter-spacing: -.01em;
+            font-size: clamp(20px, 3.5vw, 28px);
+            margin: 26px 0 10px;
+        }
+
+        #kvkkTenax p {
+            margin: 10px 0;
+        }
+
+        #kvkkTenax .muted {
+            color: var(--kv-muted);
+        }
+
+        #kvkkTenax .card {
+            border: 1px solid var(--kv-line);
+            border-radius: var(--kv-radius);
+            padding: 16px 18px;
+            box-shadow: var(--kv-shadow);
+            background: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            #kvkkTenax .card {
+                background: #111926;
+            }
+        }
+
+        /* Liste */
+        #kvkkTenax ul.clean,
+        #kvkkTenax ol.clean {
+            margin: 8px 0 12px 18px;
+        }
+
+        #kvkkTenax strong {
+            font-weight: 700;
+        }
+
+        /* Geri tepe ve alt bilgi */
+        #kvkkTenax .top-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+
+        #kvkkTenax .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--kv-line);
+            text-decoration: none;
+            color: var(--kv-text);
+            background: #fff;
+            box-shadow: var(--kv-shadow);
+            font-weight: 700;
+            font-size: 14px;
+            transition: transform .06s ease, border-color .12s ease;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            #kvkkTenax .btn {
+                background: #0b1220;
+            }
+        }
+
+        #kvkkTenax .btn:hover {
+            transform: translateY(-1px);
+            border-color: #cbd5e1;
+        }
+
+        #kvkkTenax .footer-note {
+            margin-top: 22px;
+            font-size: 14px;
+            color: var(--kv-muted);
+        }
+
+        /* Bağlantılar */
+        #kvkkTenax a {
+            color: var(--kv-accent);
+        }
+
+        #kvkkTenax a:hover {
+            color: var(--kv-accent-700);
+        }
+
+        /* Küçük ekran */
+        @media (max-width: 560px) {
+            #kvkkTenax .wrap {
+                padding: 0 16px;
+            }
+        }
+    </style>
+</head>
+
+<body id="kvkkTenax">
+    <main class="wrap" role="main">
+        <header>
+            <h1 class="page-title">KVKK Aydınlatma ve Onay Metni</h1>
+            <div class="meta" aria-label="Belge meta bilgileri">
+                <span><strong>TENAX</strong></span>
+                <span>Yürürlük: <time datetime="2025-01-01">01.01.2025</time></span>
+                <span>Versiyon: 1.0</span>
+            </div>
+
+            <nav class="toc" aria-label="İçindekiler">
+                <h2>İçindekiler</h2>
+                <ul>
+                    <li><a href="#giris">Giriş</a></li>
+                    <li><a href="#isleme">Kişisel Verilerinizin İşlenmesi</a></li>
+                    <li><a href="#turler">İşlenen Kişisel Veri Türleri</a></li>
+                    <li><a href="#amaclar">İşleme Amaçları</a></li>
+                    <li><a href="#riza">Açık Rıza ve Onay</a></li>
+                    <li><a href="#iletisim">Başvuru/İletişim</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="giris" aria-labelledby="giris-title">
+            <h2 id="giris-title" class="section">Giriş</h2>
+            <div class="card">
+                <p>5684 Sayılı Sigortacılık Kanunu, 6102 Sayılı Türk Ticaret Kanunu ve diğer ilgili mevzuat
+                    doğrultusunda TENAX tarafından; çağrı merkezi, internet sitesi, sigorta aracıları, bankalar ve kredi
+                    kuruluşları, resmi kurumlar, eksperler, anlaşmalı tamirhaneler, hasar tahkikat görevlileri, diğer
+                    üçüncü kişiler, bilirkişiler ve bunlarla sınırlı olmayan tüm çözüm ortaklarımız aracılığıyla sunulan
+                    hizmetler, ilgili kişilere ait kişisel ve/veya özel nitelikli kişisel verilerin işlenmesini
+                    gerektirebilmektedir.</p>
+                <p><strong>TENAX</strong> (“Şirket”) olarak; KVKK kapsamında <em>veri sorumlusu</em> sıfatıyla, duruma
+                    göre aşağıda belirtilen şekillerde elde ettiğimiz kişisel verilerinizin ve özel nitelikli
+                    verilerinizin hukuki ilişkilerimiz kapsamında, işlenmelerini gerektiren amaç çerçevesinde ve bu
+                    amaçla bağlantılı, sınırlı ve ölçülü şekilde; tarafımıza bildirdiğiniz veya bildirildiği şekliyle
+                    kişisel verilerin doğruluğunu ve güncelliğini koruyarak kaydedileceğini, depolanacağını, muhafaza
+                    edileceğini, yeniden düzenleneceğini, kanunen talep etmeye yetkili kurumlarla paylaşılacağını ve
+                    KVKK’nın öngördüğü şartlarda üçüncü kişilere aktarılacağını, devredileceğini,
+                    sınıflandırılabileceğini ve KVKK’da sayılan sair şekillerde işlenebileceğini bildiririz.</p>
+            </div>
+        </section>
+
+        <section id="isleme" aria-labelledby="isleme-title">
+            <h2 id="isleme-title" class="section">Kişisel Verilerinizin İşlenmesi</h2>
+            <div class="card">
+                <p>Veriler, KVKK kapsamında aşağıda açıklandığı çerçevede; otomatik olan ya da olmayan yollarla elde
+                    edilebilecek, kaydedilebilecek, muhafaza edilebilecek, depolanabilecek, değiştirilebilecek, yeniden
+                    düzenlenebilecek, sınıflandırılabilecek, açıklanabilecek, mevzuatın izin verdiği ölçüde üçüncü
+                    kişilere aktarılabilecek veya diğer şekillerde işlenebilecektir.</p>
+            </div>
+        </section>
+
+        <section id="turler" aria-labelledby="turler-title">
+            <h2 id="turler-title" class="section">İşlenen Kişisel Veri Türleri</h2>
+            <div class="card">
+                <p><strong>Kimlik Verisi</strong><br><span class="muted">Adı, soyadı, TCKN, doğum tarihi, medeni durumu,
+                        cinsiyeti.</span></p>
+                <p><strong>İletişim Verisi</strong><br><span class="muted">Telefonu, e-postası, adresi.</span></p>
+                <p><strong>Çalışma Verisi</strong><br><span class="muted">Çalıştığı şirket, departmanı, çalışma şekli,
+                        mesleği, unvanı, eğitim durumu, tecrübe.</span></p>
+                <p><strong>Görsel ve İşitsel Veri</strong><br><span class="muted">Gerçek kişiye ait fotoğraf, araç
+                        fotoğrafları.</span></p>
+                <p><strong>Sağlık Verisi</strong><br><span class="muted">Sigara, alkol kullanımı, sağlık geçmişi, sağlık
+                        beyanı, kronik hastalığı, hamilelik durumu, doğum raporu, epikriz raporu, doktor muayene formu,
+                        ilaç, reçete ve kupürleri, ileri tanı yöntemlerine ait tetkik ve test sonuçları, kişinin
+                        hastalığı ya da sigorta şirketinin şartları kabul ettiğine/etmediğine dair yazı, engellilik
+                        bilgisi, boy-kilo bilgileri.</span></p>
+                <p><strong>Diğer</strong><br><span class="muted">Kampanya ve indirimlere özel veriler.</span></p>
+            </div>
+        </section>
+
+        <section id="amaclar" aria-labelledby="amaclar-title">
+            <h2 id="amaclar-title" class="section">İşleme Amaçları</h2>
+            <div class="card">
+                <p>Yukarıda belirtilen kişisel ve özel nitelikli verileriniz, <strong>TENAX</strong> tarafından
+                    hizmetlerin yürütülmesi, yasal yükümlülüklerin yerine getirilmesi, sözleşme süreçlerinin kurulması
+                    ve ifası, müşteri ilişkileri ve destek faaliyetlerinin yerine getirilmesi gibi amaç ve sebeplerle
+                    işlenmektedir.</p>
+            </div>
+        </section>
+
+        <section id="riza" aria-labelledby="riza-title">
+            <h2 id="riza-title" class="section">Açık Rıza ve Onay</h2>
+            <div class="card">
+                <p>Bu bilgilendirme metnine ilişkin “KVKK Bilgilendirme ve onay metnini okudum ve anladım” kutucuğunu
+                    işaretlemekle, yukarıda belirtilen amaç ve sebeplerle kişisel ve özel nitelikli verilerinizin
+                    işlenmesine rıza göstermiş olursunuz.</p>
+            </div>
+        </section>
+
+        <section id="iletisim" aria-labelledby="iletisim-title">
+            <h2 id="iletisim-title" class="section">Başvuru/İletişim</h2>
+            <div class="card">
+                <p>KVKK kapsamındaki haklarınızı kullanmak için yazılı olarak veya KEP/e-posta yoluyla <a
+                        href="mailto:info@esiyokgrup.com.tr">info@esiyokgrup.com.tr</a> adresine başvurabilirsiniz.</p>
+                <p class="footer-note">Bu sayfa bilgilendirme amaçlıdır. Güncellenme tarihi: <time
+                        datetime="2025-01-01">01.01.2025</time>.</p>
+            </div>
+        </section>
+
+        <div class="top-actions">
+            <a class="btn" href="#kvkkTenax" aria-label="Sayfa başına dön">↑ Başa Dön</a>
+            <a class="btn" href="/" target="_blank" rel="noopener" aria-label="TENAX ana sayfayı yeni sekmede aç">TENAX
+                Ana Sayfa</a>
+        </div>
+    </main>
+
+    <script>
+        // Yumuşak kaydırma (yalnızca bu sayfaya scope’lu)
+        (function () {
+            const root = document.getElementById('kvkkTenax');
+            if (!root) return;
+            root.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    const id = a.getAttribute('href').slice(1);
+                    const el = document.getElementById(id);
+                    if (el) {
+                        e.preventDefault();
+                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        history.replaceState(null, '', '#' + id);
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

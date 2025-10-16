@@ -208,66 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-//fiyat tarafı
-// ==== Tenax modeller (12) davranış ====
-(function(){
-  const fmt = new Intl.NumberFormat('tr-TR');
-
-  // TL biçimlendir (sadece bir kez)
-  document.querySelectorAll('.prices12 [data-price]').forEach(td=>{
-    if (td.dataset.formatted === '1') return;
-    const n = Number(td.textContent.trim());
-    td.dataset.raw = String(n);
-    td.textContent = fmt.format(n) + ' TL';
-    td.dataset.formatted = '1';
-  });
-
-  // Akordeon aç/kapa
-  document.querySelectorAll('.model12').forEach(model=>{
-    const head = model.querySelector('.model-head12');
-    const body = model.querySelector('.model-body12');
-
-    head?.addEventListener('click', (e)=>{
-      // chip’e basılırsa başlığı tetikleme
-      if (e.target.closest('.chip12')) return;
-
-      const willOpen = !model.classList.contains('open12');
-      document.querySelectorAll('.model12.open12').forEach(m=>{
-        if (m!==model){ m.classList.remove('open12'); m.querySelector('.model-head12')?.setAttribute('aria-expanded','false'); }
-      });
-      model.classList.toggle('open12', willOpen);
-      head.setAttribute('aria-expanded', String(willOpen));
-      body?.setAttribute('aria-hidden', String(!willOpen));
-    });
-
-    // Varyant seçimleri fiyat satırını değiştirir
-    model.querySelectorAll('.chip12').forEach(chip=>{
-      chip.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        const variant = chip.dataset.variant || '';
-        model.querySelectorAll('.chip12').forEach(c=>c.classList.toggle('active12', c===chip));
-        model.querySelectorAll('tbody tr').forEach(tr=>{
-          tr.classList.toggle('show12', tr.getAttribute('data-row-for')===variant);
-        });
-      });
-    });
-  });
-
-  // Sayfa yüklenince ilk kart açık kalsın
-  const first = document.querySelector('.model12');
-  if (first && !first.classList.contains('open12')) {
-    first.classList.add('open12');
-    first.querySelector('.model-head12')?.setAttribute('aria-expanded','true');
-  }
-})();
-
-
-
-
-
-
-
-
 
 
 

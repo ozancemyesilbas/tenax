@@ -18,123 +18,44 @@
 
 
 
-    <!-- ===== SABİT NAVBAR ===== -->
-    <header class="site-header">
-        <div class="container header-inner">
-            <a class="logo" href="index.html" aria-label="Ana sayfa">
-                <img src="assets/Adsız tasarım.png" alt="TENAX">
-            </a>
+<!-- ===== SABİT NAVBAR ===== -->
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="logo" href="index.html" aria-label="Ana sayfa">
+            <img src="assets/Adsız tasarım.png" alt="TENAX">
+        </a>
 
-            <!-- HAMBURGER -->
-            <button class="hamburger" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false"
-                aria-controls="siteNav">
-                <span></span><span></span><span></span>
-            </button>
+        <!-- HAMBURGER -->
+        <button class="hamburger" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false"
+            aria-controls="siteNav">
+            <span></span><span></span><span></span>
+        </button>
 
-            <nav class="main-nav" id="siteNav">
-                <ul>
-                    <li class="has-dropdown">
-                        <a href="#modeller" class="dropdown-toggle">Modeller</a>
-                        <div class="dropdown">
-                            <a href="c35.html">C35 Tek Kabin</a>
-                            <a href="c35d.html">C35D Çift Kabin</a>
-                            <a href="v35.html">V35 Panelvan</a>
-                        </div>
-                    </li>
-                    <li><a href="kampanya.html">Kampanyalar</a></li>
-                    <li><a href="fiyat.html">Fiyat Listesi</a></li>
-                    <li><a href="sup.html">İletişim</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="main-nav" id="siteNav">
+            <ul>
+                <li class="has-dropdown">
+                    <a href="#modeller" class="dropdown-toggle">Modeller</a>
+                    <div class="dropdown">
+                        <a href="c35.html">C35 Tek Kabin</a>
+                        <a href="c35d.html">C35D Çift Kabin</a>
+                        <a href="v35.html">V35 Panelvan</a>
+                    </div>
+                </li>
+                <li><a href="kampanya.html">Kampanyalar</a></li>
+                <li><a href="fiyat.html">Fiyat Listesi</a></li>
+                <li class="cta"><a href="/index.html#teklifForm">Filo Teklifi Al</a></li>
+                <li><a href="sup.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </div>
 
-<!-- Mobilde arkaplan karartması (menü açıkken) -->
-<div class="nav-overlay" id="navOverlay" hidden></div>
+    <!-- Mobilde arkaplan karartması (menü açıkken) -->
+    <div class="nav-overlay" id="navOverlay" hidden></div>
 </header>
 
 
 <!-- Spacer: fixed header yüksekliği kadar -->
 <div class="header-spacer" aria-hidden="true"></div>
-
-
-
-
-
-
-
-
-<!-- ===== HERO SLIDER (Sadece HTML+CSS) ===== -->
-<section class="hero smart-fit">
-    <!-- Radio'lar -->
-    <input type="radio" name="slide" id="s1" checked>
-    <input type="radio" name="slide" id="s2">
-    <input type="radio" name="slide" id="s3">
-
-    <div class="slides">
-        <!-- SLIDE 1 -->
-        <div class="slide">
-            <picture>
-                <!-- Desktop (≥1200px) için opsiyonel kaynağın olursa buraya ekle -->
-                <!-- <source media="(min-width:1200px)" srcset="assets/1/Ana-Slider-1-desktop.jpg"> -->
-                <!-- Tablet (769–1199px) opsiyonel -->
-                <!-- <source media="(min-width:769px)" srcset="assets/1/Ana-Slider-1-tablet.jpg"> -->
-
-                <!-- Mobil (≤768px) -->
-                <source media="(max-width: 768px)" srcset="assets/1/12.png">
-                <!-- Fallback -->
-                <img src="assets/1/Ana Slider 1.jpg" alt="Tenax slide 1" decoding="async" fetchpriority="high"
-                    draggable="false">
-            </picture>
-        </div>
-
-        <!-- SLIDE 2 -->
-        <div class="slide">
-            <picture>
-                <!-- <source media="(min-width:1200px)" srcset="assets/1/Ana-Slider-2-desktop.jpg"> -->
-                <!-- <source media="(min-width:769px)"  srcset="assets/1/Ana-Slider-2-tablet.jpg"> -->
-                <source media="(max-width: 768px)" srcset="assets/1/13.png">
-                <img src="assets/1/Ana Slider 2.jpg" alt="Tenax slide 2" loading="lazy" decoding="async"
-                    draggable="false">
-            </picture>
-        </div>
-
-        <!-- SLIDE 3 -->
-        <div class="slide">
-            <picture>
-                <!-- <source media="(min-width:1200px)" srcset="assets/1/Ana-Slider-3-desktop.jpg"> -->
-                <!-- <source media="(min-width:769px)"  srcset="assets/1/Ana-Slider-3-tablet.jpg"> -->
-                <source media="(max-width: 768px)" srcset="assets/1/14.png">
-                <img src="assets/1/Ana-Slider-3.jpg" alt="Tenax slide 3" loading="lazy" decoding="async"
-                    draggable="false">
-            </picture>
-        </div>
-    </div>
-
-    <!-- Oklar -->
-    <label for="s3" class="nav prev">‹</label>
-    <label for="s2" class="nav next n1">›</label>
-
-    <label for="s1" class="nav prev n2">‹</label>
-    <label for="s3" class="nav next n2">›</label>
-
-    <label for="s2" class="nav prev n3">‹</label>
-    <label for="s1" class="nav next n3">›</label>
-
-    <!-- Noktalar -->
-    <div class="dots">
-        <label for="s1"></label>
-        <label for="s2"></label>
-        <label for="s3"></label>
-    </div>
-</section>
-
-
-
-
-
-
-
-
 
 
 
@@ -186,12 +107,11 @@
 
 
 
-
-
 <!-- ===== MODELLER ===== -->
 <section id="modeller12" class="models12">
     <div class="container12">
-        <!-- ITEM 1 - Açık gelsin -->
+
+        <!-- ITEM 1 — C35 Tek Kabin / KASASIZ (Açık gelsin) -->
         <article class="model12 open12" data-model="c35-tek-kabin-kasasiz">
             <button class="model-head12" aria-expanded="true">
                 <img src="assets/f/1.png" alt="Tenax C35 Tek Kabin Kasasız" class="thumb12">
@@ -200,236 +120,259 @@
             </button>
 
             <div class="model-body12" role="region" aria-label="TENAX C35 Tek Kabin Kasasız detayları">
-                <div class="specs12">
-                    <h4>ÖZELLİKLER</h4>
-
-                    <div class="variant-row12" role="tablist" aria-label="Motor/Donanım">
-                        <button class="chip12 active12" role="tab" aria-selected="true" data-variant="cummins">
-                            <span class="hp1212">170 HP</span> <b>Cummins Motor</b>
-                        </button>
-                        <button class="chip12" role="tab" aria-selected="false" data-variant="foton">
-                            <span class="hp1212">158 HP</span> <b>Foton Motor</b>
-                        </button>
-
-                        <span class="tag12">Uzun Şasi</span>
-                        <span class="tag12">Klima</span>
-                        <span class="tag12">ESP</span>
-                        <span class="tag12">HSA (Yokuş Kalkış Desteği)</span>
-                        <span class="tag12">Hava Yastığı</span>
-                    </div>
-                </div>
-
-                <div class="prices12">
-                    <table class="price-table12" aria-label="2025 Fiyatları">
-                        <colgroup>
-                            <col class="col-left12">
-                            <col class="col-right12">
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th scope="col">2025 FİYATLARI</th>
-                                <th scope="col" class="num12">TL</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-row-for="cummins" class="show12">
-                                <td><span class="pill12 red12">170 HP • Cummins</span></td>
-                                <td class="num12" data-price>1307694</td>
-                            </tr>
-                            <tr data-row-for="foton">
-                                <td><span class="pill12 teal12">158 HP • Foton</span></td>
-                                <td class="num12" data-price>1346703</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <table class="grid12" role="table" aria-label="Özellikler ve 2025 Fiyatları">
+                    <colgroup>
+                        <col style="width:74%">
+                        <col style="width:26%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="th-left12">ÖZELLİKLER</th>
+                            <th class="th-right12">2025 FİYATLARI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Satır 1: Cummins -->
+                        <tr>
+                            <td>
+                                <div class="pillrow12">
+                                    <span class="chip12 hp">170 HP</span>
+                                    <span class="chip12 red12 strong12">Cummins Motor</span>
+                                    <span class="tag12">Uzun Şasi</span>
+                                    <span class="tag12">Klima</span>
+                                </div>
+                            </td>
+                            <td class="num12" data-price>1307694</td>
+                        </tr>
+                        <!-- Satır 2: Foton -->
+                        <tr>
+                            <td>
+                                <div class="pillrow12">
+                                    <span class="chip12 hp">158 HP</span>
+                                    <span class="chip12 teal12 strong12">Foton Motor</span>
+                                    <span class="tag12">Uzun Şasi</span>
+                                    <span class="tag12">Klima</span>
+                                    <span class="tag12">ESP</span>
+                                    <span class="tag12">HSA (Yokuş Kalkış Desteği)</span>
+                                    <span class="tag12">Hava Yastığı</span>
+                                </div>
+                            </td>
+                            <td class="num12" data-price>1346703</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </article>
 
-        <!-- ITEM 2 -->
+        <!-- ITEM 2 — C35 Tek Kabin / KASALI -->
         <article class="model12" data-model="c35-tek-kabin-kasali">
             <button class="model-head12" aria-expanded="false">
                 <img src="assets/f/2.png" alt="Tenax C35 Tek Kabin Kasalı" class="thumb12">
                 <h3 class="title12">TENAX C35 TEK KABİN – KASALI</h3>
                 <span class="chev12" aria-hidden="true"></span>
             </button>
+
             <div class="model-body12" role="region" aria-label="TENAX C35 Tek Kabin Kasalı detayları">
-                <div class="specs12">
-                    <h4>ÖZELLİKLER</h4>
-                    <div class="variant-row12" role="tablist">
-                        <button class="chip12 active12" role="tab" aria-selected="true" data-variant="cummins">
-                            <span class="hp1212">170 HP</span> <b>Cummins Motor</b>
-                        </button>
-                        <button class="chip12" role="tab" aria-selected="false" data-variant="foton">
-                            <span class="hp1212">158 HP</span> <b>Foton Motor</b>
-                        </button>
-                        <span class="tag12">Uzun Şasi</span>
-                        <span class="tag12">Klima</span>
-                        <span class="tag12">ESP</span>
-                        <span class="tag12">HSA</span>
-                        <span class="tag12">Hava Yastığı</span>
-                    </div>
-                </div>
-                <div class="prices12">
-                    <table class="price-table12">
-                        <thead>
-                            <tr>
-                                <th>2025 FİYATLARI</th>
-                                <th class="num12">TL</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-row-for="cummins" class="show12">
-                                <td><span class="pill12 red12">170 HP • Cummins</span></td>
-                                <td class="num12" data-price>1385000</td>
-                            </tr>
-                            <tr data-row-for="foton">
-                                <td><span class="pill12 teal12">158 HP • Foton</span></td>
-                                <td class="num12" data-price>1419000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <table class="grid12" role="table" aria-label="Özellikler ve 2025 Fiyatları">
+                    <colgroup>
+                        <col style="width:74%">
+                        <col style="width:26%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="th-left12">ÖZELLİKLER</th>
+                            <th class="th-right12">2025 FİYATLARI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="pillrow12">
+                                    <span class="chip12 hp">170 HP</span>
+                                    <span class="chip12 red12 strong12">Cummins Motor</span>
+                                    <span class="tag12">Uzun Şasi</span>
+                                    <span class="tag12">Klima</span>
+                                </div>
+                            </td>
+                            <td class="num12" data-price>1401275</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pillrow12">
+                                    <span class="chip12 hp">158 HP</span>
+                                    <span class="chip12 teal12 strong12">Foton Motor</span>
+                                    <span class="tag12">Uzun Şasi</span>
+                                    <span class="tag12">Klima</span>
+                                    <span class="tag12">ESP</span>
+                                    <span class="tag12">HSA (Yokuş Kalkış Desteği)</span>
+                                    <span class="tag12">Hava Yastığı</span>
+                                </div>
+                            </td>
+                            <td class="num12" data-price>1443091</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </article>
 
-        <!-- ITEM 3 -->
+        <!-- ITEM 3 — C35D Çift Kabin / KASASIZ -->
         <article class="model12" data-model="c35d-cift-kabin-kasasiz">
             <button class="model-head12" aria-expanded="false">
                 <img src="assets/f/3.png" alt="Tenax C35D Çift Kabin Kasasız" class="thumb12">
                 <h3 class="title12">TENAX C35D ÇİFT KABİN – KASASIZ</h3>
                 <span class="chev12" aria-hidden="true"></span>
             </button>
+
             <div class="model-body12" role="region" aria-label="TENAX C35D Çift Kabin Kasasız detayları">
-                <div class="specs12">
-                    <h4>ÖZELLİKLER</h4>
-                    <div class="variant-row12" role="tablist">
-                        <button class="chip12 active12" role="tab" aria-selected="true" data-variant="cummins">
-                            <span class="hp1212">170 HP</span> <b>Cummins Motor</b>
-                        </button>
-                        <button class="chip12" role="tab" aria-selected="false" data-variant="foton">
-                            <span class="hp1212">158 HP</span> <b>Foton Motor</b>
-                        </button>
-                        <span class="tag12">Uzun Şasi</span>
-                        <span class="tag12">Klima</span>
-                        <span class="tag12">ESP</span>
-                        <span class="tag12">HSA</span>
-                        <span class="tag12">Hava Yastığı</span>
-                    </div>
-                </div>
-                <div class="prices12">
-                    <table class="price-table12">
-                        <thead>
-                            <tr>
-                                <th>2025 FİYATLARI</th>
-                                <th class="num12">TL</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-row-for="cummins" class="show12">
-                                <td><span class="pill12 red12">170 HP • Cummins</span></td>
-                                <td class="num12" data-price>1459000</td>
-                            </tr>
-                            <tr data-row-for="foton">
-                                <td><span class="pill12 teal12">158 HP • Foton</span></td>
-                                <td class="num12" data-price>1492000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <table class="grid12" role="table" aria-label="Özellikler ve 2025 Fiyatları">
+                    <colgroup>
+                        <col style="width:74%">
+                        <col style="width:26%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="th-left12">ÖZELLİKLER</th>
+                            <th class="th-right12">2025 FİYATLARI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="pillrow12">
+                                    <span class="chip12 hp">170 HP</span>
+                                    <span class="chip12 red12 strong12">Cummins Motor</span>
+                                    <span class="tag12">Uzun Şasi</span>
+                                    <span class="tag12">Klima</span>
+                                </div>
+                            </td>
+                            <td class="num12" data-price>1422330</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pillrow12">
+                                    <span class="chip12 hp">158 HP</span>
+                                    <span class="chip12 teal12 strong12">Foton Motor</span>
+                                    <span class="tag12">Uzun Şasi</span>
+                                    <span class="tag12">Klima</span>
+                                    <span class="tag12">ESP</span>
+                                    <span class="tag12">HSA (Yokuş Kalkış Desteği)</span>
+                                    <span class="tag12">Hava Yastığı</span>
+                                </div>
+                            </td>
+                            <td class="num12" data-price>1464778</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </article>
 
-        <!-- ITEM 4 -->
+        <!-- ITEM 4 — C35D Çift Kabin / KASALI -->
         <article class="model12" data-model="c35d-cift-kabin-kasali">
             <button class="model-head12" aria-expanded="false">
                 <img src="assets/f/4.png" alt="Tenax C35D Çift Kabin Kasalı" class="thumb12">
                 <h3 class="title12">TENAX C35D ÇİFT KABİN – KASALI</h3>
                 <span class="chev12" aria-hidden="true"></span>
             </button>
+
             <div class="model-body12" role="region" aria-label="TENAX C35D Çift Kabin Kasalı detayları">
-                <div class="specs12">
-                    <h4>ÖZELLİKLER</h4>
-                    <div class="variant-row12" role="tablist">
-                        <button class="chip12 active12" role="tab" aria-selected="true" data-variant="cummins">
-                            <span class="hp1212">170 HP</span> <b>Cummins Motor</b>
-                        </button>
-                        <button class="chip12" role="tab" aria-selected="false" data-variant="foton">
-                            <span class="hp1212">158 HP</span> <b>Foton Motor</b>
-                        </button>
-                        <span class="tag12">Uzun Şasi</span>
-                        <span class="tag12">Klima</span>
-                        <span class="tag12">ESP</span>
-                        <span class="tag12">HSA</span>
-                        <span class="tag12">Hava Yastığı</span>
-                    </div>
-                </div>
-                <div class="prices12">
-                    <table class="price-table12">
-                        <thead>
-                            <tr>
-                                <th>2025 FİYATLARI</th>
-                                <th class="num12">TL</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-row-for="cummins" class="show12">
-                                <td><span class="pill12 red12">170 HP • Cummins</span></td>
-                                <td class="num12" data-price>1523000</td>
-                            </tr>
-                            <tr data-row-for="foton">
-                                <td><span class="pill12 teal12">158 HP • Foton</span></td>
-                                <td class="num12" data-price>1558000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <table class="grid12" role="table" aria-label="Özellikler ve 2025 Fiyatları">
+                    <colgroup>
+                        <col style="width:74%">
+                        <col style="width:26%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="th-left12">ÖZELLİKLER</th>
+                            <th class="th-right12">2025 FİYATLARI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="pillrow12">
+                                    <span class="chip12 hp">170 HP</span>
+                                    <span class="chip12 red12 strong12">Cummins Motor</span>
+                                    <span class="tag12">Uzun Şasi</span>
+                                    <span class="tag12">Klima</span>
+                                </div>
+                            </td>
+                            <td class="num12" data-price>1504213</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pillrow12">
+                                    <span class="chip12 hp">158 HP</span>
+                                    <span class="chip12 teal12 strong12">Foton Motor</span>
+                                    <span class="tag12">Uzun Şasi</span>
+                                    <span class="tag12">Klima</span>
+                                    <span class="tag12">ESP</span>
+                                    <span class="tag12">HSA (Yokuş Kalkış Desteği)</span>
+                                    <span class="tag12">Hava Yastığı</span>
+                                </div>
+                            </td>
+                            <td class="num12" data-price>1549117</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </article>
 
-        <!-- ITEM 5 -->
+        <!-- ITEM 5 — V35 Panel Van -->
         <article class="model12" data-model="v35-panel-van">
             <button class="model-head12" aria-expanded="false">
                 <img src="assets/f/5.png" alt="Tenax V35 Panel Van" class="thumb12">
                 <h3 class="title12">TENAX V35 PANEL VAN</h3>
                 <span class="chev12" aria-hidden="true"></span>
             </button>
+
             <div class="model-body12" role="region" aria-label="TENAX V35 Panel Van detayları">
-                <div class="specs12">
-                    <h4>ÖZELLİKLER</h4>
-                    <div class="variant-row12" role="tablist">
-                        <button class="chip12 active12" role="tab" aria-selected="true" data-variant="std">
-                            <span class="hp1212">150 HP</span> <b>Standart</b>
-                        </button>
-                        <span class="tag12">Klima</span>
-                        <span class="tag12">ESP</span>
-                        <span class="tag12">HSA</span>
-                    </div>
-                </div>
-                <div class="prices12">
-                    <table class="price-table12">
-                        <thead>
-                            <tr>
-                                <th>2025 FİYATLARI</th>
-                                <th class="num12">TL</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-row-for="std" class="show12">
-                                <td><span class="pill12 teal12">150 HP • Standart</span></td>
-                                <td class="num12" data-price>1399000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <table class="grid12" role="table" aria-label="Özellikler ve 2025 Fiyatları">
+                    <colgroup>
+                        <col style="width:74%">
+                        <col style="width:26%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="th-left12">ÖZELLİKLER</th>
+                            <th class="th-right12">2025 FİYATLARI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="pillrow12">
+                                    <span class="chip12 hp">170 HP</span>
+                                    <span class="chip12 red12 strong12">Cummins Motor</span>
+                                    <span class="tag12">Uzun Şasi</span>
+                                    <span class="tag12">Klima</span>
+                                    <span class="tag12">ESP</span>
+                                    <span class="tag12">HSA</span>
+                                </div>
+                            </td>
+                            <td class="num12" data-price>1350716</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pillrow12">
+                                    <span class="chip12 hp">158 HP</span>
+                                    <span class="chip12 teal12 strong12">Foton Motor</span>
+                                    <span class="tag12">Uzun Şasi</span>
+                                    <span class="tag12">Klima</span>
+                                    <span class="tag12">ESP</span>
+                                    <span class="tag12">HSA</span>
+                                </div>
+                            </td>
+                            <td class="num12" data-price>1390998</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </article>
+
     </div>
 </section>
 
-
-
-<!-- ===== ALT NOTLAR ===== -->
+<!-- ===== ALT NOTLAR (dokunulmadı) ===== -->
 <div class="disclaimer12" role="note" aria-label="Fiyat ve teknik özellik notları">
     <p><span class="mark12">*</span> Tenax Otomotiv araçların fiyat ve teknik özelliklerinde değişiklik yapma hakkını
         saklı tutar.</p>
@@ -437,30 +380,167 @@
     <p><span class="mark12">***</span> Araçların fatura tarihinde yürürlükte olan fiyat listesi geçerlidir.</p>
 </div>
 
+<!-- ===== Yerleşim CSS (renklere dokunmaz) ===== -->
 <style>
-    .disclaimer12{
-  max-width:1100px;
-  margin:18px auto 0;
-  padding:16px 18px;
-  color:#475569;
-  background:#f8fafc;
-  border:1px dashed #cbd5e1;
-  border-radius:12px;
-  font:400 13px/1.55 Roboto, system-ui;
-}
-.disclaimer12 .mark12{
-  font-weight:700;
-  margin-right:6px;
-  color:#0f766e;
-}
-@media (max-width:720px){
-  .disclaimer12{ margin:12px 16px; }
-}
+    .models12 .container12 {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 12px
+    }
 
+    .model12 {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 8px 20px rgba(2, 8, 23, .06);
+        margin: 18px 0;
+        overflow: hidden
+    }
+
+    .model-head12 {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+        padding: 14px 18px;
+        border: 0;
+        background: transparent;
+        cursor: pointer
+    }
+
+    .model-head12 .thumb12 {
+        width: 190px;
+        max-width: 32vw;
+        height: auto;
+        display: block
+    }
+
+    .model-head12 .title12 {
+        font: 600 20px/1.3 Poppins, system-ui
+    }
+
+    .model-body12 {
+        padding: 0 0 12px
+    }
+
+    /* Tablo düzeni */
+    .grid12 {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border-top: 0
+    }
+
+    .grid12 thead th {
+        padding: 14px 18px;
+        border-bottom: 1px solid #e5e7eb;
+        text-align: left;
+        font: 700 13px/1.1 Roboto, system-ui
+    }
+
+    .grid12 .th-right12 {
+        text-align: right
+    }
+
+    .grid12 tbody td {
+        padding: 14px 18px;
+        border-bottom: 1px solid #e5e7eb;
+        vertical-align: middle
+    }
+
+    .grid12 tbody tr:last-child td {
+        border-bottom: 0
+    }
+
+    .num12 {
+        text-align: right;
+        white-space: nowrap;
+        font: 700 14px/1.2 Roboto, system-ui
+    }
+
+    /* Rozetler */
+    .pillrow12 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px
+    }
+
+    .chip12,
+    .tag12 {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: #fff;
+        border: 1px solid #cbd5e1;
+        font: 600 13px/1.1 Roboto, system-ui;
+        color: #0f172a
+    }
+
+    .chip12.hp {
+        font-weight: 700
+    }
+
+    .strong12 {
+        border-width: 2px
+    }
+
+    /* renk sınıflarınla birleşir */
+
+    /* Akordeon (sadece gövdeyi gizle/göster) */
+    .model12:not(.open12) .model-body12 {
+        display: none
+    }
+
+    @media (max-width:860px) {
+        .model-head12 .thumb12 {
+            width: 42vw
+        }
+
+        .grid12 thead th {
+            font-weight: 700
+        }
+    }
+
+    /* Alt notlar (renklerine karışmadan) */
+    .disclaimer12 {
+        max-width: 1100px;
+        margin: 18px auto 0;
+        padding: 16px 18px;
+        color: #475569;
+        background: #f8fafc;
+        border: 1px dashed #cbd5e1;
+        border-radius: 12px;
+        font: 400 13px/1.55 Roboto, system-ui
+    }
+
+    .disclaimer12 .mark12 {
+        font-weight: 700;
+        margin-right: 6px
+    }
 </style>
 
+<!-- ===== JS: TL biçimleme + akordeon ===== -->
+<script>
+    (function () {
+        // TL biçimleme
+        const nf = new Intl.NumberFormat('tr-TR');
+        document.querySelectorAll('[data-price]').forEach(td => {
+            const n = Number(String(td.textContent).replace(/[^\d]/g, '') || 0);
+            td.textContent = nf.format(n) + ' TL';
+        });
 
-
+        // Akordeon aç/kapat
+        document.querySelectorAll('.model-head12').forEach(head => {
+            head.addEventListener('click', () => {
+                const art = head.closest('.model12');
+                const willOpen = !art.classList.contains('open12');
+                art.classList.toggle('open12', willOpen);
+                head.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+            });
+        });
+    })();
+</script>
 
 
 
@@ -477,183 +557,303 @@
 
 
     <!-- ===== FOOTER ===== -->
-    <footer class="site-footer">
-        <!-- İLETİŞİM -->
-        <section id="iletişim" class="contact-section">
-            <h2 class="section-title">İletişim</h2>
-            <p class="section-description">Gerekli bilgiler veya sorularınız mı var? Bize istediğiniz zaman ulaşabilirsiniz.
-            </p>
-    
-            <div class="contact-container">
-                <!-- Sol kart: Bilgiler -->
-                <div class="contact-card contact-info">
-                    <div class="info-box">
-                        <h3>Adres</h3>
-                        <p>Kaynarca Mahallesi Yanyol Caddesi &, E-5 Üzeri No:156/B</p>
-                    </div>
-                    <div class="info-box">
-                        <h3>Bizi Arayın</h3>
-                        <p>(0216) 491 19 79</p>
-                        <p>0555 896 12 75</p>
-                    </div>
-    
-    
-    
+<footer class="site-footer">
+    <!-- İLETİŞİM -->
+    <section id="iletişim" class="contact-section">
+        <h2 class="section-title">İletişim</h2>
+        <p class="section-description">Gerekli bilgiler veya sorularınız mı var? Bize istediğiniz zaman ulaşabilirsiniz.
+        </p>
+
+        <div class="contact-container">
+            <!-- Sol kart: Bilgiler -->
+            <div class="contact-card contact-info">
+                <div class="info-box">
+                    <h3>Adres</h3>
+                    <p>Kaynarca Mahallesi Yanyol Caddesi &, E-5 Üzeri No:156/B</p>
                 </div>
-    
-    
-    
-    
-    
-    
-    
-    
-                <!-- Sağ kart: Form -->
-                <div class="contact-card contact-form">
-                    <form>
-                        <div class="form-row">
-                            <input type="text" placeholder="Adınız" required>
-                            <input type="email" placeholder="E-posta Adresiniz" required>
-                        </div>
-                        <input type="text" placeholder="Konu" required>
-                        <textarea placeholder="Mesajınız" required></textarea>
-                        <button type="submit">Mesajı Gönder</button>
-                    </form>
+                <div class="info-box">
+                    <h3>Bizi Arayın</h3>
+                    <p>(0216) 491 19 79</p>
+                    <p>0555 896 12 75</p>
                 </div>
+
+
+
+                <!-- Sosyal kutucuk -->
+                <div class="contact-social" aria-label="Sosyal medya ve marka bağlantıları">
+                    <a class="social-btn ig" href="https://www.instagram.com/esiyokgrup/?hl=tr" target="_blank"
+                        rel="noopener" aria-label="Instagram">
+                        <!-- Instagram -->
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor"
+                                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.8a5.2 5.2 0 1 1 0 10.4 5.2 5.2 0 0 1 0-10.4Zm5.8-.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z" />
+                        </svg>
+                    </a>
+
+                    <a class="social-btn yt" href="https://www.youtube.com/@esiyok" target="_blank" rel="noopener"
+                        aria-label="YouTube">
+                        <!-- YouTube -->
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor"
+                                d="M23 7.5s-.2-1.7-.9-2.4c-.9-.9-1.9-.9-2.3-1C16.9 3.8 12 3.8 12 3.8S7.1 3.8 4.2 4.1c-.4 0-1.4.1-2.3 1C.2 5.8 0 7.5 0 7.5s-.2 2.1 0 4.3.9 2.9.9 2.9c.9.9 2.2.9 2.8 1C5.7 16 12 16.1 12 16.1s4.9 0 7.8-.3c.4 0 1.4-.1 2.3-1 .7-.7.9-2.4.9-2.4s.2-2.1 0-4.3ZM9.6 14.1V6.9l6.2 3.6-6.2 3.6Z" />
+                        </svg>
+                    </a>
+
+                    <a class="social-btn li" href="https://www.linkedin.com/company/esiyok" target="_blank"
+                        rel="noopener" aria-label="LinkedIn">
+                        <!-- LinkedIn -->
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor"
+                                d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 8.98h3.96V21H3V8.98ZM10.2 8.98h3.8v1.63h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.65 4.77 6.1V21h-3.96v-4.6c0-1.1-.02-2.51-1.53-2.51-1.53 0-1.77 1.2-1.77 2.43V21H10.2V8.98Z" />
+                        </svg>
+                    </a>
+
+                    <span class="dot" aria-hidden="true"></span>
+
+                    <a class="brand-link" href="https://www.esiyokgrup.com.tr" target="_blank" rel="noopener"
+                        title="Eşiyok Grup">Eşiyok
+                        Grup</a>
+                </div>
+
+
+
+
             </div>
-    
-            <style>
-                /* ============ İLETİŞİM (sade) ============ */
-                .contact-section {
-                    padding: 60px 20px;
-                    text-align: center;
-                }
-    
-                .contact-section .section-title {
-                    font-size: 2.5rem;
-                    color: #ffffff;
-                    margin: 0 0 8px;
-                }
-    
-                .contact-section .section-description {
-                    color: #c8c8c8;
-                    margin: 10px 0 40px;
-                }
-    
-                /* Düzen */
+
+
+
+
+
+
+
+
+            <!-- Sağ kart: Form -->
+            <div class="contact-card contact-form">
+                <form>
+                    <div class="form-row">
+                        <input type="text" placeholder="Adınız" required>
+                        <input type="email" placeholder="E-posta Adresiniz" required>
+                    </div>
+                    <input type="text" placeholder="Konu" required>
+                    <textarea placeholder="Mesajınız" required></textarea>
+                    <button type="submit">Mesajı Gönder</button>
+                </form>
+            </div>
+        </div>
+
+        <style>
+            /* ============ İLETİŞİM (sade) ============ */
+            .contact-section {
+                padding: 60px 20px;
+                text-align: center;
+            }
+
+            .contact-section .section-title {
+                font-size: 2.5rem;
+                color: #ffffff;
+                margin: 0 0 8px;
+            }
+
+            .contact-section .section-description {
+                color: #c8c8c8;
+                margin: 10px 0 40px;
+            }
+
+            /* Düzen */
+            .contact-section .contact-container {
+                max-width: 1100px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+                align-items: start;
+            }
+
+            /* Kartlar */
+            .contact-section .contact-card {
+                background: #29292998;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+                border-radius: 10px;
+                padding: 28px;
+            }
+
+            .contact-section .contact-info .info-box {
+                text-align: left;
+                margin-bottom: 18px;
+            }
+
+            .contact-section .contact-info h3 {
+                color: #ffffff;
+                margin: 0 0 6px;
+                font-size: 1.1rem;
+            }
+
+            .contact-section .contact-info p {
+                color: #ffffff;
+                margin: 0;
+            }
+
+            /* Form */
+            .contact-section .contact-form form {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 14px;
+                text-align: left;
+            }
+
+            .contact-section .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .contact-section input,
+            .contact-section textarea {
+                box-sizing: border-box;
+                width: 100%;
+                padding: 12px 14px;
+                border: 1px solid #e3e3e3;
+                border-radius: 6px;
+                background: #fff;
+                color: #222;
+                font-size: 1rem;
+                outline: none;
+                transition: border-color .2s, box-shadow .2s, background-color .2s;
+            }
+
+            .contact-section input::placeholder,
+            .contact-section textarea::placeholder {
+                color: #9da3ad;
+            }
+
+            .contact-section input:focus,
+            .contact-section textarea:focus {
+                border-color: #b7b7b7;
+                box-shadow: 0 0 0 3px rgba(0, 0, 0, .06);
+            }
+
+            .contact-section textarea {
+                min-height: 130px;
+                resize: vertical;
+            }
+
+            /* Buton */
+            .contact-section button {
+                background-color: #000;
+                color: #fff;
+                border: none;
+                padding: 12px 16px;
+                font-size: 1rem;
+                border-radius: 26px;
+                cursor: pointer;
+                transition: background-color .2s, transform .05s;
+            }
+
+            .contact-section button:hover {
+                background-color: #343434;
+            }
+
+            .contact-section button:active {
+                transform: translateY(1px);
+            }
+
+            /* Responsive */
+            @media (max-width: 992px) {
                 .contact-section .contact-container {
-                    max-width: 1100px;
-                    margin: 0 auto;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 32px;
-                    align-items: start;
-                }
-    
-                /* Kartlar */
-                .contact-section .contact-card {
-                    background: #29292998;
-                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-                    border-radius: 10px;
-                    padding: 28px;
-                }
-    
-                .contact-section .contact-info .info-box {
-                    text-align: left;
-                    margin-bottom: 18px;
-                }
-    
-                .contact-section .contact-info h3 {
-                    color: #ffffff;
-                    margin: 0 0 6px;
-                    font-size: 1.1rem;
-                }
-    
-                .contact-section .contact-info p {
-                    color: #ffffff;
-                    margin: 0;
-                }
-    
-                /* Form */
-                .contact-section .contact-form form {
-                    display: grid;
                     grid-template-columns: 1fr;
-                    gap: 14px;
-                    text-align: left;
+                    /* tek kolon */
                 }
-    
+
                 .contact-section .form-row {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 12px;
+                    grid-template-columns: 1fr;
+                    /* Ad & E-posta alta geçer */
                 }
-    
-                .contact-section input,
-                .contact-section textarea {
-                    box-sizing: border-box;
-                    width: 100%;
-                    padding: 12px 14px;
-                    border: 1px solid #e3e3e3;
-                    border-radius: 6px;
-                    background: #fff;
-                    color: #222;
-                    font-size: 1rem;
-                    outline: none;
-                    transition: border-color .2s, box-shadow .2s, background-color .2s;
+            }
+
+            /* Sosyal kutucuk (sol kartın içinde) */
+            .contact-section .contact-social {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-top: 10px;
+                padding: 10px 12px;
+                border-radius: 10px;
+                background: #1f1f1f;
+                border: 1px solid #353535;
+            }
+
+            /* Daire ikon butonlar */
+            .contact-section .social-btn {
+                width: 34px;
+                height: 34px;
+                border-radius: 999px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                background: #141414;
+                border: 1px solid #2e2e2e;
+                color: #e8e8e8;
+                transition: transform .08s ease, box-shadow .12s ease, border-color .12s ease;
+            }
+
+            .contact-section .social-btn:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 8px 18px rgba(0, 0, 0, .25);
+            }
+
+            .contact-section .social-btn svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            /* Hafif renkli hover vurguları (opsiyonel) */
+            .contact-section .social-btn.ig:hover {
+                border-color: #d62976;
+            }
+
+            .contact-section .social-btn.yt:hover {
+                border-color: #ff0000;
+            }
+
+            .contact-section .social-btn.li:hover {
+                border-color: #0a66c2;
+            }
+
+            .contact-section .contact-social .dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 999px;
+                background: #4b4b4b;
+                margin: 0 2px;
+            }
+
+            /* Marka linki */
+            .contact-section .brand-link {
+                color: #ffffff;
+                font-weight: 800;
+                text-decoration: none;
+                padding: 6px 8px;
+                border-radius: 8px;
+                transition: background .12s ease, color .12s ease;
+            }
+
+            .contact-section .brand-link:hover {
+                background: #2a2a2a;
+                color: #ffffff;
+            }
+
+            /* Küçük ekranlarda ikonları sar */
+            @media (max-width: 480px) {
+                .contact-section .contact-social {
+                    flex-wrap: wrap;
                 }
-    
-                .contact-section input::placeholder,
-                .contact-section textarea::placeholder {
-                    color: #9da3ad;
-                }
-    
-                .contact-section input:focus,
-                .contact-section textarea:focus {
-                    border-color: #b7b7b7;
-                    box-shadow: 0 0 0 3px rgba(0, 0, 0, .06);
-                }
-    
-                .contact-section textarea {
-                    min-height: 130px;
-                    resize: vertical;
-                }
-    
-                /* Buton */
-                .contact-section button {
-                    background-color: #000;
-                    color: #fff;
-                    border: none;
-                    padding: 12px 16px;
-                    font-size: 1rem;
-                    border-radius: 26px;
-                    cursor: pointer;
-                    transition: background-color .2s, transform .05s;
-                }
-    
-                .contact-section button:hover {
-                    background-color: #343434;
-                }
-    
-                .contact-section button:active {
-                    transform: translateY(1px);
-                }
-    
-                /* Responsive */
-                @media (max-width: 992px) {
-                    .contact-section .contact-container {
-                        grid-template-columns: 1fr;
-                        /* tek kolon */
-                    }
-    
-                    .contact-section .form-row {
-                        grid-template-columns: 1fr;
-                        /* Ad & E-posta alta geçer */
-                    }
-                }
-            </style>
-    
-    
-    </footer>
+            }
+        </style>
+
+
+</footer>
+
 
 
 

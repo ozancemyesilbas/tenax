@@ -43,6 +43,7 @@
                 </li>
                 <li><a href="kampanya.html">Kampanyalar</a></li>
                 <li><a href="fiyat.html">Fiyat Listesi</a></li>
+                <li class="cta"><a href="#teklifForm">Filo Teklifi Al</a></li>
                 <li><a href="sup.html">İletişim</a></li>
             </ul>
         </nav>
@@ -56,26 +57,26 @@
     <!-- Spacer: fixed header yüksekliği kadar -->
     <div class="header-spacer" aria-hidden="true"></div>
 
+
+
+
+
 <!-- ===== HERO SLIDER (Sadece HTML+CSS) ===== -->
 <section class="hero smart-fit">
     <!-- Radio'lar -->
     <input type="radio" name="slide" id="s1" checked>
     <input type="radio" name="slide" id="s2">
     <input type="radio" name="slide" id="s3">
+    <input type="radio" name="slide" id="s4">
 
     <div class="slides">
         <!-- SLIDE 1 -->
         <div class="slide">
             <picture>
-                <!-- Desktop (≥1200px) için opsiyonel kaynağın olursa buraya ekle -->
-                <!-- <source media="(min-width:1200px)" srcset="assets/1/Ana-Slider-1-desktop.jpg"> -->
-                <!-- Tablet (769–1199px) opsiyonel -->
-                <!-- <source media="(min-width:769px)" srcset="assets/1/Ana-Slider-1-tablet.jpg"> -->
-
-                <!-- Mobil (≤768px) -->
-                <source media="(max-width: 768px)" srcset="assets/1/12.png">
-                <!-- Fallback -->
-                <img src="assets/1/Ana Slider 1.jpg" alt="Tenax slide 1" decoding="async" fetchpriority="high"
+                <source media="(min-width:1200px)" srcset="assets/sonbanner/büyük/1.png">
+                <source media="(min-width:769px)" srcset="assets/sonbanner/orta/1.png">
+                <source media="(max-width:768px)" srcset="assets/sonbanner/mobil/1.jpg">
+                <img src="assets/sonbanner/orta/1.png" alt="Tenax slide 1" decoding="async" fetchpriority="high"
                     draggable="false">
             </picture>
         </div>
@@ -83,10 +84,10 @@
         <!-- SLIDE 2 -->
         <div class="slide">
             <picture>
-                <!-- <source media="(min-width:1200px)" srcset="assets/1/Ana-Slider-2-desktop.jpg"> -->
-                <!-- <source media="(min-width:769px)"  srcset="assets/1/Ana-Slider-2-tablet.jpg"> -->
-                <source media="(max-width: 768px)" srcset="assets/1/13.png">
-                <img src="assets/1/Ana Slider 2.jpg" alt="Tenax slide 2" loading="lazy" decoding="async"
+                <source media="(min-width:1200px)" srcset="assets/sonbanner/büyük/2.png">
+                <source media="(min-width:769px)" srcset="assets/sonbanner/orta/2.png">
+                <source media="(max-width:768px)" srcset="assets/sonbanner/mobil/2.jpg">
+                <img src="assets/sonbanner/orta/2.png" alt="Tenax slide 2" loading="lazy" decoding="async"
                     draggable="false">
             </picture>
         </div>
@@ -94,45 +95,59 @@
         <!-- SLIDE 3 -->
         <div class="slide">
             <picture>
-                <!-- <source media="(min-width:1200px)" srcset="assets/1/Ana-Slider-3-desktop.jpg"> -->
-                <!-- <source media="(min-width:769px)"  srcset="assets/1/Ana-Slider-3-tablet.jpg"> -->
-                <source media="(max-width: 768px)" srcset="assets/1/14.png">
-                <img src="assets/1/Ana-Slider-3.jpg" alt="Tenax slide 3" loading="lazy" decoding="async"
+                <source media="(min-width:1200px)" srcset="assets/sonbanner/büyük/3.png">
+                <source media="(min-width:769px)" srcset="assets/sonbanner/orta/3.png">
+                <source media="(max-width:768px)" srcset="assets/sonbanner/mobil/3.jpg">
+                <img src="assets/sonbanner/orta/3.png" alt="Tenax slide 3" loading="lazy" decoding="async"
+                    draggable="false">
+            </picture>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="slide">
+            <picture>
+                <source media="(min-width:1200px)" srcset="assets/sonbanner/büyük/4.png">
+                <source media="(min-width:769px)" srcset="assets/sonbanner/orta/4.png">
+                <source media="(max-width:768px)" srcset="assets/sonbanner/mobil/4.jpg">
+                <img src="assets/sonbanner/orta/4.png" alt="Tenax slide 4" loading="lazy" decoding="async"
                     draggable="false">
             </picture>
         </div>
     </div>
 
-    <!-- Oklar -->
-    <label for="s3" class="nav prev">‹</label>
+    <!-- Oklar (her slayta özel görünür) -->
+    <!-- s1 aktifken: prev=s4, next=s2 -->
+    <label for="s4" class="nav prev n1">‹</label>
     <label for="s2" class="nav next n1">›</label>
 
+    <!-- s2 aktifken: prev=s1, next=s3 -->
     <label for="s1" class="nav prev n2">‹</label>
     <label for="s3" class="nav next n2">›</label>
 
+    <!-- s3 aktifken: prev=s2, next=s4 -->
     <label for="s2" class="nav prev n3">‹</label>
-    <label for="s1" class="nav next n3">›</label>
+    <label for="s4" class="nav next n3">›</label>
+
+    <!-- s4 aktifken: prev=s3, next=s1 -->
+    <label for="s3" class="nav prev n4">‹</label>
+    <label for="s1" class="nav next n4">›</label>
 
     <!-- Noktalar -->
     <div class="dots">
         <label for="s1"></label>
         <label for="s2"></label>
         <label for="s3"></label>
+        <label for="s4"></label>
     </div>
 </section>
 
-<!-- ===== yeşil ŞERİT yazı ===== -->
+<!-- yeşil şerit -->
 <div class="ribbon">
     <div class="container">Fırsatı kaçırma! Tenax alan bu ay kârlı çıkar.</div>
 </div>
 
 
-
-
-
-
-
-
+    
 
 
     <!-- ===== MODELLER (Kartlar) =====
@@ -182,9 +197,9 @@
     <section id="kampanyalar" class="campaign">
         <div class="container campaign-inner">
             <div class="campaign-text">
-                <h2>Güncel kampanyalarımızı kaçırmayın</h2>
-                <p>Yeni fırsat ve avantajlarımızı keşfedin.</p>
-                <a class="btn btn-primary" href="kampanya.html">Detaylı İncele</a>
+                <h2>Güncel Kampanyalarımız</h2>
+                <p>Size Özel + Vergi Levhasına indirimine ek mağazamıza özel indirimleri keşfedin.</p>
+                <a class="btn btn-primary" href="kampanya.html">Kampanyalar</a>
             </div>
             <figure class="campaign-img">
                 <img src="assets/1/güncel-kampanyalar.jpg" alt="Kampanya Aracı">
@@ -340,7 +355,7 @@
         </div>
 
         <!-- === İLGİ FORMU (xs) === -->
-        <form class="why-form-xs" action="#" method="post" novalidate>
+        <form id="teklifForm"  class="why-form-xs" action="#" method="post" novalidate>
             <h3 class="xs-title">Teklif / Bilgi Al</h3>
         
             <div class="xs-row">
@@ -358,12 +373,13 @@
         
             <div class="xs-row">
                 <div class="xs-field">
-                    <label for="xsVehicle">İlgilendiği Araç</label>
+                    <label for="xsVehicle">Talebiniz</label>
                     <select id="xsVehicle" name="vehicle" required>
                         <option value="" selected disabled>Seçiniz</option>
                         <option value="C35 Tek Kabin">TENAX C35 Tek Kabin</option>
                         <option value="C35D Çift Kabin">TENAX C35D Çift Kabin</option>
                         <option value="V35 Panelvan">TENAX V35 Panelvan</option>
+                        <option value="Filo">Filo Hizmetleri</option>
                     </select>
                 </div>
         
@@ -374,6 +390,33 @@
             </div>
         
             <button class="xs-btn" type="submit">Gönder</button>
+
+
+            <!-- === KVKK & Onaylar === -->
+            <div class="xs-consents xs-full" aria-describedby="consentHelp">
+                <label class="xs-check">
+                    <input id="xsKvkk" name="kvkk_okundu" type="checkbox" required>
+                    <span>
+                        <strong>KVKK Aydınlatma Metni</strong>’ni
+                        <a href="/kvkk-tenax.html" target="_blank" rel="noopener">okudum</a> ve kabul ediyorum.
+                        <em>(Zorunlu)</em>
+                    </span>
+                </label>
+            
+                <label class="xs-check">
+                    <input id="xsIleti" name="ticari_iletisim_izni" type="checkbox">
+                    <span>
+                        Tarafıma <strong>ticari elektronik ileti</strong> gönderilmesini kabul ediyorum.
+                        <a href="/ticari-iletisim-izni.html" target="_blank" rel="noopener">Detaylar</a>
+                    </span>
+                </label>
+            
+                <p id="consentHelp" class="xs-help">
+                    Kişisel verileriniz, başvurunuzun değerlendirilmesi amacıyla işlenecektir. Detaylar için metinleri inceleyiniz.
+                </p>
+                <p class="xs-error" hidden>Lütfen zorunlu onayı işaretleyin.</p>
+            </div>
+
         </form>
     </div>
 </section>
@@ -458,7 +501,7 @@
   padding: clamp(16px, 3vw, 24px);
   border: 1px solid #e5e7eb;
   border-radius: 12px;
-  background: #ffffff;
+  background: #649ca3;
 }
 
 .why-form-xs .xs-title {
@@ -546,6 +589,21 @@
 }
 
 
+/* === Onaylar (KVKK) === */
+.why-form-xs .xs-consents{
+  display:grid; gap:10px; margin-top:6px; padding-top:10px; border-top:1px dashed rgba(0,0,0,.12);
+}
+.why-form-xs .xs-check{
+  display:flex; align-items:flex-start; gap:10px; font-size:.95rem; color:#0f172a;
+}
+.why-form-xs .xs-check input{
+  margin-top:3px; width:18px; height:18px; accent-color:#0b1220;
+}
+.why-form-xs .xs-check a{ text-decoration:underline; }
+.why-form-xs .xs-help{ margin:2px 0 0; font-size:.86rem; color:#0b1220; opacity:.8; }
+.why-form-xs .xs-error{
+  margin:4px 0 0; font-size:.9rem; color:#b91c1c; font-weight:600;
+}
 
 
 
@@ -557,6 +615,70 @@
 
 
 </style>
+
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('.why-form-xs');
+        if (!form) return;
+
+        form.addEventListener('submit', (e) => {
+            const kvkk = form.querySelector('#xsKvkk');
+            const err = form.querySelector('.xs-error');
+            if (!kvkk.checked) {
+                e.preventDefault();
+                if (err) err.hidden = false;
+                kvkk.focus();
+            } else {
+                if (err) err.hidden = true;
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -580,14 +702,14 @@
             </address>
 
             <div class="contact-actions">
-                <a class="phone-pill" href="tel:+905558961275" aria-label="Telefon">
+                <a class="phone-pill" href="tel:+905327640669" aria-label="Telefon">
                     <!-- telefon simgesi -->
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path
                             d="M6.6 10.8c1.3 2.6 3.3 4.7 6 6l2-2a1 1 0 0 1 1-.25c1.1.36 2.3.55 3.5.55a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C11.7 21 3 12.3 3 2a1 1 0 0 1 1-1h3.9a1 1 0 0 1 1 1c0 1.2.19 2.4.55 3.5a1 1 0 0 1-.25 1l-2 2Z"
                             fill="currentColor" />
                     </svg>
-                    <span>+90 555 896 12 75</span>
+                    <span>+90 532 764 06 69</span>
                 </a>
 
                 <a class="btn-primary contact-cta" href="fiyat.html">
@@ -597,6 +719,8 @@
                     </svg>
                 </a>
             </div>
+
+            
         </div>
     </div>
 </section>
@@ -626,7 +750,7 @@
 
 
 <div id="whatsapp-chat">
-    <a href="https://wa.me/905558961275" target="_blank" rel="noopener">
+    <a href="https://wa.me/+905327640669" target="_blank" rel="noopener">
         <img src="assets/wp3.png" alt="WhatsApp" class="whatsapp-icon" />
     </a>
     <div class="chat-text">Sizlere nasıl yardımcı olabiliriz?</div>
@@ -674,6 +798,9 @@
     }
 </style>
 
+<br>
+<br>
+<br>
 
 
 
@@ -699,9 +826,46 @@
                         <p>(0216) 491 19 79</p>
                         <p>0555 896 12 75</p>
                     </div>
-        
-        
-                  
+            
+
+
+<!-- Sosyal kutucuk -->
+<div class="contact-social" aria-label="Sosyal medya ve marka bağlantıları">
+    <a class="social-btn ig" href="https://www.instagram.com/esiyokgrup/?hl=tr" target="_blank" rel="noopener"
+        aria-label="Instagram">
+        <!-- Instagram -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.8a5.2 5.2 0 1 1 0 10.4 5.2 5.2 0 0 1 0-10.4Zm5.8-.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z" />
+        </svg>
+    </a>
+
+    <a class="social-btn yt" href="https://www.youtube.com/@TenaxE%C5%9FiyokGrupOtomotiv" target="_blank" rel="noopener" aria-label="YouTube">
+        <!-- YouTube -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+                d="M23 7.5s-.2-1.7-.9-2.4c-.9-.9-1.9-.9-2.3-1C16.9 3.8 12 3.8 12 3.8S7.1 3.8 4.2 4.1c-.4 0-1.4.1-2.3 1C.2 5.8 0 7.5 0 7.5s-.2 2.1 0 4.3.9 2.9.9 2.9c.9.9 2.2.9 2.8 1C5.7 16 12 16.1 12 16.1s4.9 0 7.8-.3c.4 0 1.4-.1 2.3-1 .7-.7.9-2.4.9-2.4s.2-2.1 0-4.3ZM9.6 14.1V6.9l6.2 3.6-6.2 3.6Z" />
+        </svg>
+    </a>
+
+<a class="social-btn tt" href="https://www.tiktok.com/@tenaxesiyokgrupotomotiv" target="_blank" rel="noopener" aria-label="TikTok">
+    <!-- TikTok (tek renk, currentColor) -->
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor"
+            d="M14 3v7.1a5.9 5.9 0 0 0-3-0.8A6.1 6.1 0 1 0 17.1 15v-3.1a8.7 8.7 0 0 0 4 1.1V9.1a8.6 8.6 0 0 1-4-1.1A8.6 8.6 0 0 1 14 3Zm-3 10.2a2.9 2.9 0 1 1-2.9 2.9 2.9 2.9 0 0 1 2.9-2.9Z" />
+    </svg>
+</a>
+
+
+    <span class="dot" aria-hidden="true"></span>
+
+    <a class="brand-link" href="https://www.esiyokgrup.com.tr" target="_blank" rel="noopener" title="Eşiyok Grup">Eşiyok
+        Grup</a>
+</div>
+
+
+
+                    
                 </div>
         
         
@@ -849,6 +1013,52 @@
   .contact-section .form-row {
     grid-template-columns: 1fr; /* Ad & E-posta alta geçer */
   }
+}
+
+/* Sosyal kutucuk (sol kartın içinde) */
+.contact-section .contact-social{
+  display:flex; align-items:center; gap:10px;
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:10px;
+  background:#1f1f1f;
+  border:1px solid #353535;
+}
+
+/* Daire ikon butonlar */
+.contact-section .social-btn{
+  width:34px; height:34px; border-radius:999px;
+  display:inline-flex; align-items:center; justify-content:center;
+  text-decoration:none;
+  background:#141414; border:1px solid #2e2e2e; color:#e8e8e8;
+  transition:transform .08s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.contact-section .social-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+}
+.contact-section .social-btn svg{ width:18px; height:18px; }
+
+/* Hafif renkli hover vurguları (opsiyonel) */
+.contact-section .social-btn.ig:hover{ border-color:#d62976; }
+.contact-section .social-btn.yt:hover{ border-color:#ff0000; }
+.contact-section .social-btn.li:hover{ border-color:#0a66c2; }
+
+.contact-section .contact-social .dot{
+  width:6px; height:6px; border-radius:999px; background:#4b4b4b; margin:0 2px;
+}
+
+/* Marka linki */
+.contact-section .brand-link{
+  color:#ffffff; font-weight:800; text-decoration:none;
+  padding:6px 8px; border-radius:8px;
+  transition:background .12s ease, color .12s ease;
+}
+.contact-section .brand-link:hover{ background:#2a2a2a; color:#ffffff; }
+
+/* Küçük ekranlarda ikonları sar */
+@media (max-width: 480px){
+  .contact-section .contact-social{ flex-wrap:wrap; }
 }
 
             </style>

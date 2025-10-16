@@ -104,6 +104,9 @@ body {
 }
 
 /* ============ Header / Navbar ============ */
+
+
+
 .site-header {
     position: fixed;
     inset: 0 0 auto 0;
@@ -298,6 +301,21 @@ body {
 }
 
 
+/* fityat listesi nav bar*/
+
+.main-nav .cta>a {
+    background: #e11d48;
+    /* kırmızı */
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.main-nav .cta>a:hover,
+.main-nav .cta>a:focus {
+    filter: brightness(0.95);
+}
 
 
 
@@ -314,6 +332,30 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==== HERO ==== */
 
 /* ============ Hero Slider (GÜNCEL) ============ */
 /* Metin overlay'in üstünde kalsın */
@@ -342,7 +384,7 @@ body {
     height: clamp(56vh, 72vh, 80vh);
     overflow: hidden;
     background: #010101;
-    /* görsel yüklenirken koyu arka plan */
+    /* yüklenirken koyu zemin */
 }
 
 /* --- Slayt alanı --- */
@@ -370,22 +412,21 @@ body {
     height: 100%;
 }
 
-/* Varsayılan davranış: dolu görünüm (cover) — kırpma olabilir */
+/* Varsayılan: cover (gerekirse kırpar) */
 .slide img {
     object-fit: cover;
-    /* alanı doldurur, oran korur */
     object-position: center;
-    /* odak merkezde */
     user-select: none;
     -webkit-user-drag: none;
     background: #000;
-    /* contain modunda letterbox barları için */
+    /* contain modunda bant rengi */
 }
 
-/* --- Aktif slayt --- */
+/* Aktif slaytlar (1–4) */
 #s1:checked~.slides .slide:nth-child(1),
 #s2:checked~.slides .slide:nth-child(2),
-#s3:checked~.slides .slide:nth-child(3) {
+#s3:checked~.slides .slide:nth-child(3),
+#s4:checked~.slides .slide:nth-child(4) {
     opacity: 1;
     transform: scale(1);
     z-index: 1;
@@ -419,10 +460,11 @@ body {
     right: 18px;
 }
 
-/* Hangi slaytta hangi oklar görünsün */
+/* Hangi slaytta hangi oklar görünsün (n4 eklendi) */
 .n1,
 .n2,
-.n3 {
+.n3,
+.n4 {
     display: none;
 }
 
@@ -435,6 +477,10 @@ body {
 }
 
 #s3:checked~.n3 {
+    display: grid;
+}
+
+#s4:checked~.n4 {
     display: grid;
 }
 
@@ -461,9 +507,11 @@ body {
     cursor: pointer;
 }
 
+/* 4. nokta desteği */
 #s1:checked~.dots label:nth-child(1),
 #s2:checked~.dots label:nth-child(2),
-#s3:checked~.dots label:nth-child(3) {
+#s3:checked~.dots label:nth-child(3),
+#s4:checked~.dots label:nth-child(4) {
     background: #111;
 }
 
@@ -481,33 +529,25 @@ body {
 }
 
 /* ===================== KIRPMAYI ÖNLEME MODLARI ===================== */
-/* 1) HER ZAMAN KIRPMASIZ (contain) İSTERSEN: .hero.no-crop */
+/* 1) Her zaman kırpmasız istersen: .hero.no-crop */
 .hero.no-crop .slide img {
     object-fit: contain;
-    /* görselin tamamı görünür */
-    /* letterbox alanlar arka plan rengini alır (siyah) */
 }
 
-/* 2) AKILLI MOD (ÖNERİLEN): .hero.smart-fit
-   - Normalde cover (dolu görünüm)
-   - Çok geniş (≥21:9) veya çok dar (≤4:3) ekranlarda otomatik contain
-*/
-
-
-@media (min-aspect-ratio: 21/9),
-(max-aspect-ratio: 4/3) {
+/* 2) Akıllı mod: aşırı geniş/dar oranlarda contain */
+@media (min-aspect-ratio:21/9),
+(max-aspect-ratio:4/3) {
     .hero.smart-fit .slide img {
         object-fit: contain;
     }
 }
 
-/* 3) SADECE BELİRLİ SLAYT KIRPMASIZ OLSUN İSTERSEN */
+/* 3) Yalnız belirli slaytı kırpmasız yapmak için */
 .slide.slide--contain img {
     object-fit: contain;
 }
 
 /* ===================== DENEYİM İYİLEŞTİRMELERİ ===================== */
-/* Büyük ekranlarda hero yüksekliği biraz daha ferah olabilir (opsiyonel) */
 @media (min-width:1400px) {
     .hero {
         height: clamp(60vh, 74vh, 86vh);
@@ -520,7 +560,6 @@ body {
         height: 56vh;
     }
 
-    /* mobilde biraz daha alçak */
     .nav {
         width: 40px;
         height: 40px;
@@ -528,7 +567,7 @@ body {
     }
 }
 
-/* Hareket azaltma: kullanıcı tercihine saygı */
+/* Hareket azaltma tercihi */
 @media (prefers-reduced-motion: reduce) {
     .slide {
         transition: none;
@@ -539,17 +578,13 @@ body {
     }
 }
 
-
-/* === Mobilde siyah bantları kapat === */
-@media (max-width: 768px) {
-
-    /* smart-fit'in contain'e geçmesini iptal et */
+/* === Mobilde siyah bantları kapat (cover'a zorla) === */
+@media (max-width:768px) {
     .hero.smart-fit .slide img {
         object-fit: cover !important;
-        /* bant yok, gerekirse biraz kırpma olur */
     }
 
-    /* Letterbox durumunda siyah görünmesin */
+    /* bant yok */
     .slide img {
         background: transparent !important;
     }
@@ -558,7 +593,7 @@ body {
         background: #fff !important;
     }
 
-    /* site zemini ne ise onu kullan */
+    /* site zemini ile aynı */
 }
 
 
@@ -577,68 +612,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ============ Modeller ============ */
-.models {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-    padding: 28px 0 8px;
-}
-
-.model-card {
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: var(--shadow);
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.model-card .thumb {
-    aspect-ratio: 16/9;
-    overflow: hidden;
-    background: #f4f6f8
-}
-
-.model-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block
-}
-
-.model-card h3 {
-    margin: 14px 12px 10px;
-    font-size: 18px;
-    font-weight: 800
-}
-
-.model-card .actions {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    padding: 12px 12px 16px;
-}
 
 /* ============ Kampanya Bloğu ============ */
 .campaign {
@@ -672,18 +645,6 @@ body {
     height: auto;
     border-radius: 12px
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -842,6 +803,62 @@ body {
         margin-left: 0;
     }
 }
+
+
+
+
+
+
+
+
+
+
+/* KVKK alanı güçlendirme */
+#iletisim .kvkk {
+    cursor: pointer;
+    user-select: none;
+}
+
+#iletisim .kvkk input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--brand);
+}
+
+#iletisim .kvkk a {
+    text-decoration: underline;
+}
+
+#iletisim .kvkk-error {
+    color: #b91c1c;
+    font-weight: 600;
+    margin: 6px 0 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
