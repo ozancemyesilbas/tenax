@@ -555,8 +555,7 @@
 
 
 
-
-    <!-- ===== FOOTER ===== -->
+<!-- ===== FOOTER ===== -->
 <footer class="site-footer">
     <!-- İLETİŞİM -->
     <section id="iletişim" class="contact-section">
@@ -582,7 +581,7 @@
                 <!-- Sosyal kutucuk -->
                 <div class="contact-social" aria-label="Sosyal medya ve marka bağlantıları">
                     <a class="social-btn ig" href="https://www.instagram.com/esiyokgrup/?hl=tr" target="_blank"
-                        rel="noopener" aria-label="Instagram">
+                        rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
                         <!-- Instagram -->
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path fill="currentColor"
@@ -590,8 +589,17 @@
                         </svg>
                     </a>
 
-                    <a class="social-btn yt" href="https://www.youtube.com/@esiyok" target="_blank" rel="noopener"
-                        aria-label="YouTube">
+                    <a class="social-btn fb" href="https://www.facebook.com/profile.php?id=61580896190326"
+                        target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+                        <!-- Facebook -->
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor"
+                                d="M22 12a10 10 0 1 0-11.563 9.874v-6.988H7.898V12h2.539V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.239.195 2.239.195v2.463h-1.261c-1.244 0-1.631.773-1.631 1.566V12h2.773l-.443 2.886h-2.33v6.988A10 10 0 0 0 22 12z" />
+                        </svg>
+                    </a>
+
+                    <a class="social-btn yt" href="https://www.youtube.com/@TenaxE%C5%9FiyokGrupOtomotiv"
+                        target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
                         <!-- YouTube -->
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path fill="currentColor"
@@ -599,20 +607,19 @@
                         </svg>
                     </a>
 
-                    <a class="social-btn li" href="https://www.linkedin.com/company/esiyok" target="_blank"
-                        rel="noopener" aria-label="LinkedIn">
-                        <!-- LinkedIn -->
+                    <a class="social-btn tt" href="https://www.tiktok.com/@tenaxesiyokgrupotomotiv" target="_blank"
+                        rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+                        <!-- TikTok -->
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path fill="currentColor"
-                                d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 8.98h3.96V21H3V8.98ZM10.2 8.98h3.8v1.63h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.65 4.77 6.1V21h-3.96v-4.6c0-1.1-.02-2.51-1.53-2.51-1.53 0-1.77 1.2-1.77 2.43V21H10.2V8.98Z" />
+                                d="M14 3v7.1a5.9 5.9 0 0 0-3-.8A6.1 6.1 0 1 0 17.1 15v-3.1a8.7 8.7 0 0 0 4 1.1V9.1a8.6 8.6 0 0 1-4-1.1A8.6 8.6 0 0 1 14 3Zm-3 10.2a2.9 2.9 0 1 1-2.9 2.9 2.9 2.9 0 0 1 2.9-2.9Z" />
                         </svg>
                     </a>
 
                     <span class="dot" aria-hidden="true"></span>
 
-                    <a class="brand-link" href="https://www.esiyokgrup.com.tr" target="_blank" rel="noopener"
-                        title="Eşiyok Grup">Eşiyok
-                        Grup</a>
+                    <a class="brand-link" href="https://www.esiyokgrup.com.tr" target="_blank" rel="noopener noreferrer"
+                        title="Eşiyok Grup">Eşiyok Grup</a>
                 </div>
 
 
@@ -849,7 +856,38 @@
                     flex-wrap: wrap;
                 }
             }
+
+
+
+            /* Hover vurgularını tamamla */
+            .contact-section .social-btn.fb:hover {
+                border-color: #1877F2;
+            }
+
+            .contact-section .social-btn.tt:hover {
+                border-color: #010101;
+            }
+
+            /* TikTok için hafif koyu vurgu */
+
+            /* (İsteğe bağlı) ikonların her zaman currentColor kullanmasını garantile */
+            .contact-section .social-btn svg {
+                width: 18px;
+                height: 18px;
+                fill: currentColor;
+            }
         </style>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form select')
+                    .forEach(el => {
+                        if (el.value === 'null' || el.value === 'undefined') el.value = '';
+                        if (el.placeholder === 'null' || el.placeholder === 'undefined') el.placeholder = '';
+                    });
+            });
+        </script>
 
 
 </footer>
