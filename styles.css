@@ -320,7 +320,19 @@ body {
 
 
 
+.main-nav .cta2>a {
+    background: #6c8784;
+    /* kırmızı */
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+}
 
+.main-nav .cta>a:hover,
+.main-nav .cta>a:focus {
+    filter: brightness(0.95);
+}
 
 
 
@@ -1706,3 +1718,76 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Slayt içi button */
+/* HERO içi buton (yalnızca bu blok yeterli) */
+.hero.smart-fit .hero-cta {
+    position: absolute;
+    /* slaytın içinde, görselin üstünde */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: clamp(16px, 7vh, 72px);
+    /* alttan konum */
+    z-index: 5;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+
+    font: 700 clamp(14px, 1.6vw, 18px)/1.1 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+
+    background: rgba(17, 17, 17, .38);
+    /* cam efekti görünümü */
+    border: 1px solid rgba(255, 255, 255, .55);
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .25), inset 0 0 0 1px rgba(255, 255, 255, .08);
+
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.hero.smart-fit .hero-cta:hover,
+.hero.smart-fit .hero-cta:focus-visible {
+    background: rgba(15, 163, 151, .85);
+    /* kurumsal parlama */
+    border-color: rgba(255, 255, 255, .9);
+    box-shadow: 0 10px 28px rgba(16, 163, 151, .45);
+    transform: translateX(-50%) translateY(-1px);
+    outline: none;
+}
+/* Mobilde CTA'yı biraz yukarı taşı */
+@media (max-width: 768px) {
+    .hero.smart-fit .hero-cta {
+        bottom: calc(16vh + env(safe-area-inset-bottom, 0px));
+        /* ~ekranın %16’sı kadar yukarı */
+        padding: 12px 20px;
+        /* mobilde elde iyi dursun */
+        font-size: clamp(14px, 4vw, 17px);
+    }
+}
+
+/* Çok küçük ekranlar için biraz daha yukarı */
+@media (max-width: 380px) {
+    .hero.smart-fit .hero-cta {
+        bottom: calc(18vh + env(safe-area-inset-bottom, 0px));
+    }
+}
