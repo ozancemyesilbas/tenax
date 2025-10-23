@@ -70,6 +70,7 @@
     <input type="radio" name="slide" id="s2">
     <input type="radio" name="slide" id="s3">
     <input type="radio" name="slide" id="s4">
+    <input type="radio" name="slide" id="s5">
 
     <div class="slides">
         <!-- SLIDE 1 -->
@@ -93,7 +94,17 @@
                     draggable="false">
             </picture>
             <a class="hero-cta" href="kampanya.html">Şimdi Keşfet</a>
+        </div>
 
+        <!-- SLIDE 5 -->
+        <div class="slide">
+            <picture>
+                <source media="(min-width:1200px)" srcset="assets/sonbanner/büyük/5.png">
+                <source media="(min-width:769px)" srcset="assets/sonbanner/orta/5.png">
+                <source media="(max-width:768px)" srcset="assets/sonbanner/mobil/5.png">
+                <img src="assets/sonbanner/orta/5.png" alt="Tenax slide 5" loading="lazy" decoding="async" draggable="false">
+            </picture>
+            <a class="hero-cta" href="kampanya.html">Şimdi Keşfet</a>
         </div>
 
         <!-- SLIDE 3 -->
@@ -105,8 +116,7 @@
                 <img src="assets/sonbanner/orta/3.png" alt="Tenax slide 3" loading="lazy" decoding="async"
                     draggable="false">
             </picture>
-            <a class="hero-cta" href="kampanya.html">Şimdi Keşfet</a>
-
+            <a class="hero-cta" href="kampanya.html#3">Şimdi Keşfet</a>
         </div>
 
         <!-- SLIDE 4 -->
@@ -119,13 +129,15 @@
                     draggable="false">
             </picture>
             <a class="hero-cta" href="#teklifForm">Filo Teklifi Al</a>
-
         </div>
+
+      
+     
     </div>
 
     <!-- Oklar (her slayta özel görünür) -->
-    <!-- s1 aktifken: prev=s4, next=s2 -->
-    <label for="s4" class="nav prev n1">‹</label>
+    <!-- s1 aktifken: prev=s5, next=s2 -->
+    <label for="s5" class="nav prev n1">‹</label>
     <label for="s2" class="nav next n1">›</label>
 
     <!-- s2 aktifken: prev=s1, next=s3 -->
@@ -136,9 +148,13 @@
     <label for="s2" class="nav prev n3">‹</label>
     <label for="s4" class="nav next n3">›</label>
 
-    <!-- s4 aktifken: prev=s3, next=s1 -->
+    <!-- s4 aktifken: prev=s3, next=s5 -->
     <label for="s3" class="nav prev n4">‹</label>
-    <label for="s1" class="nav next n4">›</label>
+    <label for="s5" class="nav next n4">›</label>
+
+    <!-- s5 aktifken: prev=s4, next=s1 -->
+    <label for="s4" class="nav prev n5">‹</label>
+    <label for="s1" class="nav next n5">›</label>
 
     <!-- Noktalar -->
     <div class="dots">
@@ -146,8 +162,10 @@
         <label for="s2"></label>
         <label for="s3"></label>
         <label for="s4"></label>
+        <label for="s5"></label>
     </div>
 </section>
+
 
 <!-- yeşil şerit -->
 <div class="ribbon">

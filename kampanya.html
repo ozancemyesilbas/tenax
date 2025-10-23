@@ -32,6 +32,7 @@
 
         <nav class="main-nav" id="siteNav">
             <ul>
+                <li><a href="kurumsal.html">Kurumsal</a></li>
                 <li class="has-dropdown">
                     <a href="#modeller" class="dropdown-toggle">Modeller</a>
                     <div class="dropdown">
@@ -42,8 +43,9 @@
                 </li>
                 <li><a href="kampanya.html">Kampanyalar</a></li>
                 <li><a href="fiyat.html">Fiyat Listesi</a></li>
-                <li class="cta"><a href="/index.html#teklifForm">Filo Teklifi Al</a></li>
+                <li><a href="/index.html#teklifForm">Filo Teklifi Al</a></li>
                 <li><a href="sup.html">İletişim</a></li>
+                <li class="cta2"><a href="/index.html#teklifForm"">Talep Formu</a></li>
             </ul>
         </nav>
     </div>
@@ -75,7 +77,12 @@
             <h2>TENAX’tan Esnafa Kaçırılmayacak Kampanya!</h2>
             <p>Vergi levhası olan herkese nakit alımda %3 ilave indirim fırsatı. Mevcut nakit alım indirimi veya %0
                 faizli uygun kredi desteği ile birleştirilebilir.</p>
-            <a class="btn-go-price" href="fiyat.html">Fiyatları Gör</a>
+
+            <div class="kamp-actions">
+                <a class="btn-info" href="esnaf.html">Detaylı Bilgi</a>
+                <a class="btn-go-price" href="fiyat.html">Fiyat Listesi</a>
+            </div>
+
         </div>
         <figure class="kamp-media">
             <img src="assets/k/3.jpg" alt="Esnafa özel %3 ilave indirim görseli" loading="lazy">
@@ -90,7 +97,10 @@
             <h2>C35 Tek Kabin Uzun Şasi, C35D Çift Kabin, V35 Panelvan</h2>
             <p>500.000 TL 12 ay %0 faiz veya 800.000 TL 6 ay %0 faiz seçenekleri. Vergi Levhası sahiplerine %3 ilave
                 indirim fırsatı!</p>
-            <a class="btn-go-price" href="fiyat.html">Fiyatları Gör</a>
+                <div class="kamp-actions">
+                    <a class="btn-info" href="işbirliği.html">Detaylı Bilgi</a>
+                    <a class="btn-go-price" href="fiyat.html">Fiyat Listesi</a>
+                </div>
         </div>
         <figure class="kamp-media">
             <img src="assets/k/1.jpg" alt="C35-C35D-V35 finans kampanyası görseli"
@@ -102,13 +112,16 @@
 
 
 
-<section class="campaign">
+<section id="3" class="campaign">
     <div class="container kamp">
         <div class="kamp-content">
             <h2>Quick Finans ile 800.000 TL’ye %0 Faizli Ticari Araç Kredisi!</h2>
             <p>500.000 TL’ye 12 ay %0 faiz veya 800.000 TL’ye 6 ay %0 faiz. Peşin alımlarda 60.000 TL indirim imkânı.
             </p>
-            <a class="btn-go-price" href="fiyat.html">Fiyatları Gör</a>
+                <div class="kamp-actions">
+                    <a class="btn-info" href="quick.html">Detaylı Bilgi</a>
+                    <a class="btn-go-price" href="fiyat.html">Fiyat Listesi</a>
+                </div>
         </div>
         <figure class="kamp-media">
             <img src="assets/k/2.jpg" alt="Quick Finans %0 faiz kampanyası görseli"
@@ -118,13 +131,16 @@
 </section>
 
 
-<section class="campaign">
+<section id="4" class="campaign">
     <div class="container kamp rev">
         <div class="kamp-content">
             <h2>TENAX’tan Çiftçilere Özel Kampanya</h2>
             <p>Çiftçi belgesi olan müşterilere %3’e varan indirim. C35 tek kabin, C35D çift kabin ve V35 panelvan
                 modellerinde geçerli.</p>
-            <a class="btn-go-price" href="fiyat.html">Fiyatları Gör</a>
+                <div class="kamp-actions">
+                    <a class="btn-info" href="çifçi.html">Detaylı Bilgi</a>
+                    <a class="btn-go-price" href="fiyat.html">Fiyat Listesi</a>
+                </div>
         </div>
         <figure class="kamp-media">
             <img src="assets/k/4.jpg" alt="Çiftçilere özel indirim kampanyası görseli"
@@ -153,6 +169,7 @@
 
 <style>
     /* ====== KAMPANYA BÖLÜMÜ (yalnızca bu kısım) ====== */
+/* ====== KAMPANYA BÖLÜMÜ (tam CSS) ====== */
 
 /* Konteyneri biraz genişlet */
 .campaign { padding: 56px 0; }
@@ -167,7 +184,7 @@
 }
 .kamp.rev{ grid-template-columns: 1fr minmax(420px,560px); }
 
-/* Başlık ve paragraf: biraz daha küçük ki görseli kapatmasın */
+/* Başlık ve paragraf */
 .kamp-content h2{
   font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   font-weight: 800;
@@ -192,7 +209,6 @@
   overflow: hidden;
   background: #f6f7f9;
   box-shadow: 0 18px 50px rgba(2,8,23,.12);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,22 +222,45 @@
   display: block;
 }
 
-/* (OPSİYONEL) fiyat.html butonu */
-.btn-go-price{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 20px;
-  border-radius: 16px;
-  background: #12a594;
-  color: #fff;
-  font-weight: 800;
-  text-decoration: none;
-  box-shadow: 0 12px 28px rgba(18,165,148,.25);
-  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+/* ===== Aksiyon satırı (iki buton) ===== */
+.kamp-actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between; /* soldaki ve sağdaki uca */
+  gap:12px;
+  margin-top:14px;
 }
-.btn-go-price:hover{ transform: translateY(-1px); background: #0f8f81; }
+
+/* ===== BUTONLAR: ikisi de OUTLINE (soldaki stil) ===== */
+/* Ortak görünüm */
+.btn-info,
+.btn-go-price{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 20px;
+  border-radius:16px;
+  border:1.5px solid #12a594;      /* yeşil çerçeve */
+  background:#fff;                  /* beyaz zemin */
+  color:#0b1616;                    /* koyu metin */
+  font-weight:800;
+  text-decoration:none;
+  box-shadow:0 4px 14px rgba(2,8,23,.05);
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease,
+    background .15s ease,
+    color .15s ease,
+    border-color .15s ease;
+}
+
+.btn-info:hover,
+.btn-go-price:hover{
+  transform:translateY(-1px);
+  background:#e7f7f5;              /* hafif yeşilimsi hover */
+  border-color:#0f8f81;            /* koyu yeşil sınır */
+}
 
 /* ==== Responsive ==== */
 @media (max-width: 1200px){
@@ -239,7 +278,10 @@
   .kamp-media img{ max-height: 300px; }
   .kamp-content h2{ font-size: clamp(24px, 7.2vw, 34px); }
   .kamp-content p{ font-size: 15px; line-height: 1.7; }
-  .btn-go-price{ width: 100%; padding: 14px 16px; } /* opsiyonel */
+
+  /* Butonlar mobilde alt alta tam genişlik */
+  .kamp-actions{ flex-direction:column; align-items:stretch; }
+  .btn-info, .btn-go-price{ width:100%; }
 }
 
 </style>

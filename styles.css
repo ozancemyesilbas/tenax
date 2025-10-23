@@ -434,15 +434,7 @@ body {
     /* contain modunda bant rengi */
 }
 
-/* Aktif slaytlar (1–4) */
-#s1:checked~.slides .slide:nth-child(1),
-#s2:checked~.slides .slide:nth-child(2),
-#s3:checked~.slides .slide:nth-child(3),
-#s4:checked~.slides .slide:nth-child(4) {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 1;
-}
+
 
 /* --- Oklar --- */
 .nav {
@@ -472,11 +464,23 @@ body {
     right: 18px;
 }
 
-/* Hangi slaytta hangi oklar görünsün (n4 eklendi) */
+/* ===== Aktif slayt (1–5) ===== */
+#s1:checked~.slides .slide:nth-child(1),
+#s2:checked~.slides .slide:nth-child(2),
+#s3:checked~.slides .slide:nth-child(3),
+#s4:checked~.slides .slide:nth-child(4),
+#s5:checked~.slides .slide:nth-child(5) {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
+}
+
+/* ===== Okların görünürlüğü (n1–n5) ===== */
 .n1,
 .n2,
 .n3,
-.n4 {
+.n4,
+.n5 {
     display: none;
 }
 
@@ -484,18 +488,36 @@ body {
     display: grid;
 }
 
+/* s1 aktifken: prev=s5, next=s2 */
 #s2:checked~.n2 {
     display: grid;
 }
 
+/* s2 aktifken: prev=s1, next=s3 */
 #s3:checked~.n3 {
     display: grid;
 }
 
+/* s3 aktifken: prev=s2, next=s4 */
 #s4:checked~.n4 {
     display: grid;
 }
 
+/* s4 aktifken: prev=s3, next=s5 */
+#s5:checked~.n5 {
+    display: grid;
+}
+
+/* s5 aktifken: prev=s4, next=s1 */
+
+/* ===== Noktalar (aktif olanı vurgula — 1–5) ===== */
+#s1:checked~.dots label:nth-child(1),
+#s2:checked~.dots label:nth-child(2),
+#s3:checked~.dots label:nth-child(3),
+#s4:checked~.dots label:nth-child(4),
+#s5:checked~.dots label:nth-child(5) {
+    background: #111;
+}
 /* --- Noktalar --- */
 .dots {
     position: absolute;
@@ -519,13 +541,7 @@ body {
     cursor: pointer;
 }
 
-/* 4. nokta desteği */
-#s1:checked~.dots label:nth-child(1),
-#s2:checked~.dots label:nth-child(2),
-#s3:checked~.dots label:nth-child(3),
-#s4:checked~.dots label:nth-child(4) {
-    background: #111;
-}
+
 
 /* --- Ribbon --- */
 .ribbon {
