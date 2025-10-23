@@ -1807,3 +1807,47 @@ body {
         bottom: calc(18vh + env(safe-area-inset-bottom, 0px));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*telefon nav bar*/
+
+
+/* Su yeşili yazı rengi */
+.phone-call a,
+.phone-call .pc-title {
+    color: #3eb990;
+    /* aquamarine – su yeşili */
+}
+
+.phone-call a,
+.phone-call .pc-number {
+    color: #000000;
+    /* aquamarine – su yeşili */
+}
+
+/* Link üzerinde de aynı kalsın */
+.phone-call a:hover,
+.phone-call a:focus {
+    color: #000000;
+}
+
