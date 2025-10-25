@@ -725,23 +725,29 @@
 <!-- ===== İLETİŞİM HERO ===== -->
 <section id="iletisim" class="contact-hero">
     <div class="container contact-grid">
-        <!-- Sol: Görsel -->
+        <!-- Sol: Görsel + Play -->
         <figure class="contact-media">
-            <!-- KENDİ görsel yolunu ver -->
             <img src="assets/Tenax-Magaza.jpg" alt="Tenax tesis ve araçlar">
+
+            <!-- Oynat Butonu -->
+            <button class="play-btn" type="button" aria-label="Tanıtım videosunu oynat" data-video="VY6T8adiU_4">
+                <!-- Play ikonu -->
+                <svg viewBox="0 0 60 60" aria-hidden="true">
+                    <circle cx="30" cy="30" r="29" fill="white" opacity=".92" />
+                    <polygon points="24,18 24,42 44,30" fill="#3b82f6" />
+                </svg>
+            </button>
         </figure>
 
         <!-- Sağ: İçerik -->
         <div class="contact-side">
             <h2 class="contact-title">Sizler için her zaman buradayız</h2>
-
             <address class="contact-address">
-            Kaynarca Mahallesi Yanyol Caddesi &, E-5 Üzeri No:156/B
+                Kaynarca Mahallesi Yanyol Caddesi &, E-5 Üzeri No:156/B
             </address>
 
             <div class="contact-actions">
                 <a class="phone-pill" href="tel:+905327640669" aria-label="Telefon">
-                    <!-- telefon simgesi -->
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path
                             d="M6.6 10.8c1.3 2.6 3.3 4.7 6 6l2-2a1 1 0 0 1 1-.25c1.1.36 2.3.55 3.5.55a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C11.7 21 3 12.3 3 2a1 1 0 0 1 1-1h3.9a1 1 0 0 1 1 1c0 1.2.19 2.4.55 3.5a1 1 0 0 1-.25 1l-2 2Z"
@@ -757,20 +763,90 @@
                     </svg>
                 </a>
             </div>
-
-            
         </div>
     </div>
 </section>
 
+<!-- ===== Video Modal (body kapanışından önce 1 kez) ===== -->
+<div class="video-modal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Tanıtım videosu">
+    <div class="vm-backdrop" data-close></div>
+    <div class="vm-dialog" role="document">
+        <button class="vm-close" type="button" aria-label="Kapat" data-close>&times;</button>
+        <div class="vm-frame">
+            <iframe id="vmPlayer" src="" title="Tenax Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    /* Görsel kutusu ve play butonu */
+.contact-media{ position:relative; border-radius:16px; overflow:hidden; }
+.contact-media img{ display:block; width:100%; height:auto; }
+
+/* Merkezde dairesel buton */
+.play-btn{
+  position:absolute; inset:0; margin:auto; width:86px; height:86px;
+  display:grid; place-items:center; border:0; background:transparent; cursor:pointer;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.35));
+  transition: transform .2s ease;
+}
+.play-btn:hover{ transform: scale(1.05); }
+.play-btn:active{ transform: scale(.98); }
+.play-btn svg{ width:100%; height:100%; display:block; }
+
+/* Modal */
+.video-modal{ position:fixed; inset:0; display:none; z-index:1000; }
+.video-modal.open{ display:block; }
+.vm-backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.62); }
+.vm-dialog{
+  position:absolute; inset:0; margin:auto; width:min(960px, 92vw);
+  aspect-ratio:16/9; background:#000; border-radius:14px; overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+.vm-close{
+  position:absolute; top:8px; right:10px; z-index:2;
+  width:38px; height:38px; border:0; border-radius:999px;
+  background:rgba(255,255,255,.9); font-size:26px; line-height:38px; cursor:pointer;
+}
+.vm-frame, .vm-frame iframe{ width:100%; height:100%; border:0; display:block; }
+
+</style>
 
 
 
 
+<script>
+    (function () {
+        const modal = document.getElementById('videoModal');
+        const iframe = document.getElementById('vmPlayer');
+        const openBtn = document.querySelector('.play-btn');
 
+        function openModal(videoId) {
+            // Autoplay ile embed URL
+            const src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+            iframe.src = src;
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.documentElement.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            iframe.src = ''; // videoyu durdur
+            document.documentElement.style.overflow = '';
+        }
 
-
-
+        if (openBtn) {
+            openBtn.addEventListener('click', () => openModal(openBtn.dataset.video));
+        }
+        modal.addEventListener('click', (e) => { if (e.target.hasAttribute('data-close')) closeModal(); });
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+    })();
+</script>
 
 
 
@@ -863,6 +939,7 @@
                         <h3>Bizi Arayın</h3>
                         <p>(0216) 491 19 79</p>
                         <p>0532 764 06 69</p>
+                        <p>0555 896 12 75</p>
                     </div>
             <div class="map-box">
                 <iframe
