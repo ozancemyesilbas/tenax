@@ -1149,88 +1149,41 @@ body {
 
     /* site zemini ile aynı */
 }
-
-/* === MOBİL: Boşluk bırakmadan doldur (yakın göster) === */
+/* === MOBİL FİX — Tüm slaytlar: boşluksuz doldur + altı daha çok göster === */
 @media (max-width: 768px) {
 
-    /* Bu hero'da fill/cover kullan */
-    .hero.zoom-fill {
-        height: 92svh;
-        /* daha da yakın istersen 100svh yap */
+    /* 1) Yüksekliği büyüt (adres çubuğu değişimlerine dayanıklı) */
+    .hero.smart-fit.portrait-fit {
+        height: 98svh;
+        /* daha da yakın için 100svh yapabilirsin */
         background: #000;
-        /* taşan kenarlar için zemin */
+        /* görsel taşarsa zemin */
     }
 
-    .hero.zoom-fill .slide img {
+    /* 2) İç katmanların tamamı tam yükseklik olsun */
+    .hero.smart-fit.portrait-fit .slides,
+    .hero.smart-fit.portrait-fit .slide,
+    .hero.smart-fit.portrait-fit .slide picture {
+        height: 100%;
+    }
+
+    /* 3) Tüm görseller: boşluksuz doldur + odağı aşağı kaydır */
+    .hero.smart-fit.portrait-fit .slide img {
         width: 100%;
         height: 100%;
-        object-fit: cover !important;
-        /* boşluk kalmasın -> doldur */
-        object-position: center var(--fy, 55%);
-        background: transparent;
-        /* İstersen çok az ekstra yakınlaştırma:
-       transform: scale(1.03);  -> kırpma zaten var, farkı arttırır */
-    }
-
-    /* Önceden mobilde contain zorlayan kuralı iptal et */
-    .hero.zoom-fill.smart-fit .slide img {
-        object-fit: cover !important;
-    }
-
-    /* Odak (üst-alt) için yardımcı sınıflar — metin kesilmesin diye ayarla */
-    .hero.zoom-fill .slide.focus-40 img {
-        --fy: 40%;
-    }
-
-    .hero.zoom-fill .slide.focus-45 img {
-        --fy: 45%;
-    }
-
-    .hero.zoom-fill .slide.focus-50 img {
-        --fy: 50%;
-    }
-
-    .hero.zoom-fill .slide.focus-55 img {
-        --fy: 55%;
-    }
-
-    /* varsayılan */
-    .hero.zoom-fill .slide.focus-60 img {
-        --fy: 60%;
-    }
-
-    .hero.zoom-fill .slide.focus-65 img {
-        --fy: 65%;
-    }
-
-    /* Kenarlardan “boşluk” görünmesin diye hiçbir padding olmasın */
-    .hero,
-    .slides,
-    .slide,
-    .slide picture {
-        margin: 0;
-        padding: 0;
-    }
-
-    .slide picture,
-    .slide img {
         display: block;
+        object-fit: cover !important;
+        /* bant/boşluk kalmasın */
+        object-position: center 78% !important;
+        /* alt taraf daha görünür */
+        background: transparent;
     }
 
-    /* Oklar/noktalar ekranın içine otursun */
-    .hero.zoom-fill .dots {
-        bottom: 10px;
-    }
-
-    .hero.zoom-fill .nav {
-        top: 50%;
-        transform: translateY(-50%);
+    /* 4) Noktaları biraz yukarı al (ribbon'a çakışmasın) */
+    .hero.smart-fit.portrait-fit .dots {
+        bottom: clamp(10px, 2.2vh, 18px);
     }
 }
-
-
-
-
 
 
 
