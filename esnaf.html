@@ -16,58 +16,62 @@
 
 <body>
 
+<!-- ===== SABİT NAVBAR ===== -->
+<header class="site-header">
+    <div class="container header-inner">
+        <!-- Logo -->
+        <a class="logo" href="index.html" aria-label="Ana sayfa">
+            <img src="assets/Adsız tasarım.png" alt="TENAX">
+        </a>
 
-    <!-- ===== SABİT NAVBAR ===== -->
-    <header class="site-header">
-        <div class="container header-inner">
-            <a class="logo" href="index.html" aria-label="Ana sayfa">
-                <img src="assets/Adsız tasarım.png" alt="TENAX">
-            </a>
+        <!-- HAMBURGER -->
+        <button class="hamburger" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false"
+            aria-controls="siteNav">
+            <span></span><span></span><span></span>
+        </button>
 
-            <!-- HAMBURGER -->
-            <button class="hamburger" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false"
-                aria-controls="siteNav">
-                <span></span><span></span><span></span>
-            </button>
-
-            <nav class="main-nav" id="siteNav">
-                <ul>
-                    <li><a href="kurumsal.html">Kurumsal</a></li>
-                    <li class="has-dropdown">
-                        <a href="#modeller" class="dropdown-toggle">Modeller</a>
-                        <div class="dropdown">
-                            <a href="c35.html">C35 Tek Kabin</a>
-                            <a href="c35d.html">C35D Çift Kabin</a>
-                            <a href="v35.html">V35 Panelvan</a>
-                        </div>
-                    </li>
-                    <li><a href="kampanya.html">Kampanyalar</a></li>
-                    <li><a href="fiyat.html">Fiyat Listesi</a></li>
-                    <li><a href="/index.html#teklifForm">Filo Teklifi Al</a></li>
-                    <li><a href="sup.html">İletişim</a></li>
-                    <li class="cta2"><a href="/index.html#teklifForm"">Talep Formu</a></li>
-                    <li class="phone-call">
-                        <a href="tel:02646812492" aria-label="Bizi arayın: 0532 764 06 69">
-                            <span class="pc-title">Bizi Arayın</span>
-                            <span class="pc-number">0532 764 06 69</span>
-                        </a>
-                    </li>
-
+        <!-- Menü (sağa yaklaştırıldı) -->
+        <nav class="main-nav" id="siteNav">
+            <ul>
+                <li><a href="kurumsal.html">Kurumsal</a></li>
+                <li class="has-dropdown">
+                    <a href="#modeller" class="dropdown-toggle">Modeller</a>
+                    <div class="dropdown">
+                        <a href="c35.html">C35 Tek Kabin</a>
+                        <a href="c35d.html">C35D Çift Kabin</a>
+                        <a href="v35.html">V35 Panelvan</a>
+                    </div>
+                </li>
+                <li><a href="kampanya.html">Kampanyalar</a></li>
+                <li><a href="fiyat.html">Fiyat Listesi</a></li>
+                <li><a href="index.html#teklifForm">Filo Teklifi Al</a></li>
+                <li><a href="sup.html">İletişim</a></li>
             </ul>
         </nav>
+
+        <!-- Sağ blok: Üstte telefon, altında Talep Formu -->
+        <div class="header-actions">
+            <a class="phone-pill" href="tel:02646812492" aria-label="Bizi arayın: 0264 681 24 92">
+                <span class="pc-title">Bizi Arayın</span>
+                <span class="pc-number">0264 681 24 92</span>
+            </a>
+            <a class="btn-cta" href="index.html#teklifForm">Talep Formu</a>
+        </div>
     </div>
 
-    <!-- Mobilde arkaplan karartması (menü açıkken) -->
-    <div class=" nav-overlay" id="navOverlay" hidden>
-        </div>
-    </header>
+    <!-- Mobilde arka plan karartması (menü açıkken) -->
+    <div class="nav-overlay" id="navOverlay" hidden></div>
+</header>
+
+<!-- Fixed header boşluğu -->
+<div class="header-spacer" aria-hidden="true"></div>
 
 
-    <!-- Spacer: fixed header yüksekliği kadar -->
-    <div class="header-spacer" aria-hidden="true"></div>
-
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 

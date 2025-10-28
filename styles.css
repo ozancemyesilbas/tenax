@@ -103,96 +103,229 @@ body {
     filter: brightness(1.08)
 }
 
-/* ============ Header / Navbar ============ */
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================== SABİT HEADER ===================== */
 
 .site-header {
+    --header-h: 96px;
+    /* beyaz bar yüksekliği (96–112) */
+    --teal: #1aa7a3;
+    --teal-dark: #15908d;
     position: fixed;
     inset: 0 0 auto 0;
-    height: 70px;
-    z-index: 50;
-    background: #ffffffd9;
-    backdrop-filter: saturate(1.2) blur(6px);
-    border-bottom: 1px solid #e5e7eb;
+    background: #fff;
+    z-index: 1000;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+    height: 140px;
 }
 
+.header-spacer {
+    height: var(--header-h);
+}
+
+/* ====== 2 SATIR GRID: 1) phone  2) logo | nav | cta ====== */
 .header-inner {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    /* logo | nav | sağ */
+    grid-template-rows: auto auto;
+    /* üst satır: phone */
+    grid-template-areas:
+        "logo  .     phone"
+        "logo  nav   cta";
     align-items: center;
-    justify-content: space-between;
-    height: 70px;
+    /* yatay hat aynı */
+    column-gap: 18px;
+    /* logo-nav boşluğu */
+    row-gap: 10px;
 }
 
+/* header-actions sarmalayıcıyı şeffaflaştır (çocukları ızgaraya dağılacak) */
+.header-actions {
+    display: contents;
+}
+
+/* Grid bölgeleri */
+.logo {
+    grid-area: logo;
+}
+
+.main-nav {
+    grid-area: nav;
+    justify-self: start;
+}
+
+/* menü logo tarafına yakın başlasın */
+.phone-pill {
+    grid-area: phone;
+    justify-self: end;
+    align-self: start;
+}
+
+.btn-cta {
+    grid-area: cta;
+    justify-self: end;
+    align-self: center;
+}
+
+/* ======================= LOGO ======================= */
 .logo img {
-    height: 55px;
-    display: block
+    height: 76px;
+    display: block;
 }
 
+/* görseldeki boy */
+
+/* ======================== MENÜ ======================== */
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: 24px;
+    align-items: center;
+    gap: 26px;
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 
 .main-nav a {
     text-decoration: none;
-    color: #111;
-    font-weight: 500;
-    padding: 8px 2px;
-    border-bottom: 2px solid transparent;
-    transition: all .2s;
+    color: #0b0b0b;
+    font: 600 15px/1 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-.main-nav a:hover {
-    border-color: #111
-}
-
+/* Dropdown (desktop) */
 .has-dropdown {
-    position: relative
+    position: relative;
 }
 
 .has-dropdown .dropdown {
     position: absolute;
-    top: 120%;
     left: 0;
-    min-width: 220px;
+    top: 100%;
+    margin-top: 10px;
     background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, .08);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+    padding: 10px;
     display: none;
-    box-shadow: var(--shadow);
+    min-width: 200px;
 }
 
 .has-dropdown:hover .dropdown {
-    display: block
+    display: block;
 }
 
 .dropdown a {
     display: block;
-    padding: 10px 12px;
-    border-radius: 8px;
-    color: #111;
+    padding: 8px 10px;
+    white-space: nowrap;
 }
 
-.dropdown a:hover {
-    background: #f3f4f6
+/* =================== Sağ blok (Telefon + CTA) =================== */
+.phone-pill {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-decoration: none;
+    line-height: 1.1;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
 }
 
-/* Header spacer (fixed header yüksekliği kadar boşluk) */
-.header-spacer {
-    height: 70px
+.pc-title {
+    font: 800 13px/1 "Inter", system-ui;
+    color: var(--teal);
+    letter-spacing: .2px;
 }
 
+.pc-number {
+    margin-top: 4px;
+    font: 800 16px/1 "Inter", system-ui;
+    color: #0b0b0b;
+}
 
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 10px;
+    gap: 8px;
+    font: 800 14px/1 "Inter", system-ui;
+    background: var(--teal);
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 8px 28px rgba(26, 167, 163, .25);
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
 
+.btn-cta::after {
+    content: "↗";
+    font-weight: 800;
+    transform: translateY(-1px);
+}
 
+.btn-cta:hover {
+    background: var(--teal-dark);
+    transform: translateY(-1px);
+}
 
+.btn-cta:active {
+    transform: none;
+}
 
-/* --- Hamburger (desktop'ta gizli) --- */
+/* =================== HAMBURGER / MOBİL =================== */
 .hamburger {
     display: none;
     width: 42px;
@@ -201,7 +334,6 @@ body {
     border: 1px solid #e5e7eb;
     background: #fff;
     cursor: pointer;
-    display: none;
     align-items: center;
     justify-content: center;
     gap: 5px;
@@ -209,44 +341,86 @@ body {
 }
 
 .hamburger span {
-    display: block;
     width: 20px;
     height: 2px;
     background: #111;
+    display: block;
     transition: transform .2s, opacity .2s;
 }
 
-/* --- Mobil panel ve overlay default kapalı --- */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
 .nav-overlay {
     position: fixed;
-    inset: 70px 0 0 0;
+    inset: var(--header-h) 0 0 0;
     background: rgba(0, 0, 0, .35);
-    z-index: 49;
+    z-index: 999;
 }
 
 .nav-overlay[hidden] {
     display: none;
 }
 
-/* --- Mobil görünüm --- */
-@media (max-width:768px) {
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 992px) {
+    .site-header {
+        --header-h: 72px;
+    }
+
+    .logo img {
+        height: 44px;
+    }
+
+    /* telefon rozeti mobilde küçülür / başlık gizlenir */
+    .phone-pill {
+        padding: 6px 10px;
+    }
+
+    .pc-title {
+        display: none;
+    }
+
+    .pc-number {
+        font-size: 15px;
+    }
+
+    .btn-cta {
+        padding: 8px 12px;
+        border-radius: 8px;
+    }
+
+    .main-nav ul {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 768px) {
     .hamburger {
         display: flex;
     }
 
-    /* masaüstü yatay menüyü gizle, mobil çekmece yap */
+    /* Sağdan kayan çekmece menü */
     .main-nav {
         position: fixed;
-        top: 70px;
+        top: var(--header-h);
         right: 0;
         width: min(86vw, 340px);
-        height: calc(100vh - 70px);
+        height: calc(100vh - var(--header-h));
         background: #fff;
         border-left: 1px solid #e5e7eb;
         transform: translateX(100%);
         transition: transform .25s ease;
-        z-index: 50;
-        /* header'dan büyük, overlay'den küçük */
+        z-index: 1000;
         padding: 14px 12px;
     }
 
@@ -256,16 +430,15 @@ body {
 
     .main-nav ul {
         flex-direction: column;
-        gap: 6px;
+        gap: 8px;
     }
 
     .main-nav a {
         display: block;
         padding: 12px 10px;
-        border-bottom: 0;
     }
 
-    /* Alt menü: dokunarak aç/kapa */
+    /* mobil dropdown (tıklayınca .open sınıfı ekle) */
     .has-dropdown .dropdown {
         position: static;
         display: none;
@@ -286,53 +459,149 @@ body {
         margin: 4px 0 0 8px;
     }
 
-    /* Hamburger animasyonu (X'e dönüşsün) */
-    .hamburger.active span:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
+    /* grid: telefon gizli olabilir, CTA üstte kalır */
+    .phone-pill {
+        display: none;
     }
 
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
+    .header-inner {
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: auto;
+        /* tek satır */
+        grid-template-areas: "logo nav cta";
     }
 }
 
+/* === NAV ↔ CTA boşluğunu kısalt, LOGO ↔ NAV boşluğunu koru === */
+.header-inner {
+    grid-template-columns: auto 1fr auto;
+    /* logo | nav | cta */
+    column-gap: 12px;
+    /* NAV ↔ CTA arası küçük olsun */
+    row-gap: 8px;
+}
 
-/* fityat listesi nav bar*/
+/* NAV sağa yaslı; LOGO’dan makul mesafe için sol marj ver */
+.main-nav {
+    grid-area: nav;
+    justify-self: end;
+    /* menüyü sağa yaklaştırır */
+    margin-left: 36px;
+    /* logo ile menü arası boşluk */
+}
 
-.main-nav .cta>a {
-    background: #e11d48;
-    /* kırmızı */
-    color: #fff;
-    padding: 10px 14px;
+.main-nav ul {
+    gap: 22px;
+}
+
+/* menü maddeleri biraz sıkı */
+
+.phone-pill {
+    grid-area: phone;
+    justify-self: end;
+    align-self: start;
+    padding: 8px 12px;
+}
+
+/* CTA menüyle tam yatay hatta */
+.btn-cta {
+    grid-area: cta;
+    justify-self: end;
+    align-self: center;
+    padding: 10px 16px;
     border-radius: 10px;
-    font-weight: 700;
+    transform: none;
+    /* önceki translateY varsa sıfırla */
 }
 
-.main-nav .cta>a:hover,
-.main-nav .cta>a:focus {
-    filter: brightness(0.95);
+/* İsteğe bağlı: daha da yaklaşsın dersen bu değerlerle oynayabilirsin */
+@media (min-width: 993px) {
+    .main-nav {
+        margin-left: 32px;
+    }
+
+    /* 28–40px arası deneyebilirsin */
+    .main-nav ul {
+        gap: 20px;
+    }
+
+    /* 18–26px arası */
+    .header-inner {
+        column-gap: 10px;
+    }
+
+    /* 8–12px arası */
+}
+
+
+/* --- Header yüksekliği ile spacer'ı eşitle --- */
+.site-header {
+    --header-h: 140px;
+    height: var(--header-h);
+}
+
+/* --- LOGO konum ofseti (aşağı doğru) --- */
+:root {
+    --logo-y: 32px;
+}
+
+/* 4–12px arası oynatabilirsin */
+.logo img {
+    transform: translateY(var(--logo-y));
+}
+
+/* ==== Desktop dropdown hizası + hover-köprüsü ==== */
+@media (min-width: 769px) {
+    .has-dropdown {
+        position: relative;
+    }
+
+    /* köprü: li öğesinin altında 12px yüksekliğinde görünmez alan */
+    .has-dropdown::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: 12px;
+        /* gerekirse 8–16px arası oynat */
+        /* background: rgba(255,0,0,.1);  // test için */
+    }
+
+    /* dropdown'ı yukarı çek, boşluğu kapat */
+    .has-dropdown .dropdown {
+        top: calc(100% + 2px);
+        /* önceden 100% + margin-top:10px idi */
+        margin-top: 0;
+        /* boşluğu kaldır */
+        z-index: 1001;
+    }
 }
 
 
 
 
-.main-nav .cta2>a {
-    background: #ea2f2f;
-    /* kırmızı */
-    color: #fff;
-    padding: 10px 14px;
-    border-radius: 10px;
-    font-weight: 700;
-}
 
-.main-nav .cta>a:hover,
-.main-nav .cta>a:focus {
-    filter: brightness(0.95);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -547,13 +816,14 @@ body {
 .ribbon {
     background: #22c55e;
     color: #fff;
-    font-weight: 700;
+    font-weight: 1000;
     letter-spacing: .2px;
 }
 
 .ribbon .container {
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
+    
 }
 
 /* ===================== KIRPMAYI ÖNLEME MODLARI ===================== */
@@ -1828,26 +2098,4 @@ body {
 
 
 
-
-/*telefon nav bar*/
-
-
-/* Su yeşili yazı rengi */
-.phone-call a,
-.phone-call .pc-title {
-    color: #3eb990;
-    /* aquamarine – su yeşili */
-}
-
-.phone-call a,
-.phone-call .pc-number {
-    color: #000000;
-    /* aquamarine – su yeşili */
-}
-
-/* Link üzerinde de aynı kalsın */
-.phone-call a:hover,
-.phone-call a:focus {
-    color: #000000;
-}
 

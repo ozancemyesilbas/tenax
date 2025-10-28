@@ -17,10 +17,10 @@
 <body>
 
 
-
 <!-- ===== SABİT NAVBAR ===== -->
 <header class="site-header">
     <div class="container header-inner">
+        <!-- Logo -->
         <a class="logo" href="index.html" aria-label="Ana sayfa">
             <img src="assets/Adsız tasarım.png" alt="TENAX">
         </a>
@@ -31,6 +31,7 @@
             <span></span><span></span><span></span>
         </button>
 
+        <!-- Menü (sağa yaklaştırıldı) -->
         <nav class="main-nav" id="siteNav">
             <ul>
                 <li><a href="kurumsal.html">Kurumsal</a></li>
@@ -44,31 +45,34 @@
                 </li>
                 <li><a href="kampanya.html">Kampanyalar</a></li>
                 <li><a href="fiyat.html">Fiyat Listesi</a></li>
-                <li><a href="/index.html#teklifForm">Filo Teklifi Al</a></li>
+                <li><a href="index.html#teklifForm">Filo Teklifi Al</a></li>
                 <li><a href="sup.html">İletişim</a></li>
-                <li class="cta2"><a href="/index.html#teklifForm"">Talep Formu</a></li>
-                <li class="phone-call">
-                    <a href="tel:02646812492" aria-label="Bizi arayın: 0532 764 06 69">
-                        <span class="pc-title">Bizi Arayın</span>
-                        <span class="pc-number">0532 764 06 69</span>
-                    </a>
-                </li>
-
             </ul>
         </nav>
+
+        <!-- Sağ blok: Üstte telefon, altında Talep Formu -->
+        <div class="header-actions">
+            <a class="phone-pill" href="tel:02646812492" aria-label="Bizi arayın: 0264 681 24 92">
+                <span class="pc-title">Bizi Arayın</span>
+                <span class="pc-number">0264 681 24 92</span>
+            </a>
+            <a class="btn-cta" href="index.html#teklifForm">Talep Formu</a>
+        </div>
     </div>
 
-    <!-- Mobilde arkaplan karartması (menü açıkken) -->
+    <!-- Mobilde arka plan karartması (menü açıkken) -->
     <div class="nav-overlay" id="navOverlay" hidden></div>
 </header>
 
-
-<!-- Spacer: fixed header yüksekliği kadar -->
+<!-- Fixed header boşluğu -->
 <div class="header-spacer" aria-hidden="true"></div>
 
 
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
@@ -391,6 +395,34 @@
 
 <!-- ===== Yerleşim CSS (renklere dokunmaz) ===== -->
 <style>
+    /* Noktayı kapat */
+.chip12.red12::before,
+.chip12.teal12::before{
+  content: none !important;
+  display: none !important;
+}
+
+/* Cummins = kırmızı (boyutları değiştirmeden) */
+.chip12.red12{
+  border-color:#ef4444;
+  color:#b91c1c;
+  background:rgba(239,68,68,.06);
+}
+.chip12.red12:hover{ background:rgba(239,68,68,.10); }
+
+/* Foton = teal (boyutları değiştirmeden) */
+.chip12.teal12{
+  border-color:#14b8a6;
+  color:#0f766e;
+  background:rgba(20,184,166,.06);
+}
+.chip12.teal12:hover{ background:rgba(20,184,166,.10); }
+
+/* (İsteğe bağlı) strong12 ile kenarlık kalınlaşıyorsa aynı kalsın diye bu satırı KALDIRMA.
+   İnce kenar istersen aşağıyı aktif et:
+   .chip12.red12.strong12, .chip12.teal12.strong12 { border-width:1px; }
+*/
+
     .models12 .container12 {
         max-width: 1100px;
         margin: 0 auto;
