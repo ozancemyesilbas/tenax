@@ -578,8 +578,264 @@ body {
     }
 }
 
+/* ===== MOBİL HEADER TOPARLA ===== */
+@media (max-width: 768px){
+  /* Header yüksekliği & kompakt görünüm */
+  .site-header{ --header-h:64px; height:var(--header-h); }
+  .header-spacer{ height:var(--header-h); }
 
+  /* Logo küçült, solda kalsın */
+  .logo img{ height:34px; }
 
+  /* Telefon rozeti header’da görünmesin */
+  .phone-pill{ display:none !important; }
+
+  /* CTA sağda daha kompakt */
+  .btn-cta{ padding:8px 12px; border-radius:8px; font-weight:800; }
+
+  /* Hamburger solda konumlanıp logoyla çakışmasın */
+  .header-inner{ position:relative; }
+  .hamburger{
+    display:flex;
+    position:absolute; left:10px; top:50%; transform:translateY(-50%);
+    z-index:1100;               /* CTA ile üstte kalsın */
+  }
+  /* Logo, hamburger ile çakışmasın diye biraz sağa gelmiş görünür */
+  .logo{ margin-left:44px; }
+
+  /* Off-canvas menü (mevcut ayarlarını koruyup ufak dokunuş) */
+  .main-nav{ top:var(--header-h); }
+  .main-nav ul{ gap:10px; padding-bottom:12px; }
+}
+/* === MOBILE: sadece logo + hamburger görünsün === */
+@media (max-width: 768px) {
+
+    /* kompakt header yüksekliği */
+    .site-header {
+        --header-h: 64px;
+        height: var(--header-h);
+    }
+
+    .header-spacer {
+        height: var(--header-h);
+    }
+
+    /* ızgara: logo solda, hamburger sağda */
+    .header-inner {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: "logo . ham";
+        align-items: center;
+        column-gap: 10px;
+        row-gap: 0;
+        position: relative;
+    }
+
+    /* logo */
+    .logo {
+        grid-area: logo;
+        margin: 0;
+    }
+
+    .logo img {
+        height: 34px;
+        transform: none !important;
+    }
+
+    /* varsa --logo-y etkisiz */
+
+    /* hamburger */
+    .hamburger {
+        grid-area: ham;
+        display: flex !important;
+        position: static;
+        transform: none;
+        margin: 0;
+        z-index: 1100;
+    }
+
+    /* tamamen gizlenecekler */
+    .phone-pill,
+    .btn-cta,
+    .pc-title,
+    .pc-number {
+        display: none !important;
+    }
+
+    /* menü header içinde görünmesin; off-canvas olarak kalsın */
+    .main-nav {
+        position: fixed;
+        top: var(--header-h);
+        right: 0;
+        width: min(86vw, 340px);
+        height: calc(100vh - var(--header-h));
+        background: #fff;
+        border-left: 1px solid #e5e7eb;
+        padding: 14px 12px;
+        transform: translateX(100%);
+        /* kapalı */
+        transition: transform .25s ease;
+        z-index: 1000;
+    }
+
+    .main-nav.open {
+        transform: translateX(0);
+    }
+
+    /* hamburger tıklayınca açılır */
+
+    /* dropdown ve liste mobil düzeni */
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .has-dropdown .dropdown {
+        position: static;
+        display: none;
+        border: 0;
+        padding: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .has-dropdown.open>.dropdown {
+        display: block;
+    }
+
+    /* arka plan karartması */
+    .nav-overlay {
+        position: fixed;
+        inset: var(--header-h) 0 0 0;
+        background: rgba(0, 0, 0, .35);
+        z-index: 999;
+    }
+
+    .nav-overlay[hidden] {
+        display: none;
+    }
+}
+
+/* === MOBILE: logo + hamburger %25 daha büyük === */
+@media (max-width: 768px) {
+
+    /* Logo: 34px → ~43px */
+    .logo img {
+        height: 43px !important;
+        transform: none !important;
+    }
+
+    /* Hamburger: 42x42 → ~53x53 */
+    .hamburger {
+        width: 53px;
+        height: 53px;
+        padding: 0 12px;
+        /* 0 10px → 0 12px */
+        border-radius: 11px;
+        /* 10px → 11px */
+        gap: 6px;
+        /* 5px → 6px */
+    }
+
+    /* Çizgiler: 20x2 → 25x2.5 */
+    .hamburger span {
+        width: 25px;
+        height: 2.5px;
+    }
+
+    /* X dönüşü kaydırmaları: 6px → 7.5px */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+    }
+}
+/* === MOBILE tweak: beyaz bar ↑, logo & hamburger tam ortalı === */
+@media (max-width: 768px) {
+
+    /* Beyaz alanı (header yüksekliği) biraz artır */
+    .site-header {
+        --header-h: 78px;
+        /* 64 → 78px (istersen 80–84px deneyebilirsin) */
+        height: var(--header-h);
+    }
+
+    .header-spacer {
+        height: var(--header-h);
+    }
+
+    /* Izgarada tam dikey merkezleme */
+    .header-inner {
+        align-items: center;
+        /* dikey ortala */
+        min-height: var(--header-h);
+        column-gap: 12px;
+        /* logo ↔ hamburger arası akışkan boşluk */
+    }
+
+    /* Logo bloğu gerçekten ortalansın */
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        height: 43px !important;
+        /* %25 büyütme kullandık */
+        display: block;
+        transform: none !important;
+        /* varsa --logo-y etkisiz */
+    }
+
+    /* Hamburger bloğu da kare alanında ortalı */
+    .hamburger {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 53px;
+        /* %25 büyütme */
+        height: 53px;
+        position: static;
+        transform: none;
+        margin: 0;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 2.5px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+    }
+}
+@media (max-width: 768px) {
+    .br-desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .br-desktop {
+        display: inline;
+    }
+}
+
+/* garanti */
 
 
 
