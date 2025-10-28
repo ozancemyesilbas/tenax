@@ -823,6 +823,19 @@ body {
         transform: translateY(-7.5px) rotate(-45deg);
     }
 }
+@media (max-width: 768px) {
+    .br-desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .br-desktop {
+        display: inline;
+    }
+}
+
+/* garanti */
 
 
 
@@ -1136,6 +1149,71 @@ body {
 
     /* site zemini ile aynı */
 }
+
+
+/* === MOBİL: 432x542 görseli kırpmasız sığdır (contain) === */
+@media (max-width: 768px) {
+
+    /* Bu hero, görsel oranına göre yükseklik alır (542/432 ≈ 1.254) */
+    .hero.portrait-fit {
+        height: min(100svh, calc(100vw * 542 / 432)) !important;
+        background: #000;
+        /* Bant rengi: siyah (istersen #fff yap) */
+    }
+
+    /* Görsel kesinlikle kırpılmasın */
+    .hero.portrait-fit .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain !important;
+        object-position: center center;
+        background: transparent;
+    }
+
+    /* smart-fit mobilde cover’a zorluyordu; bu hero’da iptal ediyoruz */
+    .hero.portrait-fit.smart-fit .slide img {
+        object-fit: contain !important;
+    }
+
+    /* Kontroller biraz aşağıda kalsın (istediğin gibi oynayabilirsin) */
+    .hero.portrait-fit .dots {
+        bottom: 10px;
+    }
+
+    .hero.portrait-fit .hero-cta {
+        bottom: clamp(12px, 5vh, 28px);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
