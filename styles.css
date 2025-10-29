@@ -189,15 +189,27 @@ body {
     row-gap: 10px;
 }
 
-/* header-actions sarmalayıcıyı şeffaflaştır (çocukları ızgaraya dağılacak) */
-.header-actions {
-    display: contents;
-}
+
 
 /* Grid bölgeleri */
 .logo {
     grid-area: logo;
 }
+
+
+
+
+
+
+
+
+
+/* header-actions sarmalayıcıyı şeffaflaştır (çocukları ızgaraya dağılacak) */
+.header-actions {
+    display: contents;
+}
+
+
 
 .main-nav {
     grid-area: nav;
@@ -216,6 +228,94 @@ body {
     justify-self: end;
     align-self: center;
 }
+
+
+/* Telefon butonunu "şeffaf" yap */
+.header-actions .phone-pill {
+    background: transparent !important;
+    /* arka planı kaldır */
+    border: none !important;
+    /* kenarlığı kaldır */
+    box-shadow: none !important;
+    /* dış gölge/halo kaldır */
+    backdrop-filter: none !important;
+    /* cam efekti varsa kaldır */
+    -webkit-backdrop-filter: none !important;
+    outline: none !important;
+}
+
+/* Çemberi pseudo-element oluşturuyorsa onu da kapat */
+.header-actions .phone-pill::before,
+.header-actions .phone-pill::after {
+    content: none !important;
+    display: none !important;
+}
+
+.header-actions .phone-pill {
+    transform: translateX(4px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cs2 {
+    background-color: #e40909;
+    /* kırmızı arka plan */
+    color: #ffffff !important;
+    /* beyaz yazı */
+    font-weight: 600;
+    /* biraz kalın yazı */
+    padding: 8px 14px;
+    /* iç boşluk */
+    border-radius: 6px;
+    /* köşeleri hafif yuvarlat */
+    border: 1px solid #e40909;
+    /* çok hafif koyu çerçeve */
+    line-height: 1.2;
+    /* dikey hizalama düzgün dursun */
+    display: inline-block;
+    /* padding düzgün çalışsın */
+    text-decoration: none;
+    /* alt çizgi kaldır */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ======================= LOGO ======================= */
 .logo img {
@@ -1068,19 +1168,137 @@ body {
 
 
 
-/* --- Ribbon --- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Şerit rengi */
 .ribbon {
-    background: #22c55e;
+    background: #06c167;
     color: #fff;
-    font-weight: 1000;
-    letter-spacing: .2px;
 }
 
-.ribbon .container {
-    padding: 20px 0;
-    text-align: center;
-    
+/* Ayarlar */
+:root {
+    --speed: 28s;
+    /* hız: küçült -> hızlanır */
+    --height: 52px;
+    /* şerit yüksekliği */
+    --font: 18px;
+    /* yazı boyutu */
+    --gap: 2rem;
+    /* metin ile spacer arasındaki boşluk */
+    --spacerW: 40vw;
+    /* metinler arasında görünmeyen boşluk (bunu büyüt -> “peş peşe” hissi biter) */
 }
+
+.marquee {
+    overflow: hidden;
+}
+
+.marquee__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    height: var(--height);
+    padding-left: 100%;
+    /* ekran dışından başlat */
+    white-space: nowrap;
+    width: max-content;
+    font-weight: 800;
+    font-size: var(--font);
+    animation: ticker var(--speed) linear infinite;
+}
+
+.msg::before {
+    content: "•";
+    margin-right: .75rem;
+    opacity: .9;
+}
+
+/* opsiyonel nokta */
+.spacer {
+    width: var(--spacerW);
+    flex: 0 0 auto;
+}
+
+/* gerçek boşluk */
+
+@keyframes ticker {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+    /* iki kopyanın tam yarısı kadar ilerle */
+}
+
+/* Hover'da durdurmak istersen */
+/* .ribbon:hover .marquee__inner{ animation-play-state:paused; } */
+
+@media (max-width:768px) {
+    :root {
+        --height: 48px;
+        --font: 16px;
+        --spacerW: 60vw;
+        --speed: 24s;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ===================== KIRPMAYI ÖNLEME MODLARI ===================== */
 /* 1) Her zaman kırpmasız istersen: .hero.no-crop */
