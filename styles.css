@@ -1300,6 +1300,111 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FOOTER e-posta stili */
+.footer-mail {
+    margin: 6px 0;
+}
+
+.footer-mail-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font: 500 15px/1.2 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: inherit;
+    /* footer metin rengini devralır */
+    text-decoration: none;
+}
+
+.footer-mail-link svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+}
+
+.footer-mail-link:hover {
+    text-decoration: underline;
+}
+
+/* Koyu footer için örnek (istenirse) */
+.site-footer .footer-mail-link {
+    color: #e5e7eb;
+}
+
+.site-footer .footer-mail-link:hover {
+    color: #ffffff;
+}
+
+/* Footer'da e-posta satırını sola hizala */
+.site-footer .footer-mail {
+    text-align: left;
+    /* merkez yerine sol */
+}
+
+.site-footer .footer-mail-link {
+    display: inline-flex;
+    /* satır içi kalsın */
+    margin: 0;
+    /* olası auto merkezlemeyi temizle */
+    justify-content: flex-start;
+    /* ikon+metin solda */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===================== KIRPMAYI ÖNLEME MODLARI ===================== */
 /* 1) Her zaman kırpmasız istersen: .hero.no-crop */
 .hero.no-crop .slide img {
