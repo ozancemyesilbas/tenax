@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/title.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/title.png">
     <link rel="shortcut icon" href="assets/title.png">
-    <link rel="apple-touch-icon" href="assets/title.png"> <!-- iOS için -->
+    <link rel="apple-touch-icon" href="assets/title.png">
     <title>TENAX</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,22 +16,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-    <!-- Tema stilin kalsın -->
+    <!-- Tema stilin -->
     <link rel="stylesheet" href="styles.css" />
 
-    <!-- ⚠️ Mobil kaydırma ve menü için güvenli override -->
+    <!-- Mobil menü/scroll için güvenli override -->
     <style>
-        /* --- GLOBAL SABİT --- */
+        :root {
+            --header-h: 80px;
+        }
+
         html,
         body {
             height: auto !important;
             min-height: 100% !important;
-            overflow-y: auto !important;
             overflow-x: hidden;
             -webkit-overflow-scrolling: touch !important;
         }
 
-        /* Bazı temalarda üst kapsayıcılar kaydırmayı kesiyor; serbest bırak */
         .container,
         .wrapper,
         .page,
@@ -42,588 +43,598 @@
             overflow: visible !important;
         }
 
-        /* Header üstte kalsın; mobilde sticky tercih (fixed dokunmayı kilitleyebiliyor) */
-        @media (max-width: 980px) {
+        /* Desktop'a dokunma; hamburger gizli */
+        @media (min-width:981px) {
+            .hamburger {
+                display: none;
+            }
+        }
+
+        /* Mobil header + menü */
+        @media (max-width:980px) {
             .site-header {
                 position: sticky !important;
                 top: 0;
                 left: 0;
                 right: 0;
                 z-index: 1002;
-            }
-        }
-
-        /* Mobil menü kapalıyken tam devre dışı */
-        @media (max-width: 980px) {
-            #siteNav {
-                position: fixed;
-                inset: 0;
-                max-height: 100dvh;
-                overflow: auto;
                 background: #fff;
-                /* kendi tema rengine göre değiştirilebilir */
-                z-index: 1000;
-            }
-
-            #siteNav:not(.open) {
-                display: none !important;
-                visibility: hidden !important;
-                pointer-events: none !important;
             }
 
             .header-inner {
                 position: relative;
                 z-index: 1001;
             }
+
+            .hamburger {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                border: 0;
+                background: transparent;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                display: block;
+                height: 2px;
+                margin: 8px 6px;
+                background: #111;
+                border-radius: 2px;
+            }
+
+            /* Kapalıyken tamamen gizle; .open gelince göster */
+            #siteNav {
+                position: fixed;
+                inset: 0;
+                z-index: 1000;
+                background: #fff;
+                max-height: 100dvh;
+                overflow: auto;
+                display: none;
+            }
+
+            #siteNav.open {
+                display: block !important;
+            }
+
+            #siteNav ul {
+                list-style: none;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                padding: calc(var(--header-h) + 16px) 20px 24px;
+            }
+
+            #siteNav a {
+                display: block;
+                padding: 10px 6px;
+                color: #111;
+                text-decoration: none;
+            }
+
+            .nav-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, .35);
+                z-index: 999;
+            }
+
+            .nav-overlay[hidden] {
+                display: none;
+            }
+        }
+
+        /* (İsteğe bağlı) WhatsApp butonu */
+        #whatsapp-chat {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 9999;
+        }
+
+        .whatsapp-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+            cursor: pointer;
+        }
+
+        .chat-text {
+            position: absolute;
+            top: 50%;
+            left: 70px;
+            transform: translateY(-50%) translateX(-10px);
+            background: #25d366;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 25px;
+            white-space: nowrap;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            opacity: 0;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        #whatsapp-chat:hover .chat-text {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+            pointer-events: auto;
         }
     </style>
 </head>
 
 <body>
-<br>
-<br>
-<br>
-<br>
-<!-- ===== SABİT NAVBAR ===== -->
-<header class="site-header">
-    <div class="container header-inner">
-        <!-- Logo -->
-        <a class="logo" href="index.html" aria-label="Ana sayfa">
-            <img src="assets/Adsız tasarım.png" alt="TENAX">
-        </a>
 
-        <!-- HAMBURGER -->
-        <button class="hamburger" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false"
-            aria-controls="siteNav">
-            <span></span><span></span><span></span>
-        </button>
-
-        <!-- Menü (sağa yaklaştırıldı) -->
-        <nav class="main-nav" id="siteNav">
-            <ul>
-                <li><a href="kurumsal.html">Kurumsal</a></li>
-                <li class="has-dropdown">
-                    <a href="#modeller" class="dropdown-toggle">Modeller</a>
-                    <div class="dropdown">
-                        <a href="c35.html">C35 Tek Kabin</a>
-                        <a href="c35d.html">C35D Çift Kabin</a>
-                        <a href="v35.html">V35 Panelvan</a>
-                    </div>
-                </li>
-                <li><a href="kampanya.html">Kampanyalar</a></li>
-                <li><a href="fiyat.html">Fiyat Listesi</a></li>
-                <li><a href="sup.html">İletişim</a></li>
-                <li><a class="cs2" href="index.html#teklifForm">Filo Teklifi Al</a></li>
-            </ul>
-        </nav>
-
-        <!-- Sağ blok: Üstte telefon, altında Talep Formu -->
-        <div class="header-actions">
-            <a class="phone-pill" href="tel:02646812492" aria-label="Bizi arayın: 0532 764 06 69">
-                <span class="pc-title">Bizi Arayın</span>
-                <span class="pc-number">0532 764 06 69</span>
+    <!-- ===== SABİT NAVBAR ===== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <!-- Logo -->
+            <a class="logo" href="index.html" aria-label="Ana sayfa">
+                <img src="assets/Adsız tasarım.png" alt="TENAX">
             </a>
-            <a class="btn-cta" href="index.html#teklifForm">Talep Formu</a>
+
+            <!-- HAMBURGER -->
+            <button class="hamburger" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false"
+                aria-controls="siteNav">
+                <span></span><span></span><span></span>
+            </button>
+
+            <!-- Menü -->
+            <nav class="main-nav" id="siteNav">
+                <ul>
+                    <li><a href="kurumsal.html">Kurumsal</a></li>
+                    <li class="has-dropdown">
+                        <a href="#modeller" class="dropdown-toggle">Modeller</a>
+                        <div class="dropdown">
+                            <a href="c35.html">C35 Tek Kabin</a>
+                            <a href="c35d.html">C35D Çift Kabin</a>
+                            <a href="v35.html">V35 Panelvan</a>
+                        </div>
+                    </li>
+                    <li><a href="kampanya.html">Kampanyalar</a></li>
+                    <li><a href="fiyat.html">Fiyat Listesi</a></li>
+                    <li><a href="sup.html">İletişim</a></li>
+                    <li><a class="cs2" href="index.html#teklifForm">Filo Teklifi Al</a></li>
+                </ul>
+            </nav>
+
+            <!-- Sağ blok -->
+            <div class="header-actions">
+                <a class="phone-pill" href="tel:02646812492" aria-label="Bizi arayın: 0532 764 06 69">
+                    <span class="pc-title">Bizi Arayın</span>
+                    <span class="pc-number">0532 764 06 69</span>
+                </a>
+                <a class="btn-cta" href="index.html#teklifForm">Talep Formu</a>
+            </div>
         </div>
-    </div>
 
-    <!-- Mobilde arka plan karartması (menü açıkken) -->
-    <div class="nav-overlay" id="navOverlay" hidden></div>
-</header>
-
-<!-- Fixed header boşluğu -->
-<div class="header-spacer" aria-hidden="true"></div>
-
-<br class="br-desktop">
-<br class="br-desktop">
-<br class="br-desktop">
-<br>
-<br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <!-- Mobilde arka plan karartması -->
+        <div class="nav-overlay" id="navOverlay" hidden></div>
+    </header>
 
     <!-- ===== İLETİŞİM BÖLÜMÜ — BAŞLANGIÇ ===== -->
-<main id="iletisim" aria-label="İletişim">
-    <style>
-        /* Bu bölüm için izole değişkenler ve stiller */
-        #iletisim {
-            --bg: #ffffff;
-            --text: #1b1c1d;
-            --muted: #6b7280;
-            --line: #e5e7eb;
-            --brand: #0ea5e9;
-            --brand-600: #0284c7;
-            --input: #f8fafc;
-            --radius: 14px;
-            --shadow: 0 10px 25px rgba(2, 8, 23, .06), 0 2px 6px rgba(2, 8, 23, .04);
-            color: var(--text);
-            background: var(--bg);
-            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-        }
+    <main id="iletisim" aria-label="İletişim">
+        <style>
+            /* Bu bölüm için izole değişkenler ve stiller */
+            #iletisim {
+                --bg: #ffffff;
+                --text: #1b1c1d;
+                --muted: #6b7280;
+                --line: #e5e7eb;
+                --brand: #0ea5e9;
+                --brand-600: #0284c7;
+                --input: #f8fafc;
+                --radius: 14px;
+                --shadow: 0 10px 25px rgba(2, 8, 23, .06), 0 2px 6px rgba(2, 8, 23, .04);
+                color: var(--text);
+                background: var(--bg);
+                font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            }
 
-        #iletisim .wrap {
-            max-width: 1100px;
-            margin: 32px auto;
-            padding: 0 20px
-        }
+            #iletisim .wrap {
+                max-width: 1100px;
+                margin: 32px auto;
+                padding: 0 20px;
+            }
 
-        #iletisim .title {
-            font-family: Poppins, Inter, system-ui;
-            font-weight: 800;
-            letter-spacing: -.02em;
-            margin: 8px 0 10px;
-            font-size: 40px
-        }
+            #iletisim .title {
+                font-family: Poppins, Inter, system-ui;
+                font-weight: 800;
+                letter-spacing: -.02em;
+                margin: 8px 0 10px;
+                font-size: 40px;
+            }
 
-        #iletisim .lead {
-            color: var(--muted);
-            margin: 0 0 28px;
-            font-size: 15.5px
-        }
+            #iletisim .lead {
+                color: var(--muted);
+                margin: 0 0 28px;
+                font-size: 15.5px;
+            }
 
-        #iletisim .layout {
-            display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 28px
-        }
-
-        #iletisim .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px
-        }
-
-        #iletisim .col-2 {
-            grid-column: 1 / -1
-        }
-
-        #iletisim .field input,
-        #iletisim .field select,
-        #iletisim .field textarea {
-            width: 100%;
-            appearance: none;
-            border: 1px solid var(--line);
-            background: var(--input);
-            border-radius: 12px;
-            padding: 14px 14px;
-            font-size: 14px;
-            outline: none;
-            transition: border-color .15s, box-shadow .15s, background-color .15s;
-        }
-
-        #iletisim .field textarea {
-            min-height: 150px;
-            resize: vertical
-        }
-
-        #iletisim .field input::placeholder,
-        #iletisim .field textarea::placeholder {
-            color: #9aa3af
-        }
-
-        #iletisim .field input:focus,
-        #iletisim .field select:focus,
-        #iletisim .field textarea:focus {
-            border-color: var(--brand);
-            box-shadow: 0 0 0 4px rgba(14, 165, 233, .15);
-            background: #fff
-        }
-
-        #iletisim .kvkk {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-            font-size: 13px;
-            color: var(--muted)
-        }
-
-        #iletisim .kvkk input {
-            margin-top: 3px
-        }
-
-        #iletisim .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 18px;
-            border-radius: 12px;
-            border: 1px solid transparent;
-            background: var(--brand);
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            box-shadow: var(--shadow);
-            transition: background .15s, transform .02s ease-in;
-        }
-
-        #iletisim .btn-primary:hover {
-            background: var(--brand-600)
-        }
-
-        #iletisim .btn-primary:active {
-            transform: translateY(1px)
-        }
-
-        #iletisim .info-card {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 22px;
-            box-shadow: var(--shadow);
-            align-self: start
-        }
-
-        #iletisim .info-card h2 {
-            font-size: 18px;
-            margin: 0 0 14px;
-            font-weight: 700
-        }
-
-        #iletisim .company {
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 10px
-        }
-
-        #iletisim .muted {
-            color: var(--muted);
-            font-size: 14px
-        }
-
-        #iletisim .info-list {
-            display: grid;
-            gap: 14px;
-            margin: 18px 0
-        }
-
-        #iletisim .info-row {
-            display: grid;
-            grid-template-columns: 22px 1fr;
-            align-items: start;
-            gap: 10px
-        }
-
-        #iletisim .icon {
-            width: 20px;
-            height: 20px;
-            color: #111827
-        }
-
-        #iletisim .socials {
-            display: flex;
-            gap: 14px;
-            margin-top: 8px
-        }
-
-        #iletisim .socials a {
-            display: inline-flex;
-            width: 32px;
-            height: 32px;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            border: 1px solid var(--line);
-            background: #fff;
-            text-decoration: none
-        }
-
-        #iletisim .socials a:hover {
-            border-color: #cbd5e1
-        }
-
-        @media (max-width:980px) {
             #iletisim .layout {
-                grid-template-columns: 1fr
+                display: grid;
+                grid-template-columns: 1fr 380px;
+                gap: 28px;
+            }
+
+            #iletisim .form-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+
+            #iletisim .col-2 {
+                grid-column: 1 / -1;
+            }
+
+            #iletisim .field input,
+            #iletisim .field select,
+            #iletisim .field textarea {
+                width: 100%;
+                appearance: none;
+                border: 1px solid var(--line);
+                background: var(--input);
+                border-radius: 12px;
+                padding: 14px;
+                font-size: 14px;
+                outline: none;
+                transition: border-color .15s, box-shadow .15s, background-color .15s;
+            }
+
+            #iletisim .field textarea {
+                min-height: 150px;
+                resize: vertical;
+            }
+
+            #iletisim .field input::placeholder,
+            #iletisim .field textarea::placeholder {
+                color: #9aa3af;
+            }
+
+            #iletisim .field input:focus,
+            #iletisim .field select:focus,
+            #iletisim .field textarea:focus {
+                border-color: var(--brand);
+                box-shadow: 0 0 0 4px rgba(14, 165, 233, .15);
+                background: #fff;
+            }
+
+            #iletisim .kvkk {
+                display: flex;
+                gap: 10px;
+                align-items: flex-start;
+                font-size: 13px;
+                color: var(--muted);
+            }
+
+            #iletisim .kvkk input {
+                margin-top: 3px;
+            }
+
+            #iletisim .btn-primary {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                padding: 12px 18px;
+                border-radius: 12px;
+                border: 1px solid transparent;
+                background: var(--brand);
+                color: #fff;
+                font-weight: 600;
+                cursor: pointer;
+                font-size: 14px;
+                box-shadow: var(--shadow);
+                transition: background .15s, transform .02s ease-in;
+            }
+
+            #iletisim .btn-primary:hover {
+                background: var(--brand-600);
+            }
+
+            #iletisim .btn-primary:active {
+                transform: translateY(1px);
             }
 
             #iletisim .info-card {
-                order: 2
+                background: #fff;
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                padding: 22px;
+                box-shadow: var(--shadow);
+                align-self: start;
             }
-        }
-    </style>
 
-    <div class="wrap">
-        <h1 class="title">İletişim</h1>
-        <p class="lead">Bizlere ulaşmak için aşağıdaki formu eksiksiz doldurmanız yeterlidir.</p>
+            #iletisim .info-card h2 {
+                font-size: 18px;
+                margin: 0 0 14px;
+                font-weight: 700;
+            }
 
-        <div class="layout">
-            <!-- SOL: FORM -->
-            <form id="contactForm" action="#" method="post" novalidate>
-                <div class="form-grid">
-                    <div class="field">
-                        <input type="text" name="adsoyad" placeholder="Adınız Soyadınız" required aria-label="Ad Soyad">
+            #iletisim .company {
+                font-weight: 600;
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
+            #iletisim .muted {
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+            #iletisim .info-list {
+                display: grid;
+                gap: 14px;
+                margin: 18px 0;
+            }
+
+            #iletisim .info-row {
+                display: grid;
+                grid-template-columns: 22px 1fr;
+                align-items: start;
+                gap: 10px;
+            }
+
+            #iletisim .icon {
+                width: 20px;
+                height: 20px;
+                color: #111827;
+            }
+
+            #iletisim .socials {
+                display: flex;
+                gap: 14px;
+                margin-top: 8px;
+            }
+
+            #iletisim .socials a {
+                display: inline-flex;
+                width: 32px;
+                height: 32px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                border: 1px solid var(--line);
+                background: #fff;
+                text-decoration: none;
+            }
+
+            #iletisim .socials a:hover {
+                border-color: #cbd5e1;
+            }
+
+            @media (max-width:980px) {
+                #iletisim .layout {
+                    grid-template-columns: 1fr;
+                }
+
+                #iletisim .info-card {
+                    order: 2;
+                }
+            }
+        </style>
+
+        <div class="wrap">
+            <h1 class="title">İletişim</h1>
+            <p class="lead">Bizlere ulaşmak için aşağıdaki formu eksiksiz doldurmanız yeterlidir.</p>
+
+            <div class="layout">
+                <!-- SOL: FORM -->
+                <form id="contactForm" action="#" method="post" novalidate>
+                    <div class="form-grid">
+                        <div class="field"><input type="text" name="adsoyad" placeholder="Adınız Soyadınız" required
+                                aria-label="Ad Soyad"></div>
+                        <div class="field">
+                            <select name="konu" required aria-label="Başvuru Konusu">
+                                <option value="" hidden>Başvuru Konusu*</option>
+                                <option>Talep, İstek</option>
+                                <option>Teklif</option>
+                                <option>Destek</option>
+                                <option>Diğer</option>
+                            </select>
+                        </div>
+                        <div class="field"><input type="email" name="email" placeholder="e-posta@" required
+                                aria-label="E-posta"></div>
+                        <div class="field"><input type="tel" name="telefon" placeholder="+90" required
+                                aria-label="Telefon"></div>
+
+                        <div class="field col-2">
+                            <select name="kaynak" aria-label="Ürünlerimizden nasıl haberdar oldunuz?">
+                                <option value="" hidden>Ürünlerimizden nasıl haberdar oldunuz?</option>
+                                <option>İnternet</option>
+                                <option>Sosyal Medya</option>
+                                <option>Referans</option>
+                                <option>Fuar</option>
+                            </select>
+                        </div>
+
+                        <div class="field col-2">
+                            <textarea name="mesaj"
+                                placeholder="Lütfen iletişim konusu hakkında bizlere kısa bir bilgi iletin." required
+                                aria-label="Mesaj"></textarea>
+                        </div>
+
+                        <!-- KVKK Onayı -->
+                        <div class="col-2 kvkk" aria-describedby="kvkkHelp">
+                            <input id="kvkk" type="checkbox" name="kvkk" required>
+                            <label for="kvkk"><strong>KVKK Aydınlatma Metni</strong>’ni <a href="/kvkk-tenax.html"
+                                    target="_blank" rel="noopener">okudum</a> ve kabul ediyorum.</label>
+                        </div>
+                        <p id="kvkkHelp" class="muted" style="margin:6px 0 0">Kişisel verileriniz başvurunuzun
+                            değerlendirilmesi amacıyla işlenecektir. Detaylar için metni inceleyin.</p>
+                        <p class="kvkk-error" hidden>Lütfen KVKK onayını işaretleyin.</p>
+
+                        <div class="col-2">
+                            <button class="btn-primary" type="submit">Mesajı Gönder</button>
+                            <p class="muted" style="margin-top:8px">Kişisel verileriniz, formu doldurduğunuz
+                                başvurunuzun işleme alınması için kullanılacaktır.</p>
+                        </div>
                     </div>
-                    <div class="field">
-                        <select name="konu" required aria-label="Başvuru Konusu">
-                            <option value="" hidden>Başvuru Konusu*</option>
-                            <option>Talep, İstek</option>
-                            <option>Teklif</option>
-                            <option>Destek</option>
-                            <option>Diğer</option>
-                        </select>
+                </form>
+
+                <!-- SAĞ: İLETİŞİM DETAYLARI -->
+                <aside class="info-card" aria-label="İletişim Detayları">
+                    <h2>İletişim Detayları</h2>
+                    <div class="company"></div>
+
+                    <div class="info-list">
+                        <div class="info-row">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
+                                    fill="currentColor" />
+                            </svg>
+                            <div class="muted">Kaynarca Mah. E-5 Yanyolu Cad. No:156 A Pendik / İstanbul</div>
+                        </div>
+                        <div class="info-row">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path
+                                    d="M6.62 10.79a15.9 15.9 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.05-.24c1.15.38 2.39.59 3.54.59a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.47a1 1 0 0 1 1 1c0 1.15.21 2.39.59 3.54a1 1 0 0 1-.25 1.05l-2.19 2.2Z"
+                                    fill="currentColor" />
+                            </svg>
+                            <a class="muted" href="tel:+905327640669">+90 532 764 06 69</a>
+                        </div>
                     </div>
 
-                    <div class="field">
-                        <input type="email" name="email" placeholder="e-posta@" required aria-label="E-posta">
-                    </div>
-                    <div class="field">
-                        <input type="tel" name="telefon" placeholder="+90" required aria-label="Telefon">
-                    </div>
-
-                    <!-- İl / İlçe KALDIRILDI -->
-
-                    <div class="field col-2">
-                        <select name="kaynak" aria-label="Ürünlerimizden nasıl haberdar oldunuz?">
-                            <option value="" hidden>Ürünlerimizden nasıl haberdar oldunuz?</option>
-                            <option>İnternet</option>
-                            <option>Sosyal Medya</option>
-                            <option>Referans</option>
-                            <option>Fuar</option>
-                        </select>
-                    </div>
-
-                    <div class="field col-2">
-                        <textarea name="mesaj"
-                            placeholder="Lütfen iletişim konusu hakkında bizlere kısa bir bilgi iletin." required
-                            aria-label="Mesaj"></textarea>
-                    </div>
-
-                    <!-- KVKK Onayı -->
-                    <div class="col-2 kvkk" aria-describedby="kvkkHelp">
-                        <input id="kvkk" type="checkbox" name="kvkk" required>
-                        <label for="kvkk">
-                            <strong>KVKK Aydınlatma Metni</strong>’ni
-                            <a href="/kvkk-tenax.html" target="_blank" rel="noopener">okudum</a> ve kabul ediyorum.
-                        </label>
-                    </div>
-                    
-                    <p id="kvkkHelp" class="muted" style="margin:6px 0 0">
-                        Kişisel verileriniz başvurunuzun değerlendirilmesi amacıyla işlenecektir. Detaylar için metni inceleyin.
-                    </p>
-                    <p class="kvkk-error" hidden>Lütfen KVKK onayını işaretleyin.</p>
-
-                    <div class="col-2">
-                        <button class="btn-primary" type="submit">Mesajı Gönder</button>
-                        <p class="muted" style="margin-top:8px">Kişisel verileriniz, formu doldurduğunuz başvurunuzun
-                            işleme alınması için kullanılacaktır.</p>
-                    </div>
-                </div>
-            </form>
-
-            <!-- SAĞ: İLETİŞİM DETAYLARI -->
-            <aside class="info-card" aria-label="İletişim Detayları">
-                <h2>İletişim Detayları</h2>
-                <div class="company"></div>
-
-                <div class="info-list">
-                    <div class="info-row">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path
-                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
-                                fill="currentColor" />
-                        </svg>
-                        <div class="muted">Kaynarca Mah. E-5 Yanyolu Cad. No:156 A Pendik / İstanbul</div>
-                    </div>
-
-                    <div class="info-row">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path
-                                d="M6.62 10.79a15.9 15.9 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.05-.24c1.15.38 2.39.59 3.54.59a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.47a1 1 0 0 1 1 1c0 1.15.21 2.39.59 3.54a1 1 0 0 1-.25 1.05l-2.19 2.2Z"
-                                fill="currentColor" />
-                        </svg>
-                        <a class="muted" href="tel:+905327640669">+90 532 764 06 69</a>
-                    </div>
-                </div>
-
-                <div class="muted"></div>
-               
-            </aside>
+                    <div class="muted"></div>
+                </aside>
+            </div>
         </div>
-    </div>
-
- 
-</main>
-
+    </main>
     <!-- ===== İLETİŞİM BÖLÜMÜ — BİTİŞ ===== -->
 
+    <!-- KVKK kontrolü -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+            const kvkk = document.getElementById('kvkk');
+            const err = form.querySelector('.kvkk-error');
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const form = document.getElementById('contactForm');
-        if (!form) return;
+            form.addEventListener('submit', (e) => {
+                if (!kvkk?.checked) {
+                    e.preventDefault();
+                    if (err) err.hidden = false;
+                    kvkk?.focus({ preventScroll: true });
+                    kvkk?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+                } else {
+                    if (err) err.hidden = true;
+                }
+            });
 
-        const kvkk = document.getElementById('kvkk');
-        const err = form.querySelector('.kvkk-error');
-
-        // Label tıklanabilirliği zaten 'for' ile var ama yine de geniş hit-area için:
-        form.querySelector('.kvkk')?.addEventListener('click', (e) => {
-            // Linke tıklanıyorsa checkbox toggle etme
-            if (e.target.tagName === 'A') return;
+            // Null placeholder temizliği (emin olmak için)
+            document.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form select')
+                .forEach(el => {
+                    if (el.value === 'null' || el.value === 'undefined') el.value = '';
+                    if (el.placeholder === 'null' || el.placeholder === 'undefined') el.placeholder = '';
+                });
         });
+    </script>
 
-        form.addEventListener('submit', (e) => {
-            if (!kvkk?.checked) {
-                e.preventDefault();
-                if (err) err.hidden = false;
-                kvkk?.focus({ preventScroll: true });
-                kvkk?.scrollIntoView({ block: 'center', behavior: 'smooth' });
-            } else {
-                if (err) err.hidden = true;
-            }
-        });
-    });
-</script>
-
-
-
-
+    <!-- 🔧 Mobil hamburger menü -->
     <script>
         (function () {
-            const btn = document.getElementById('navToggle');
-            const nav = document.getElementById('siteNav');
+            var btn = document.getElementById('navToggle');
+            var nav = document.getElementById('siteNav');
+            var overlay = document.getElementById('navOverlay');
+            var mqMobile = window.matchMedia('(max-width: 980px)');
 
-            function unlock() {
-                document.documentElement.style.overflowY = 'auto';
-                document.body.style.overflowY = 'auto';
-                document.body.classList.remove('nav-open', 'nav-locked', 'menu-open', 'no-scroll');
+            if (!btn || !nav) return;
+
+            function lockScroll() { document.body.style.overflow = 'hidden'; }
+            function unlockScroll() { document.body.style.overflow = ''; }
+
+            function openMenu() {
+                if (!mqMobile.matches) return;     // sadece mobilde
+                nav.classList.add('open');
+                overlay && overlay.removeAttribute('hidden');
+                btn.setAttribute('aria-expanded', 'true');
+                lockScroll();
             }
-            function lock() {
-                document.documentElement.style.overflow = 'hidden';
-                document.body.style.overflow = 'hidden';
-                document.body.classList.add('nav-open');
+            function closeMenu() {
+                nav.classList.remove('open');
+                overlay && overlay.setAttribute('hidden', '');
+                btn.setAttribute('aria-expanded', 'false');
+                unlockScroll();
+            }
+            function toggleMenu(e) {
+                e && e.preventDefault();
+                nav.classList.contains('open') ? closeMenu() : openMenu();
             }
 
-            function openMenu() { if (!nav) return; nav.classList.add('open'); lock(); if (btn) btn.setAttribute('aria-expanded', 'true'); }
-            function closeMenu() { if (!nav) return; nav.classList.remove('open'); unlock(); if (btn) btn.setAttribute('aria-expanded', 'false'); nav.style.display = ''; }
+            btn.addEventListener('click', toggleMenu);
+            overlay && overlay.addEventListener('click', closeMenu);
 
-            if (btn && nav) {
-                btn.addEventListener('click', (e) => { e.preventDefault(); nav.classList.contains('open') ? closeMenu() : openMenu(); });
-                nav.addEventListener('click', (e) => { if (e.target.closest('a')) closeMenu(); });
+            // Menüde linke tıklanınca kapat
+            nav.addEventListener('click', function (e) {
+                if (e.target.closest('a')) closeMenu();
+            });
+
+            // Ekran desktop'a çıkarsa menüyü sıfırla
+            if (mqMobile.addEventListener) {
+                mqMobile.addEventListener('change', function (e) { if (!e.matches) closeMenu(); });
+            } else {
+                window.addEventListener('resize', function () { if (window.innerWidth > 980) closeMenu(); });
             }
+        })();
+    </script>
 
-            const normalize = () => { if (!nav || !nav.classList.contains('open')) unlock(); };
-            window.addEventListener('load', normalize);
-            window.addEventListener('resize', () => { if (window.innerWidth > 980) closeMenu(); else normalize(); });
+    <!-- (Opsiyonel) Sadece DESKTOP'ta: index içindeki #teklifForm'a kaydırmada header offset -->
+    <script>
+        (function () {
+            var DESKTOP = window.matchMedia('(min-width: 981px)');
 
-            // Kapalıyken herhangi bir dokunmada kaydırmayı zorla aç
-            ['touchstart', 'touchmove', 'wheel'].forEach(t => {
-                window.addEventListener(t, () => { if (!nav || !nav.classList.contains('open')) unlock(); }, { passive: true });
+            var links = document.querySelectorAll(
+                'a.btn-cta[href*="#teklifForm"], nav .cs2[href*="#teklifForm"]'
+            );
+
+            links.forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    if (!DESKTOP.matches) return;
+
+                    var href = link.getAttribute('href') || '';
+                    // Aynı sayfadaysan (index) kaydır; değilse normal geçiş
+                    var onIndex = /(?:^|\/)(index\.html?)?$/.test(location.pathname);
+                    var hasHash = href.indexOf('#') !== -1;
+                    var pointsToHtml = href.indexOf('.html') !== -1;
+                    var samePageTarget = hasHash && (!pointsToHtml || onIndex);
+                    if (!samePageTarget) return;
+
+                    var target = document.querySelector(href.slice(href.indexOf('#')));
+                    if (!target) return;
+
+                    e.preventDefault();
+
+                    var header = document.querySelector('.site-header');
+                    var headerH = header ? header.offsetHeight : 0;
+                    var y = target.getBoundingClientRect().top + window.pageYOffset - (headerH + 16);
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                });
             });
         })();
     </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="whatsapp-chat">
-    <a href="https://wa.me/+905327640669" target="_blank" rel="noopener">
-        <img src="assets/wp3.png" alt="WhatsApp" class="whatsapp-icon" />
-    </a>
-    <div class="chat-text">Sizlere nasıl yardımcı olabiliriz?</div>
-</div>
-
-
-<style>
-    #whatsapp-chat {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        z-index: 9999;
-    }
-
-    .whatsapp-icon {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-    }
-
-    .chat-text {
-        position: absolute;
-        top: 50%;
-        left: 70px;
-        transform: translateY(-50%) translateX(-10px);
-        background-color: #25d366;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 25px;
-        white-space: nowrap;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.5s, transform 0.5s;
-    }
-
-    /* Hover ile göster */
-    #whatsapp-chat:hover .chat-text {
-        opacity: 1;
-        transform: translateY(-50%) translateX(0);
-        pointer-events: auto;
-    }
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- WhatsApp widget -->
+    <div id="whatsapp-chat">
+        <a href="https://wa.me/+905327640669" target="_blank" rel="noopener">
+            <img src="assets/wp3.png" alt="WhatsApp" class="whatsapp-icon" />
+        </a>
+        <div class="chat-text">Sizlere nasıl yardımcı olabiliriz?</div>
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
-        <!-- İLETİŞİM -->
         <section id="iletişim" class="contact-section">
             <h2 class="section-title">İletişim</h2>
-            <p class="section-description">Gerekli bilgiler veya sorularınız mı var? Bize istediğiniz zaman ulaşabilirsiniz.
-            </p>
-    
+            <p class="section-description">Gerekli bilgiler veya sorularınız mı var? Bize istediğiniz zaman
+                ulaşabilirsiniz.</p>
+
             <div class="contact-container">
                 <!-- Sol kart: Bilgiler -->
                 <div class="contact-card contact-info">
@@ -633,10 +644,10 @@
                         <br>
                         <h3>Bayi Adı: EŞİYOK GRUP OTOMOTİV</h3>
                     </div>
+
                     <div class="footer-mail">
                         <a class="footer-mail-link" href="mailto:info@tenaxistanbul.com.tr"
                             aria-label="E-posta gönder: info@tenaxistanbul.com.tr">
-                            <!-- Zarf ikonu (SVG) -->
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path
                                     d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2l9 6 9-6"
@@ -646,83 +657,57 @@
                             <span>info@tenaxistanbul.com.tr</span>
                         </a>
                     </div>
-    
-    
-    
+
                     <div class="info-box">
                         <h3>Bizi Arayın</h3>
                         <p>(0216) 491 19 79</p>
                         <p>0532 764 06 69</p>
                         <p>0555 896 12 75</p>
-    
                     </div>
+
                     <div class="map-box">
                         <iframe
                             src="https://www.google.com/maps?q=E%C5%9Fiyok+Otomotiv,+Kaynarca+Mahallesi+Yanyol+Caddesi+%26,+Kaynarca,+E-5+%C3%9Czeri+No:156%2FB,+34890+Pendik%2F%C4%B0stanbul&output=embed"
-                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                            width="100%" height="250" style="border:0;" allowfullscreen loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-    
-    
-    
-    
+
                     <!-- Sosyal kutucuk -->
                     <div class="contact-social" aria-label="Sosyal medya ve marka bağlantıları">
                         <a class="social-btn ig" href="https://www.instagram.com/esiyokgrup/?hl=tr" target="_blank"
                             rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
-                            <!-- Instagram -->
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill="currentColor"
                                     d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.8a5.2 5.2 0 1 1 0 10.4 5.2 5.2 0 0 1 0-10.4Zm5.8-.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z" />
                             </svg>
                         </a>
-    
                         <a class="social-btn fb" href="https://www.facebook.com/profile.php?id=61580896190326"
                             target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
-                            <!-- Facebook -->
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill="currentColor"
                                     d="M22 12a10 10 0 1 0-11.563 9.874v-6.988H7.898V12h2.539V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.239.195 2.239.195v2.463h-1.261c-1.244 0-1.631.773-1.631 1.566V12h2.773l-.443 2.886h-2.33v6.988A10 10 0 0 0 22 12z" />
                             </svg>
                         </a>
-    
                         <a class="social-btn yt" href="https://www.youtube.com/@TenaxE%C5%9FiyokGrupOtomotiv"
                             target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
-                            <!-- YouTube -->
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill="currentColor"
                                     d="M23 7.5s-.2-1.7-.9-2.4c-.9-.9-1.9-.9-2.3-1C16.9 3.8 12 3.8 12 3.8S7.1 3.8 4.2 4.1c-.4 0-1.4.1-2.3 1C.2 5.8 0 7.5 0 7.5s-.2 2.1 0 4.3.9 2.9.9 2.9c.9.9 2.2.9 2.8 1C5.7 16 12 16.1 12 16.1s4.9 0 7.8-.3c.4 0 1.4-.1 2.3-1 .7-.7.9-2.4.9-2.4s.2-2.1 0-4.3ZM9.6 14.1V6.9l6.2 3.6-6.2 3.6Z" />
                             </svg>
                         </a>
-    
                         <a class="social-btn tt" href="https://www.tiktok.com/@tenaxesiyokgrupotomotiv" target="_blank"
                             rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
-                            <!-- TikTok -->
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill="currentColor"
                                     d="M14 3v7.1a5.9 5.9 0 0 0-3-.8A6.1 6.1 0 1 0 17.1 15v-3.1a8.7 8.7 0 0 0 4 1.1V9.1a8.6 8.6 0 0 1-4-1.1A8.6 8.6 0 0 1 14 3Zm-3 10.2a2.9 2.9 0 1 1-2.9 2.9 2.9 2.9 0 0 1 2.9-2.9Z" />
                             </svg>
                         </a>
-    
                         <span class="dot" aria-hidden="true"></span>
-    
-                        <a class="brand-link" href="https://www.esiyokgrup.com.tr" target="_blank" rel="noopener noreferrer"
-                            title="Eşiyok Grup">Eşiyok Grup</a>
+                        <a class="brand-link" href="https://www.esiyokgrup.com.tr" target="_blank"
+                            rel="noopener noreferrer" title="Eşiyok Grup">Eşiyok Grup</a>
                     </div>
-    
-    
-    
-    
                 </div>
-    
-    
-    
-    
-    
-    
-    
-    
+
                 <!-- Sağ kart: Form -->
                 <div class="contact-card contact-form">
                     <form>
@@ -736,26 +721,24 @@
                     </form>
                 </div>
             </div>
-    
+
             <style>
-                /* ============ İLETİŞİM (sade) ============ */
                 .contact-section {
                     padding: 60px 20px;
                     text-align: center;
                 }
-    
+
                 .contact-section .section-title {
                     font-size: 2.5rem;
                     color: #ffffff;
                     margin: 0 0 8px;
                 }
-    
+
                 .contact-section .section-description {
                     color: #c8c8c8;
                     margin: 10px 0 40px;
                 }
-    
-                /* Düzen */
+
                 .contact-section .contact-container {
                     max-width: 1100px;
                     margin: 0 auto;
@@ -764,45 +747,43 @@
                     gap: 32px;
                     align-items: start;
                 }
-    
-                /* Kartlar */
+
                 .contact-section .contact-card {
                     background: #29292998;
-                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, .05);
                     border-radius: 10px;
                     padding: 28px;
                 }
-    
+
                 .contact-section .contact-info .info-box {
                     text-align: left;
                     margin-bottom: 18px;
                 }
-    
+
                 .contact-section .contact-info h3 {
-                    color: #ffffff;
+                    color: #fff;
                     margin: 0 0 6px;
                     font-size: 1.1rem;
                 }
-    
+
                 .contact-section .contact-info p {
-                    color: #ffffff;
+                    color: #fff;
                     margin: 0;
                 }
-    
-                /* Form */
+
                 .contact-section .contact-form form {
                     display: grid;
                     grid-template-columns: 1fr;
                     gap: 14px;
                     text-align: left;
                 }
-    
+
                 .contact-section .form-row {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     gap: 12px;
                 }
-    
+
                 .contact-section input,
                 .contact-section textarea {
                     box-sizing: border-box;
@@ -814,59 +795,49 @@
                     color: #222;
                     font-size: 1rem;
                     outline: none;
-                    transition: border-color .2s, box-shadow .2s, background-color .2s;
+                    transition: .2s;
                 }
-    
-                .contact-section input::placeholder,
-                .contact-section textarea::placeholder {
-                    color: #9da3ad;
-                }
-    
+
                 .contact-section input:focus,
                 .contact-section textarea:focus {
                     border-color: #b7b7b7;
                     box-shadow: 0 0 0 3px rgba(0, 0, 0, .06);
                 }
-    
+
                 .contact-section textarea {
                     min-height: 130px;
                     resize: vertical;
                 }
-    
-                /* Buton */
+
                 .contact-section button {
-                    background-color: #000;
+                    background: #000;
                     color: #fff;
                     border: none;
                     padding: 12px 16px;
                     font-size: 1rem;
                     border-radius: 26px;
                     cursor: pointer;
-                    transition: background-color .2s, transform .05s;
+                    transition: .2s;
                 }
-    
+
                 .contact-section button:hover {
-                    background-color: #343434;
+                    background: #343434;
                 }
-    
+
                 .contact-section button:active {
                     transform: translateY(1px);
                 }
-    
-                /* Responsive */
-                @media (max-width: 992px) {
+
+                @media (max-width:992px) {
                     .contact-section .contact-container {
                         grid-template-columns: 1fr;
-                        /* tek kolon */
                     }
-    
+
                     .contact-section .form-row {
                         grid-template-columns: 1fr;
-                        /* Ad & E-posta alta geçer */
                     }
                 }
-    
-                /* Sosyal kutucuk (sol kartın içinde) */
+
                 .contact-section .contact-social {
                     display: flex;
                     align-items: center;
@@ -877,8 +848,7 @@
                     background: #1f1f1f;
                     border: 1px solid #353535;
                 }
-    
-                /* Daire ikon butonlar */
+
                 .contact-section .social-btn {
                     width: 34px;
                     height: 34px;
@@ -890,32 +860,32 @@
                     background: #141414;
                     border: 1px solid #2e2e2e;
                     color: #e8e8e8;
-                    transition: transform .08s ease, box-shadow .12s ease, border-color .12s ease;
+                    transition: transform .08s, box-shadow .12s, border-color .12s;
                 }
-    
+
                 .contact-section .social-btn:hover {
                     transform: translateY(-1px);
                     box-shadow: 0 8px 18px rgba(0, 0, 0, .25);
                 }
-    
+
                 .contact-section .social-btn svg {
                     width: 18px;
                     height: 18px;
+                    fill: currentColor;
                 }
-    
-                /* Hafif renkli hover vurguları (opsiyonel) */
+
                 .contact-section .social-btn.ig:hover {
                     border-color: #d62976;
                 }
-    
+
                 .contact-section .social-btn.yt:hover {
                     border-color: #ff0000;
                 }
-    
+
                 .contact-section .social-btn.li:hover {
                     border-color: #0a66c2;
                 }
-    
+
                 .contact-section .contact-social .dot {
                     width: 6px;
                     height: 6px;
@@ -923,66 +893,39 @@
                     background: #4b4b4b;
                     margin: 0 2px;
                 }
-    
-                /* Marka linki */
+
                 .contact-section .brand-link {
-                    color: #ffffff;
+                    color: #fff;
                     font-weight: 800;
                     text-decoration: none;
                     padding: 6px 8px;
                     border-radius: 8px;
-                    transition: background .12s ease, color .12s ease;
+                    transition: background .12s, color .12s;
                 }
-    
+
                 .contact-section .brand-link:hover {
                     background: #2a2a2a;
-                    color: #ffffff;
+                    color: #fff;
                 }
-    
-                /* Küçük ekranlarda ikonları sar */
-                @media (max-width: 480px) {
+
+                @media (max-width:480px) {
                     .contact-section .contact-social {
                         flex-wrap: wrap;
                     }
                 }
-    
-    
-    
-                /* Hover vurgularını tamamla */
+
                 .contact-section .social-btn.fb:hover {
                     border-color: #1877F2;
                 }
-    
+
                 .contact-section .social-btn.tt:hover {
                     border-color: #010101;
                 }
-    
-                /* TikTok için hafif koyu vurgu */
-    
-                /* (İsteğe bağlı) ikonların her zaman currentColor kullanmasını garantile */
-                .contact-section .social-btn svg {
-                    width: 18px;
-                    height: 18px;
-                    fill: currentColor;
-                }
             </style>
-    
-    
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    document.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form select')
-                        .forEach(el => {
-                            if (el.value === 'null' || el.value === 'undefined') el.value = '';
-                            if (el.placeholder === 'null' || el.placeholder === 'undefined') el.placeholder = '';
-                        });
-                });
-            </script>
-    
-    
+        </section>
     </footer>
 
-
-    <!-- Tema script’in kalsın -->
+    <!-- Tema script’in (varsa). Çakışma olursa menü kısmını devre dışı bırak. -->
     <script src="script.js" defer></script>
 </body>
 

@@ -1456,6 +1456,47 @@ body {
 
 
 
+html,
+body {
+    margin: 0;
+}
+
+/* güvenli: default body margin'ını sıfırla */
+.header-spacer,
+.br-desktop {
+    /* hızlı çözüm: varsa görünmesin */
+    display: none !important;
+    height: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===================== KIRPMAYI ÖNLEME MODLARI ===================== */
 /* 1) Her zaman kırpmasız istersen: .hero.no-crop */
 .hero.no-crop .slide img {
