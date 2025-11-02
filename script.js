@@ -30,6 +30,86 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* Talep Formu / Filo Teklifi Al — sabit header offset'li kaydırma */
+(function () {
+  function initAnchorOffsetScroll() {
+    var links = document.querySelectorAll(
+      'a.btn-cta[href="#teklifForm"], nav .cs2[href*="#teklifForm"]'
+    );
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var href = link.getAttribute('href') || '';
+
+        // Başka sayfadaysak index'e geçişi engelleme (kampanya.html vb.)
+        var onIndex = /(?:^|\/)(index\.html?)?$/.test(location.pathname);
+        if (href.indexOf('.html') !== -1 && !onIndex) return;
+
+        var hashIndex = href.indexOf('#');
+        if (hashIndex === -1) return;
+
+        var target = document.querySelector(href.slice(hashIndex));
+        if (!target) return;
+
+        e.preventDefault();
+
+        // Her tıklamada header yüksekliğini güncel ölç
+        var header = document.querySelector('.site-header');
+        var headerH = header ? header.offsetHeight : 0;
+
+        var y = target.getBoundingClientRect().top + window.pageYOffset - (headerH + 16);
+        window.scrollTo({ top: y, behavior: 'smooth' });
+
+        // Mobil menüyü kapat
+        var navToggle = document.getElementById('navToggle');
+        var siteNav   = document.getElementById('siteNav');
+        var overlay   = document.getElementById('navOverlay');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+        if (siteNav)   siteNav.classList.remove('open');
+        if (overlay)   overlay.setAttribute('hidden', '');
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAnchorOffsetScroll);
+  } else {
+    initAnchorOffsetScroll();
+  }
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Mobil menü aç/kapa + alt menü kontrolü
 (function(){
   const btn = document.getElementById('navToggle');

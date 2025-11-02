@@ -1405,6 +1405,59 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root {
+    --header-h: 92px;
+}
+
+/* header yüksekliğin */
+@media (max-width: 900px) {
+    :root {
+        --header-h: 72px;
+    }
+}
+
+/* Sadece formun olduğu section’a etki eder */
+#teklifForm {
+    scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===================== KIRPMAYI ÖNLEME MODLARI ===================== */
 /* 1) Her zaman kırpmasız istersen: .hero.no-crop */
 .hero.no-crop .slide img {
