@@ -1428,25 +1428,23 @@ body {
 
 
 
-
 :root {
     --header-h: 92px;
 }
 
-/* header yüksekliğin */
-@media (max-width: 900px) {
-    :root {
-        --header-h: 72px;
+/* header yüksekliği (desktop) */
+
+/* Sadece ≥901px’te anchor hizası uygula */
+@media (min-width: 901px) {
+    #teklifForm {
+        scroll-margin-top: calc(var(--header-h) + 16px);
+    }
+
+    /* İstersen pürüzsüz kaydırmayı da sadece desktop’a aç */
+    html {
+        scroll-behavior: smooth;
     }
 }
-
-/* Sadece formun olduğu section’a etki eder */
-#teklifForm {
-    scroll-margin-top: calc(var(--header-h) + 16px);
-}
-
-
-
 
 
 

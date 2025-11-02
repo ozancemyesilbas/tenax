@@ -40,57 +40,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-/* Talep Formu / Filo Teklifi Al — sabit header offset'li kaydırma */
+/* Talep Formu / Filo Teklifi Al — desktop-only offset scroll */
 (function () {
-  function initAnchorOffsetScroll() {
-    var links = document.querySelectorAll(
-      'a.btn-cta[href="#teklifForm"], nav .cs2[href*="#teklifForm"]'
-    );
+  var DESKTOP_MQ = window.matchMedia('(min-width: 901px)');
 
-    links.forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        var href = link.getAttribute('href') || '';
+  var links = document.querySelectorAll(
+    'a.btn-cta[href="#teklifForm"], nav .cs2[href*="#teklifForm"]'
+  );
 
-        // Başka sayfadaysak index'e geçişi engelleme (kampanya.html vb.)
-        var onIndex = /(?:^|\/)(index\.html?)?$/.test(location.pathname);
-        if (href.indexOf('.html') !== -1 && !onIndex) return;
+  links.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      // Mobil/tablet ise hiç dokunma (varsayılan davranış)
+      if (!DESKTOP_MQ.matches) return;
 
-        var hashIndex = href.indexOf('#');
-        if (hashIndex === -1) return;
+      var href = link.getAttribute('href') || '';
 
-        var target = document.querySelector(href.slice(hashIndex));
-        if (!target) return;
+      // Başka sayfadaysak index'e geçişi engelleme
+      var onIndex = /(?:^|\/)(index\.html?)?$/.test(location.pathname);
+      if (href.indexOf('.html') !== -1 && !onIndex) return;
 
-        e.preventDefault();
+      var hashIndex = href.indexOf('#');
+      if (hashIndex === -1) return;
 
-        // Her tıklamada header yüksekliğini güncel ölç
-        var header = document.querySelector('.site-header');
-        var headerH = header ? header.offsetHeight : 0;
+      var target = document.querySelector(href.slice(hashIndex));
+      if (!target) return;
 
-        var y = target.getBoundingClientRect().top + window.pageYOffset - (headerH + 16);
-        window.scrollTo({ top: y, behavior: 'smooth' });
+      e.preventDefault();
 
-        // Mobil menüyü kapat
-        var navToggle = document.getElementById('navToggle');
-        var siteNav   = document.getElementById('siteNav');
-        var overlay   = document.getElementById('navOverlay');
-        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
-        if (siteNav)   siteNav.classList.remove('open');
-        if (overlay)   overlay.setAttribute('hidden', '');
-      });
+      var header = document.querySelector('.site-header');
+      var headerH = header ? header.offsetHeight : 0;
+
+      var y = target.getBoundingClientRect().top + window.pageYOffset - (headerH + 16);
+      window.scrollTo({ top: y, behavior: 'smooth' });
+
+      // (opsiyonel) menüyü kapat
+      document.getElementById('navToggle')?.setAttribute('aria-expanded', 'false');
+      document.getElementById('siteNav')?.classList.remove('open');
+      document.getElementById('navOverlay')?.setAttribute('hidden', '');
     });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAnchorOffsetScroll);
-  } else {
-    initAnchorOffsetScroll();
-  }
+  });
 })();
-
-
 
 
 
