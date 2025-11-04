@@ -1456,6 +1456,88 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Yalnızca "Bizi Arayın" kutusundaki metin/linkler: #15908d */
+.contact-section .contact-info .footer-mail+.info-box p,
+.contact-section .contact-info .footer-mail+.info-box a,
+.contact-section .contact-info .footer-mail+.info-box a:visited,
+.contact-section .contact-info .footer-mail+.info-box a:hover,
+.contact-section .contact-info .footer-mail+.info-box a:active,
+.contact-section .contact-info .footer-mail+.info-box a:focus {
+    color: #15908d !important;
+    -webkit-text-fill-color: #15908d;
+    /* WebKit/Safari uyumu */
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contact-form .hp {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 html,
 body {
     margin: 0;
